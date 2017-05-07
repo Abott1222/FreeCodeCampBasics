@@ -2,28 +2,48 @@
 <html>
 	<head>
 		<title> Test page </title>
+		<link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet">
 		<style>
 			.container {
 				color:red;
 				font-size:16px;
+				font-family: Sans-Serif;
+				background-color: silver;
+			}
+
+			a {
+				font-family: 'Inknut Antiqua', serif;
+			}
+
+			nav ol a {
+				border-width:10px;
+				border-color:green;
+				border-style: solid;
 			}
 		</style>
 	</head>
 	
 	<body>
+		<nav>
+			<ol>
+				<a href="#"> Link One </a>
+				<a href="#"> Link Two </a>
+				<a href="#"> Link Three </a>
+			</ol>
+		</nav>
 		<div class="container">
 			<form>
 				<input type="text" placeholder="Enter some text here" required>
 				<h4> Enter some stuff... Choose some stuff </h4>
 				<h4> What do you like better> </h4>
 				<form>
-					<label><input type="radio" name="indoor-outdoor"> Indoor </label>
+					<label><input type="radio" name="indoor-outdoor checked"> Indoor </label>
 					<label><input type="radio" name="indoor-outdoor"> Outdoor </label>
-
-					<label><input type="checkbox" name="choices"> Food </label>
-					<label><input type="checkbox" name="indoor-outdoor"> Water </label>
-					<label><input type="checkbox" name="indoor-outdoor"> Sleep </label>
-					<label><input type="checkbox" name="indoor-outdoor"> Coding </label>
+					<br>
+					<label><input type="checkbox" name="choices" checked> Food </label>
+					<label><input type="checkbox" name="choices"> Water </label>
+					<label><input type="checkbox" name="choices"> Sleep </label>
+					<label><input type="checkbox" name="choices"> Coding </label>
 					<button type="submit"/>
 				</form>
 			</form>
