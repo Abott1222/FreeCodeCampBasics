@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script
+		  src="https://code.jquery.com/jquery-3.2.1.min.js"
+		  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		  crossorigin="anonymous"></script>
 		<title> Test page </title>
 		<link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet">
 		<style>
@@ -70,6 +74,7 @@
 		<div class="container">
 			<form>
 				<h4> Horizonal line </h4>
+				<h4 id="toBeChanged"> I am not a robot! </h4>
 				<hr>
 				<h4>Styling text</h4>
 				<ul>
@@ -103,4 +108,10 @@
 				<h5> Test </h5>
 		</div>
 	</body>
+	<script>
+		var headingElement = document.getElementById("toBeChanged");
+		console.log(headingElement);
+		var newHeading = prompt("What do you want to change title to?");
+		headingElement.innerHTML = newHeading;
+	</script>
 <html>
