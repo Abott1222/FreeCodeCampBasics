@@ -69,6 +69,12 @@
     			font-size: 14px;
     			font-weight:200;
  			}
+
+ 			.colors {
+ 				background: linear-gradient(35deg,#CCFFFF,#FFCCCC);
+ 				height: 200px;
+
+ 			}
 		</style>
 	</head>
 	
@@ -116,7 +122,10 @@
 				<h3> Test </h3>
 				<h4> Test </h4>
 				<h5> Test </h5>
-		</div>
+			</div>
+			<div class="colors">
+				<h1 style="color:rgba(25,35,10,0.7);"> Now these are some cool colors! :) </h1>
+			</div>
 	</body>
 	<script>
 		var headingElement = document.getElementById("toBeChanged");
@@ -124,4 +133,5 @@
 		var newHeading = prompt("What do you want to change title to?");
 		headingElement.innerHTML = newHeading;
 	</script>
+
 <html>
