@@ -1,0 +1,70 @@
+#nav-bar {
+	position:fixed;
+	left:700px;
+	box-shadow:45px 45px 45px rgba(45,45,45,.5);
+}
+
+body {
+	background-color:rgba(45,45,45,0.5);
+\}
+
+.container {
+	color:red;
+	font-size:16px;
+	font-family: Sans-Serif;
+	background-color: silver;
+}
+
+a {
+	font-family: 'Inknut Antiqua', serif;
+}
+
+nav ol a {
+	border-width:10px;
+	border-color:green;
+	border-style: solid;
+}
+
+.link-block {
+	text-align: left;
+	display:block;
+}
+
+#test {
+	background-image: url("https://i.ytimg.com/vi/mRf3-JkwqfU/hqdefault.jpg");
+}
+
+#test h1 {
+    font-size: 68px;
+    font-weight:800;
+}
+
+ #test h2 {
+   	font-size: 52px;
+    font-weight:600;
+}
+#test h3 {
+    font-size: 40px;
+    font-weight:500;
+}
+
+#test h4 {
+    font-size: 32px;
+    font-weight:400;
+    
+}
+  			
+#test h5 {
+   	font-size: 21px;
+    font-weight:300;
+}
+
+#test h6 {
+    font-size: 14px;
+    font-weight:200;
+}
+
+.colors {
+ 	background: linear-gradient(35deg,#CCFFFF,#FFCCCC);
+ 	height: 200px;
+}
