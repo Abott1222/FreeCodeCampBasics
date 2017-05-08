@@ -8,6 +8,12 @@
 		<title> Test page </title>
 		<link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet">
 		<style>
+			#nav-bar {
+				position:fixed;
+				left:700px;
+				box-shadow:45px 45px 45px rgba(45,45,45,.5);
+			}
+
 			body {
 				background-color:rgba(45,45,45,0.5);
 			}
@@ -33,6 +39,10 @@
 				text-align: left;
 				display:block;
 			}
+			#test {
+				background-image: url("https://i.ytimg.com/vi/mRf3-JkwqfU/hqdefault.jpg");
+			}
+
 			#test h1 {
     			font-size: 68px;
     			font-weight:800;
@@ -63,7 +73,7 @@
 	</head>
 	
 	<body>
-		<nav>
+		<nav id="nav-bar">
 			<ol>
 				<h1> This isn't where I parked my car.. </h1>
 				<a href="#"> Link One </a>
@@ -73,8 +83,8 @@
 		</nav>
 		<div class="container">
 			<form>
-				<h4> Horizonal line </h4>
 				<h4 id="toBeChanged"> I am not a robot! </h4>
+				<h4> Horizonal line </h4>	
 				<hr>
 				<h4>Styling text</h4>
 				<ul>
