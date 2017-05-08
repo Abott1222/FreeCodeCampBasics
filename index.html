@@ -4,6 +4,10 @@
 		<title> Test page </title>
 		<link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet">
 		<style>
+			body {
+				background-color:rgba(45,45,45,0.5);
+			}
+
 			.container {
 				color:red;
 				font-size:16px;
@@ -21,7 +25,7 @@
 				border-style: solid;
 			}
 
-			.link {
+			.link-block {
 				text-align: left;
 				display:block;
 			}
@@ -31,6 +35,7 @@
 	<body>
 		<nav>
 			<ol>
+				<h1> This isn't where I parked my car.. </h1>
 				<a href="#"> Link One </a>
 				<a href="#"> Link Two </a>
 				<a href="#"> Link Three </a>
@@ -38,9 +43,18 @@
 		</nav>
 		<div class="container">
 			<form>
+				<h4> Horizonal line </h4>
+				<hr>
+				<h4>Styling text</h4>
+				<ul>
+					<li> <del>Strikethrough</del></li>
+					<li> <em>Italics</em></li>
+					<li> <u>Underline</u></li>
+				</ul>
 				<input type="text" placeholder="Enter some text here" required>
 				<h4> Enter some stuff... Choose some stuff </h4>
 				<h4> What do you like better> </h4>
+
 				<label><input type="radio" name="indoor-outdoor checked"> Indoor </label>
 				<label><input type="radio" name="indoor-outdoor"> Outdoor </label>
 				<br>
@@ -48,11 +62,12 @@
 				<label><input type="checkbox" name="choices"> Water </label>
 				<label><input type="checkbox" name="choices"> Sleep </label>
 				<label><input type="checkbox" name="choices"> Coding </label>
-				<button type="submit"/>
+				<br>
+				<button type="submit"> Submit me </button>
 			</form>
 			<div>
-				<a href= "#" class="link"> Test1 </a>
-				<a href= "#" class="link"> Test2 </a>
+				<a href= "#" class="link-block"> Test1 </a>
+				<a href= "#" class="link-block"> Test2 </a>
 			</div>
 		</div>
 	</body>
