@@ -2,6 +2,11 @@
 <html>
 <head>
 	<style>
+		body {
+			background:linear-gradient(25deg, red,green);
+			height:700px;
+		}
+
 		div {
 			height: 40px;
 		    width: 70%;
@@ -9,11 +14,13 @@
 		    margin: 50px auto;
 		    border-radius: 5px;
 		    position: relative;
+		    border-radius:50%;
 		}
 
 		#testMovement {
 			animation-name: test;
-			animation-duration: 2s;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
 		}
 
 		@keyframes test {
@@ -24,8 +31,9 @@
 	  		}
 	  		50% {
 			    background-color: green;
-			    top: 50px;
+			    top: 300px;
 			    left: 25px;
+			    width:100%;
 	  		}
 			100% {
 				background-color: yellow;
