@@ -3,31 +3,31 @@
 <head>
 	<title> I made a simple stoplight </title>
 	<style>
-		.row1{}
-		.row2{}
-		.row3{}
-		.row4{}
-		.row1 div{
+		#row1{}
+		#row2{}
+		#row3{}
+		#row4{}
+		#row1 div{
 			background-color: hsl(120, 100%, 70%);
 			width:50px;
 			height: 50px;
 			position:fixed;
 		}
-		.row2 div{
+		#row2 div{
 			background-color: hsl(120, 80%, 50%);
 			width:50px;
 			height: 50px;
 			position: fixed;
 			top:150px;
 		}
-		.row3 div{
+		#row3 div{
 			background-color: hsl(120, 60%, 40%);
 			width:50px;
 			height: 50px;
 			position:fixed;
 			top:300px;
 		}
-		.row4 div{
+		#row4 div{
 			background-color: hsl(120, 40%, 20%);
 			width:50px;
 			height: 50px;
@@ -37,29 +37,52 @@
 	</style>
 </head>
 <body>
-	<div class="row1">
-		<div style="left:50px;"></div>
-		<div style="left:150px;"></div>
-		<div style="left:250px;"></div>
-		<div style="left:350px;"></div>
+	<div id="container">
+		<div id="row1">
+			<div style="left:50px;"></div>
+			<div style="left:150px;"></div>
+			<div style="left:250px;"></div>
+			<div style="left:350px;"></div>
+		</div>
+		<div id="row2">
+			<div style="left:50px;"></div>
+			<div style="left:150px;"></div>
+			<div style="left:250px;"></div>
+			<div style="left:350px;"></div>
+		</div>
+		<div id="row3">
+			<div style="left:50px;"></div>
+			<div style="left:150px;"></div>
+			<div style="left:250px;"></div>
+			<div style="left:350px;"></div>
+		</div>
+		<div id="row4">
+			<div style="left:50px;"></div>
+			<div style="left:150px;"></div>
+			<div style="left:250px;"></div>
+			<div style="left:350px;"></div>
+		</div>
 	</div>
-	<div class="row2">
-		<div style="left:50px;"></div>
-		<div style="left:150px;"></div>
-		<div style="left:250px;"></div>
-		<div style="left:350px;"></div>
-	</div>
-	<div class="row3">
-		<div style="left:50px;"></div>
-		<div style="left:150px;"></div>
-		<div style="left:250px;"></div>
-		<div style="left:350px;"></div>
-	</div>
-	<div class="row4">
-		<div style="left:50px;"></div>
-		<div style="left:150px;"></div>
-		<div style="left:250px;"></div>
-		<div style="left:350px;"></div>
-	</div>
+
+	<script>
+		var divs = document.getElementById("container").getElementsByTagName("div");
+		console.log(divs.length);
+		for(var i=0; i<divs.length; i+=1) {
+			divs[i].innerHTML = "hi"
+		}
+		//console.log(div);
+		//var divs = div.getElementsByTagName("div");
+		//for(var i=0; i<divs.length; i+=1) {
+			//var row = divs[i];
+			//console.log(row.length);
+			//for(var x=0; x<row.length-1; x+=1) {
+				//var result = x*i;
+				//row[x].innerHTML = "hi";
+				//console.log(row[x]);
+			//}
+			
+		//}
+	</script>
+
 </body>
 </html>

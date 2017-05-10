@@ -1,12 +1,16 @@
 #nav-bar {
 	position:fixed;
 	left:700px;
+	top:100px;
 	box-shadow:45px 45px 45px rgba(45,45,45,.5);
+	background-color:green;
+	transform: skewX(10deg);
+	transform: skewY(-30deg);
 }
 
 body {
 	background-color:rgba(45,45,45,0.5);
-\}
+}
 
 .container {
 	color:red;
