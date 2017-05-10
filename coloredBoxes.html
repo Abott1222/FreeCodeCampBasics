@@ -37,6 +37,7 @@
 	</style>
 </head>
 <body>
+
 	<div id="container">
 		<div id="row1">
 			<div style="left:50px;"></div>
@@ -68,7 +69,7 @@
 		var divs = document.getElementById("container").getElementsByTagName("div");
 		console.log(divs.length);
 		for(var i=0; i<divs.length; i+=1) {
-			divs[i].innerHTML = "hi"
+			divs[i].innerHTML += "hi"
 		}
 		//console.log(div);
 		//var divs = div.getElementsByTagName("div");
