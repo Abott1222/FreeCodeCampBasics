@@ -3,12 +3,14 @@
 //optional callback to fire when done
 function add(first,second,callback) {
 	console.log(first+second)
-	callback();
+	if(callback) {
+		callback();
+	}
 }
 
 
 add(1,2, function() {
-	console.log("done")
+	console.log("done");
 });
 
 add(4,5);
