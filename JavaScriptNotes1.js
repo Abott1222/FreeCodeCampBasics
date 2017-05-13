@@ -9,8 +9,16 @@ function add(first,second,callback) {
 }
 
 
+function logDone() {
+	console.log("done from function");
+}
+
+
 add(1,2, function() {
 	console.log("done");
 });
 
 add(4,5);
+
+
+add(5,10,logDone);
