@@ -1,0 +1,68 @@
+body {
+	background-color:red;
+}
+
+nav {
+	display:flex;
+	flex-wrap:row;
+	position:relative;
+}
+
+nav a {
+	height: 50px;
+	width: 25px;
+	/* Get spacing between buttons */
+	margin-left:5px;
+/* Center links. Is there a better way to do this? */
+	position:relative;
+	left:250px;
+	top:10px;
+	text-align:center;
+}
+
+
+body {
+	color: white;
+	background: linear-gradient(75deg,#73ef07,#376d08);
+}
+
+.btn-primary {
+	background: #1d3d01;
+	width:10%;
+}
+
+.aboutHim {
+	display:flex;
+	justify-content: center;
+	height: 550px;
+}
+
+.aboutHim img{
+	transform: scale(.75);
+	align-self: center;
+	position:relative;
+	right:60px;
+	bottom: 20px;
+}
+
+.imageBackground {
+	width:45%;
+	height:450px;
+	background-color: red;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+		.aboutHim .rightText {
+
+		}
+
+		.aboutHim .leftText {
+
+		}
+
+.earlyLife {
+	height:80%;
+}
+
+
