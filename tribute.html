@@ -1,3 +1,13 @@
+<!--
+Todo:
+	Need to make site more responsive...
+	Would like the UI to have more flow.
+		*maybe have the navbar strapped to top with each container fitting the rest of the screen
+	
+	Add rest of the information
+
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +17,8 @@
 <body>
 	<div class="nav-container">
 		<nav>
-			<h2> Elon Musk </h2>
+			<h2 class="name"> Elon Musk </h2>
+			<!-- anchored to 	<a name="about-him"></a>   -->
 			<a class="btn-primary" href="#about-him"> About him </a>
 			<a class="btn-primary" href="#early-life"> Early life </a>
 			<a class="btn-primary" href="#"> Interests </a>
@@ -32,11 +43,17 @@
 			<div class="rightText">
 				<h2> These projects include a company dedicated to making solar more affordable and a private company trying to build space ships to colonize Mars </h2>
 			</div>
-			<button> Click me to go down </button>
+		</div>
+		<a class="btn-primary"> Click me to go down </a>
+		<hr>
+	</div>
+
+	<a name="early-life"></a>
+	<div class="container">
+		<div class="earlyLife">
+			<a class="btn-primary"> Click me to go down </button>
 		</div>
 		<hr>
-
-
 	</div>
 </body>
 </html>
