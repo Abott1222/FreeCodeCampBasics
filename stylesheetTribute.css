@@ -65,4 +65,17 @@ body {
 	height:80%;
 }
 
+.container a {
+	text-align: center;
+	position:relative;
+	left: 470px;
+}
+
+.tesla {
+	background-image: url("http://thebestautos.net/wp-content/uploads/2016/05/Sport-Car-Tesla-Roadster.jpg");
+	height:600px;
+	margin-top:30px;
+
+
+}
 
