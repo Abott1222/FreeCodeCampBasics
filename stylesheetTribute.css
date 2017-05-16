@@ -53,13 +53,14 @@ body {
 	margin-right: 30px;
 }
 
-		.aboutHim .rightText {
 
-		}
+.aboutHim .rightText {
 
-		.aboutHim .leftText {
+}
 
-		}
+.aboutHim .leftText {
+
+}
 
 .earlyLife {
 	height:80%;
@@ -69,6 +70,7 @@ body {
 	text-align: center;
 	position:relative;
 	left: 470px;
+	margin-top:200px;
 }
 
 .tesla {
@@ -83,7 +85,7 @@ body {
 .text-bubbles {
 	width:200px;
 	height:50px;
-	border-radius:50px;
+	border-radius:25px;
 	background-color: rgb(255, 204, 0);
 	border:solid black 2px;
 	text-align: center;
