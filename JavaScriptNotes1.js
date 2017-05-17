@@ -1,3 +1,4 @@
+
 //first class functions (ones that you pass into other functions)
 
 //optional callback to fire when done
@@ -22,3 +23,7 @@ add(4,5);
 
 
 add(5,10,logDone);
+
+
+console.log("Testing something");
+console.log(1 in [1,2,3,4]);
