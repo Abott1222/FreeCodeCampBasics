@@ -5,9 +5,15 @@
 </head>
 <body>
 	<h1 id="change-me"> Change me! </h1>
+	<h1 id="1"> Test </h1>
+	<h1 id="2"> Test </h1>
+	<h1 id="3"> Test </h1>
+	<h1 id="4"> Test </h1>
 	<button onclick="changeH1()"> Click me! </button>
 
 	<script>
+		//domOject
+		//is a reference to an Element object, or null if an element with the specified ID is not in the document.
 		var domObject = document.getElementById("change-me");
 		var objectStyle = domObject.style;
 		console.log(domObject);
@@ -15,7 +21,31 @@
 		console.log(objectStyle);
 
 		function changeH1() {
-			console.log("Hello world!");
+			domObject.innerHTML = "Thanks I always feel fresh after getting new content";
+			domObject.style.border="5px solid black";
+			//objectStyle.fontSize= "300%";
+			//domObject.toUpperCase();
+
+			for(var i=1; i<5; i++) {
+				var temp = document.getElementById(i);
+				temp.innerHTML = i;
+				color = "";
+				switch(i) {
+					case 1:
+						color = "red";
+						break;
+					case 2:
+						color = "yellow";
+						break;
+					case 3:
+						color = "green";
+						break;
+					default:
+						color="orange";
+						break;
+				}
+				temp.style.border = parseInt(i) + "px solid";
+			}
 		}
 	</script>
 </body>
