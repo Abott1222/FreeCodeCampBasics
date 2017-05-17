@@ -9,7 +9,11 @@
 	<h1 id="2"> Test </h1>
 	<h1 id="3"> Test </h1>
 	<h1 id="4"> Test </h1>
-	<button onclick="changeH1()"> Click me! </button>
+	<button onclick="changeH1()"> Click me to change the top and test divs! </button>
+	<div id="parent">
+		<span id="child"> Foobar </span>
+	</div>
+	<button onclick="addElements()"> Click me to add some spans! </button>
 
 	<script>
 		//domOject
@@ -19,6 +23,18 @@
 		console.log(domObject);
 		console.log("\n");
 		console.log(objectStyle);
+
+		function addElements() {
+			for(var i=0; i<3; i++) {
+				var newNode = document.createElement("span");
+				var newBr = document.createElement("br");
+				newNode.innerHTML = " Just like that! Number:" + parseInt(i);
+				var parentDiv = document.getElementById("parent");
+				parentDiv.appendChild(newBr);
+				parentDiv.appendChild(newNode);
+
+			}
+		}		
 
 		function changeH1() {
 			domObject.innerHTML = "Thanks I always feel fresh after getting new content";
