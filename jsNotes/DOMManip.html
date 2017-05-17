@@ -13,7 +13,7 @@
 	<div id="parent">
 		<span id="child"> Foobar </span>
 	</div>
-	<button onclick="addElements()"> Click me to add some spans! </button>
+	<button onmouseover="alert('welcome')" onclick="addElements()"> Click me to add some spans! </button>
 
 	<script>
 		//domOject
@@ -60,7 +60,7 @@
 						color="orange";
 						break;
 				}
-				temp.style.border = parseInt(i) + "px solid";
+				temp.style.border = parseInt(i) + "px solid "+ color;
 			}
 		}
 	</script>

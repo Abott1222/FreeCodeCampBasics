@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body {
+			background-color: white;
+		}
+
+		div {
+			width:200px;
+			height:200px;
+			border-radius:50%;
+			background-color: green;
+		}
+
+	</style>
+</head>
+<body>
+	<h1 id="demo"> </h1>
+
+	<div onmouseover="showCoords(event)" id="test" title="test"> </div>
+
+	<script>
+		function showCoords(event) {
+		    var x = event.clientX;
+		    var y = event.clientY;
+		    var coords = "X coords: " + x + ", Y coords: " + y;
+		    document.getElementById("demo").innerHTML = coords;
+	}
+
+	</script>
+</body>
+</html>
