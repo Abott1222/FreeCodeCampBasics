@@ -13,13 +13,13 @@ Notes:
 Testcases: 
 Survey Form tests
 #Content
-1. I can see a title with id="title" in H1 sized text. ‣
-2. I can see a short explanation with id="description" in P sized text. ‣
+1. I can see a title with id="title" in H1 sized text. X
+2. I can see a short explanation with id="description" in P sized text. X
 3. I am presented with a <form> with id="survey-form". The <form> must contain all other form elements. ‣
-4. I am required to enter my name in a field with id="name". ‣
-5. I am required to enter an email in a field with id="email". ‣
-6. If I enter an email that is not formatted correctly, I will see an HTML5 validation error. ‣
-7. I can enter a number in a field with id="number". ‣
+4. I am required to enter my name in a field with id="name". X
+5. I am required to enter an email in a field with id="email". X
+6. If I enter an email that is not formatted correctly, I will see an HTML5 validation error. X
+7. I can enter a number in a field with id="number". X
 8. If I enter non-numbers in a number field, I will see an HTML5 validation error. ‣
 9. If I enter numbers outside the range of the number field, I will see an HTML5 validation error. ‣
 10. For the name, email, and number input fields, I can see corresponding labels that describe the purpose of each field with the following ids: id="name-label", id="email-label", and id="number-label". ‣
@@ -45,18 +45,25 @@ Survey Form tests
 	<p id="description"> This is my attempt at the 2nd Applied Responsive Web Design project </p>
 	<p> Everything with a * is required </p>
 	<div>
-		<form id="survey-form-container">
+		<form id="survey-form">
 			<form id="survey-first">
 				<label for="name">*Enter your name:</label>
 				<input type="text" id="name" name="nameVariable" placeholder="Please enter your name" required><br>
 
-				<label for="email"> *Enter your email:</label>
+
+				<!-- I like this way of doing labels better. It is easier to read -->
+				<label> *Enter your email:
 				<!-- Having a type of email checks to see that a valid email was entered(Includes @) -->
-				<input type="email" id="email" name="emailVariable" placeholder="Please enter your email" required><br>
+				<input type="email" id="email" name="emailVariable" placeholder="Please enter your email" required>
+				</label>
+				<br>
 
 
-				<label for="age"> *Enter your age: </label>
-				<input type="number" id="age" name="ageVariable" placeholder="Please enter your age"> <br>
+				<label> 
+				Enter your age:
+					<input type="number" id="age" name="ageVariable" placeholder="Please enter your age"> 
+				</label>
+				<br>
 
 				<input type="submit" value="Submit">
 			</form>
