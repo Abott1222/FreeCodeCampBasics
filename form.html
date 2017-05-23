@@ -22,13 +22,13 @@ Survey Form tests
 7. I can enter a number in a field with id="number". X
 8. If I enter non-numbers in a number field, I will see an HTML5 validation error. ‣
 9. If I enter numbers outside the range of the number field, I will see an HTML5 validation error. ‣
-10. For the name, email, and number input fields, I can see corresponding labels that describe the purpose of each field with the following ids: id="name-label", id="email-label", and id="number-label". ‣
-11. For the name, email, and number input fields, I can see placeholder text that gives me a description or instructions for each field. ‣
+10. For the name, email, and number input fields, I can see corresponding labels that describe the purpose of each field with the following ids: id="name-label", id="email-label", and id="number-label". X
+11. For the name, email, and number input fields, I can see placeholder text that gives me a description or instructions for each field. X
 12. I can select an option from a dropdown that has corresponding id="dropdown". ‣
 13. I can select a field from one or more groups of radio buttons. Each group should be grouped using the name attribute. ‣
 14. I can select several fields from a series of checkboxes. ‣
 15. I am presented with a <textarea> at the end for additional comments. ‣
-16. I am presented with a button with id="submit" to submit all my inputs.	
+16. I am presented with a button with id="submit" to submit all my inputs.	X
 
 -->
 
@@ -48,21 +48,24 @@ Survey Form tests
 		<form id="survey-form">
 			<form id="survey-first">
 				<label for="name">*Enter your name:</label>
-				<input type="text" id="name" name="nameVariable" placeholder="Please enter your name" required><br>
+				<input type="text" id="name-label" name="nameVariable" placeholder="Please enter your name" required><br>
 
 
 				<!-- I like this way of doing labels better. It is easier to read -->
 				<label> *Enter your email:
 				<!-- Having a type of email checks to see that a valid email was entered(Includes @) -->
-				<input type="email" id="email" name="emailVariable" placeholder="Please enter your email" required>
+				<input type="email" id="email-label" name="emailVariable" placeholder="Please enter your email" required>
 				</label>
 				<br>
 
 
 				<label> 
 				Enter your age:
-					<input type="number" id="age" name="ageVariable" placeholder="Please enter your age"> 
+					<input type="number" id="number-label" name="ageVariable" placeholder="Please enter your age"> 
 				</label>
+				<br>
+
+				<textarea rows="4" cols="50" placeholder="Describe yourself here..."></textarea>
 				<br>
 
 				<input type="submit" value="Submit">

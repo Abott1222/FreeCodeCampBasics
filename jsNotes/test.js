@@ -12,17 +12,20 @@ console.log(reverseString("hello"));
 
 function largestOfFour(arr) {
   var maxArray = [];
-  var max = 0;
+  var max = -999999;
   for (var i=0; i<arr.length; i++) {
+    max = 0;
     for (var x=0; x< arr[i].length; x++) {
-      max = 0;
       if(arr[i][x] > max) max = arr[i][x];
-      if (i == arr[i].length-1) maxArray.push(max);
+      if (x == arr[i].length-1)  {
+        maxArray.push(max);
+        console.log(max);
+      }
     }
   }
   return maxArray;
 }
 
-var x = largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+var x = largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]);
 
 console.log(x);
