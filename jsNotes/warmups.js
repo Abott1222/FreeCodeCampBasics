@@ -36,7 +36,7 @@ while(myArray.length > 0) {
 
 	myArray = arr;
 }
-
+//check if str ends with target without using endsWith
 //else if(typeof target[targetI] != "undefined") return true;
 function confirmEnding(str, target) {
   // "Never give up and good luck will find you."

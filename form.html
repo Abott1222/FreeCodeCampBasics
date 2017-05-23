@@ -41,6 +41,13 @@ Survey Form tests
 	<link href="formStyle.css" rel="stylesheet" type="text/css" s> 
 </head>
 <body>
+	<nav>
+		<h4 style="display:inline;">Welcome! </h4>
+		<a href="http://www.Github.com/Abott1222"> Github </a>
+		<a href="https://twitter.com/abott1222"> Twitter </a>
+		<a href="#"> FreeCodeCamp </a>
+
+	</nav>
 	<h1 id="title"> My form page! </h1>
 	<p id="description"> This is my attempt at the 2nd Applied Responsive Web Design project </p>
 	<p> Everything with a * is required </p>
@@ -65,7 +72,24 @@ Survey Form tests
 				</label>
 				<br>
 
-				<textarea rows="4" cols="50" placeholder="Describe yourself here..."></textarea>
+				<label> Select your favorite city
+				<select>
+					<option>San Francisco</option>
+					<option>Seattle</option>
+					<option>NYC</option>
+					<option>Miami</option>
+					<option>Austin</option>
+				</select>
+				</label>
+				<br>
+
+				<!-- 
+				Needed to change the display to block 
+				Note: this is because these are inline elements which do not take up full width!
+				-->
+				<label> Enter any additional comments you have here
+				<textarea style="display:block;" name="text-area" rows="4" cols="50" placeholder="Anything else?"></textarea>
+				</label>
 				<br>
 
 				<input type="submit" value="Submit">

@@ -2,6 +2,15 @@ html {
 	margin:10px;
 }
 
+body {
+	background-color: #C63D0F;
+}
+
+#survey-form {
+	background-color: #FDF3E7;
+	color: #3B3738;
+}
+
 textarea {
 
 }
