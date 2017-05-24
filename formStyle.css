@@ -14,7 +14,7 @@ img {
 	align-self: center; 
 	transform: scale(.5);
 	*/
-	width:300px;
+	width:500px;
 	height:auto;
 	
 	/* center image */
@@ -26,10 +26,17 @@ img {
 #survey-form {
 	background-color: #FDF3E7;
 	color: #3B3738;
+	width:60%;
+	align-self: center;
+	display:block;
+	margin-left:20px;
+	margin-right:auto;
 }
 
 textarea {
 
 }
 
-#survey-form {}
+#survey-first input{
+	width:125%;
+}

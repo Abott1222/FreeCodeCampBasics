@@ -60,3 +60,35 @@ function confirmEnding(str, target) {
   
 }
 confirmEnding("Bastian", "n");
+
+
+/* Capitalize first letter */
+
+
+function titleCase(str) {
+  var strArray = str.split(" ");
+  var result = "";
+  for(var i=0; i<strArray.length; i++) {
+    if (i===strArray.length-1) result += (strArray[i][0].toUpperCase() + strArray[i].slice(1).toLowerCase());
+    else result += (strArray[i][0].toUpperCase() + strArray[i].slice(1).toLowerCase() + " ");
+  }
+  return result;
+}
+
+titleCase("I'm a little tea pot");
+
+
+
+/*We'll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them.
+
+The lowest number will not always come first. */
+
+function sumAll(arr) {
+  var sum = 0;
+  var max = arr[0]> arr[1] ? arr[0] : arr[1];
+  var min = arr[0]> arr[1] ? arr[1] : arr[0];
+  for(var i=min; i<=max; i++) sum += i;
+  return sum;
+}
+
+sumAll([1, 4]);
