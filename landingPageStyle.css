@@ -1,6 +1,7 @@
 nav a {
 	margin-top: 10px;
-	border: 10px solid black;
+	margin-right: 3px;
+	border: 7px solid black;
 	color:red;
 	background-color: orange;
 	height:auto;
@@ -8,7 +9,7 @@ nav a {
 
 nav {
 	/* lined up nav with title(h1) */
-	padding-top: 5px;
+	padding-top: 40px;
 }
 
 
@@ -25,4 +26,10 @@ header {
 	padding-top: 0px;
 	justify-content: space-between;
 	background-color: rgba(25,25,25,.5);
+	height:110px;
+}
+
+/* a height of 100% is relative to the size of its parent. */
+header img {
+	height:100%;
 }
