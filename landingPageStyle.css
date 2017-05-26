@@ -1,0 +1,28 @@
+nav a {
+	margin-top: 10px;
+	border: 10px solid black;
+	color:red;
+	background-color: orange;
+	height:auto;
+}
+
+nav {
+	/* lined up nav with title(h1) */
+	padding-top: 5px;
+}
+
+
+header h1 {
+	/* get rid of spacing so it sits directly next to nav bar */
+
+    padding: 0px;
+    margin: 0px;
+   
+}
+
+header {
+	display:flex;
+	padding-top: 0px;
+	justify-content: space-between;
+	background-color: rgba(25,25,25,.5);
+}
