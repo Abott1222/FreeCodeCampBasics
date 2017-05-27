@@ -51,36 +51,39 @@ header img {
 
 .skills {
 	display:block;
-
+	box-shadow: 10px 10px 5px black;
 }
 
-.Python{width:95%; background-color: rgba(206, 35, 55, .9);}
+/* Note we are creating different shades of grey by introducing equal amounts of red,green, and blue */
 
-.Java{ width:90%; background-color: rgba(206, 35, 55, .7)}
+.Python{width:95%; background-color: rgba(222, 222, 222, .9);}
+
+.Java{ width:90%; background-color: rgba(200, 200, 200, .7)}
 
 .JavaScript {
-	background-color: red;
+	background-color: rgb(185, 185, 185);
 	width:90%;
 }
 
 .HTML5 {
-	background-color: rgba(244, 209, 66, 1);
+	background-color: rgba(180, 180, 180, 1);
 	width:80%;
 }
 
 .CSS {
-	background-color: rgba(244, 209, 66, .7);
+	background-color: rgba(180, 180, 180, .7);
 	width: 55%;
 }
 
 .nodejs-express {
-	background-color: rgba(244, 150, 40, 1);
+	background-color: rgba(150, 150, 150, 1);
 	width:40%;
 }
 
 .container {
 	width:100%;
-	background-color: rgba(25,25,25,.5);
+	height:2em;
+	/* background-color: black; */
 }
 
 #portfolio {
@@ -89,9 +92,18 @@ header img {
 	 */
 	background-image: url("https://warroom.securestate.com/wp-content/uploads/2016/10/coding.jpg");
 	height:100%;
+	display:flex;
 	/*
 	background-repeat: 
 	*/
+}
+
+#portfolio .portfolio-item {
+	color:green;
+	font-size: 200%;
+	background-color: grey;
+	width:30%;
+	flex-direction: row;
 }
 
 
