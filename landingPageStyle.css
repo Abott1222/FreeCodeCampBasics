@@ -83,4 +83,15 @@ header img {
 	background-color: rgba(25,25,25,.5);
 }
 
+#portfolio {
+	/* Set height to 100 to make full screen image background. 
+		*note if image is too small will repeat so need to set repeat
+	 */
+	background-image: url("https://warroom.securestate.com/wp-content/uploads/2016/10/coding.jpg");
+	height:100%;
+	/*
+	background-repeat: 
+	*/
+}
+
 
