@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		html,
+		body {
+		  height: 100%;
+		  margin: 0
+		}
+		.flexbox {
+		  display: flex;
+		  flex-direction: column;
+		  
+		  height: 100%;
+		  width: 100%
+		}
+		.flexbox .main {
+		  flex: 1;
+		  background: red;
+		  position: relative
+		}
+		.flexbox .header,
+		.flexbox .footer {
+		  background: green;
+		  padding: 1em
+		}
+		.flexbox-row {
+		  display: flex;
+		  position:absolute;
+		  height: 100%;
+		  width: 100%
+		}
+		.flexbox-row .first,
+		.flexbox-row .second,
+		.flexbox-row .third {
+		  background: #C9E1F4;
+		  padding: 1em;
+		}
+		.flexbox-row .second {
+		  flex: 1;
+		  background: #A8EDAC
+		}		
+	</style>
+</head>
+<body>
+	<div class="flexbox">
+	  <div class="header">Header</div>
+	  <div class="main">
+	    <div class="flexbox-row">
+	      <div class="first">First</div>
+	      <div class="second">Main</div>
+	      <div class="third">Third</div>
+	    </div>
+	  </div>
+	  <div class="footer">Footer</div>
+	</div>
+</body>
+</html>

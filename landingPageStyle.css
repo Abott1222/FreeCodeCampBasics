@@ -2,6 +2,12 @@ body, html {
     height: 100%;
 }
 
+
+ul {
+	/* get rid of bullets */
+	list-style-type: none;
+}
+
 nav a {
 	margin-top: 10px;
 	margin-right: 3px;
@@ -90,20 +96,57 @@ header img {
 	/* Set height to 100 to make full screen image background. 
 		*note if image is too small will repeat so need to set repeat
 	 */
-	background-image: url("https://warroom.securestate.com/wp-content/uploads/2016/10/coding.jpg");
+	
+	 /* this is === to background: url("...") no-repeat center; */
+	background-image: url("https://i.ytimg.com/vi/-UlRoUNl0H8/hqdefault.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+
+	/* stretch image to fit container */
+	background-size: 100%;
 	height:100%;
 	display:flex;
-	/*
-	background-repeat: 
-	*/
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
 }
 
 #portfolio .portfolio-item {
 	color:green;
-	font-size: 200%;
+	font-size: 150%;
 	background-color: grey;
 	width:30%;
-	flex-direction: row;
+	height:15%;
+	text-align: center;
+
+}
+
+#contact-me {
+	height:30%;
+	display:flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: #C9AB71;
+}
+
+#contact-me a {
+	align-self: center;
+}
+
+#contact-me i {
+	transform: scale(1.5);
+	margin-right: 10px;
+}
+
+#title-information {
+	border:5px solid black;
+}
+
+#about-me-div {
+	width:50%;
+	border:5px solid grey;
+	text-align:center;
 }
 
 
