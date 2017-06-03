@@ -34,18 +34,20 @@
 	<div id="flex">
 		<nav>
 			<p> Python documentation </p>
+			<a href="#0"> Fun facts </a>
 			<a href="#1"> Basics </a>
 			<a href="#2"> Data Structures </a>
 			<a href="#3">String Methods </a>
 			<a href="#4">Array Methods </a>
 			<a href="#5">Functions </a>
-			<a href="#6">Objects </a>
+			<a href="#6">Classes </a>
 		</nav>
 
 		<!-- Want a scroll for this so it will not strech out nav -->
 		<main id="main-doc">
 			<section id="intro" class="main-section">
 				<header> Fun Facts </header>
+				<a name="0"></a>
 				<h4> The Zen of Python <h4>
 				<p>Beautiful is better than ugly. <br>
 					Explicit is better than implicit. <br>
@@ -68,6 +70,7 @@
 					Namespaces are one honking great idea -- let's do more of those! <br>
 								—Tim Peters 
 				</p>
+			<hr>
 			</section>
 			<section id="Basics" class="main-section">
 				<a name="1"></a>
@@ -75,50 +78,97 @@
 				</header>
 				<p>It is a very high level language. Instead of braces, blocks are identified by having the same indentation. 
 				</p>
-				<p>
+				<p> Python has many use cases from making a quick prototype of an app through Django or Flask all the way to using open source machine learning libaries to extract meaning from data
 				</p>
+				<p>Can execute:
+				</p>
+				<ul>
+					<li> 1+1 </li>
+					<li> "hello" </li>
+					<li> print("Hello World!") </li>
+				</ul>
 			</section>
+
+			<hr>
 			<section id="Data_Structures" class="main-section">
 				<a name="2"></a>
 				<header> Data Structures
 				</header>
-				<p>
+				<ul>
+					<li>Ints</li>
+					<li>Floats </li>
+					<li> Long </li>
+					<li> Complex </li>
+					<li> Strings</li>
+					<li>Bytes </li>
+					<li> Sets </li>
+					<li>Lists</li>
+					<li>Tuples </li>
+					<li> Dictionary </li>
+					<li> Strings </li>
+					<li> Sets </li>
+				<ul>
 				</p>
 				<p>
 				</p>
 			</section>
+			<hr>
 			<section id="String_Methods" class="main-section">
 				<a name="3"></a>
 				<header> String Methods
 				</header>
-				<p>
+				<p> myStr = "Hello world!"
 				</p>
-				<p>
+				<p>myStr[0] -> "H"
+				</p>
+				<p>myStr.split(" ")
+				</p>
+				<p># -> ["Hello", "world!"]
 				</p>
 			</section>
+			<hr>
 			<section id="Array_Methods" class="main-section">
 				<a name="4"></a>
 				<header>Array Methods
 				</header>
-				<p>
+				<p> myArray = [2,3,4]
 				</p>
-				<p>
+				<p> myArray.push(5) adds 5 to end
 				</p>
+				<p> myArray.unshift(1) adds 1 to front
+				</p>
+				<p> myArray.pop() removes ending item
+				</p>
+				<p> myArray.shift() removes front item
+				</p>
+
 			</section>
+			<hr>
 			<section id="Functions" class="main-section">
 				<header>Functions
 				</header>
-				<p>
+				<p> def printHelloWorld():
 				</p>
-				<p>
+				<p style="margin-left: 1.5em;"> print("Hello World")
+				</p>
+				<br>
+				<p> def printCustomHello(name):
+				</p>
+				<p style="margin-left: 1.5em;"> print("Hello {}".format(name))
 				</p>
 			</section>
-			<section id="Objects" class="main-section">
-				<header>Objects
+			<hr>
+			<section id="Classes" class="main-section">
+				<header>Classes
 				</header>
-				<p>
+				<p>class Complex:
+
 				</p>
-				<p>
+				<p style="margin-left: 1.5em;">def __init__(self, realpart, imagpart):
+				</p>
+				<p style="margin-left: 2em;">self.r = realpart
+				</p>
+				<p style="margin-left: 2em;">self.i = imagpart
 				</p>
 			</section>
 		</main>

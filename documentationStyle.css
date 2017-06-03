@@ -1,18 +1,20 @@
 html, body {
-	
+	height:100%;
 	margin:.2em;
 }
 
 
 #main-doc {
+	/* need height 100% AND overflow to scroll to allow scroll to happen while maintaining height of navbar */
+	height:100%;
+	overflow:scroll;
 	width:70%;
 	text-align:center;
 	color: rgb(9, 58, 132);
 }
 
 nav {
-	
-	
+
 	width:30%;
 
 	display:flex;
@@ -32,7 +34,21 @@ nav p {
 #flex {
 	display:flex;
 	flex-direction: row;
+	height:100%;
 	/*
 	position:relative;
 	*/
+}
+
+ul {
+	/* get rid of bullets */
+	list-style-type: none;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+ul li {
+	margin:.2em;
+
 }
