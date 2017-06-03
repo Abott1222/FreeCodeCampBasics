@@ -24,13 +24,13 @@ function mutation(arr) {
   var secondWord = arr[1].toLowerCase();
   //Problem is to check if firstWords contains ALL letters of secondWord
   //so we will delete letters of secondWord as we check them
-  var countOfFirstWord = 0;
+  var countOfSecondWord = 0;
   while(secondWord.length > 0) {
     console.log("Second word is " + secondWord);
     console.log("First word is " + firstWord);
-    console.log("letter being examined is " + firstWord[countOfFirstWord]);
-    console.log("attempting to find index of letter" + secondWord.indexOf(firstWord[countOfFirstWord]));
-    if(secondWord.indexOf(firstWord[countOfFirstWord]) > -1) {
+    console.log("letter being examined is " + secondWord[0]);
+    console.log("attempting to find index of letter" + secondWord.indexOf(secondWord[0]));
+    if(firstWord.indexOf(secondWord[0]) > -1) {
        console.log("(inside1)Second word is " + secondWord);
 
        /* 
@@ -38,7 +38,7 @@ function mutation(arr) {
        secondWord = secondWord.splice(secondWord.indexOf(firstWord), 1);
        */
        var secondWordArray = [...secondWord];
-       secondWordArray.splice(secondWord.indexOf(firstWord[countOfFirstWord]), 1);
+       secondWordArray.splice(0, 1);
        /*
        NOTE: toString only pretty prints array, it does not cast itself into a string
        secondWord = secondWordArray.toString();
@@ -46,11 +46,11 @@ function mutation(arr) {
        secondWord = secondWordArray.join("");
        console.log("(inside2)Second word is " + secondWord);
      } else return false;
-    countOfFirstWord += 1;
+    countOfSecondWord += 1;
   }
   
   return true;
 }
 
-var a = mutation(["hello", "Hello"]);
+var a = mutation(["Alien", "line"]);
 console.log(a);
