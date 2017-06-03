@@ -1,30 +1,38 @@
 html, body {
-	width:100%;
-	margin:1.4em;
+	
+	margin:.2em;
 }
 
-body nav {
-	display:fixed;
-	width:30%;
-}
 
 #main-doc {
 	width:70%;
+	text-align:center;
+	color: rgb(9, 58, 132);
 }
 
 nav {
+	
+	
 	width:30%;
+
 	display:flex;
 	flex-direction: column;
+	background-color:#7FDBFF;
 }
 
 nav a {
 	margin:1.1em;
+}
 
+nav p {
+	/* Center nav title relative to its parent container */
+	text-align: center;
 }
 
 #flex {
 	display:flex;
 	flex-direction: row;
-	flex-grow: 
+	/*
+	position:relative;
+	*/
 }
