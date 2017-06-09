@@ -1,0 +1,15 @@
+h1 {
+	color: #0D083B;
+	font-size: 300%;
+	font-family: 'Open Sans', sans-serif;
+}
+
+header,footer {
+	background-color: #5A5494;
+	margin:2em;
+	height:20%;	
+}
+
+aside {
+	background-color: #837EB1;
+}
