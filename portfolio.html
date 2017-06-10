@@ -22,11 +22,18 @@
 <head>
 	<title>Portfolio Page</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Francois+One|Gloria+Hallelujah" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Francois+One|Gloria+Hallelujah|Bubbler+One" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href ="portfolioStyle.css">
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	 <script src="https://use.fontawesome.com/d442cbcff3.js"></script>
+
+   <style type="text/css">
+     .middle {
+      margin-top: 50%;
+     }
+
+   </style>
 </head>
 <body>
 <!--
@@ -35,7 +42,16 @@
 <h1 id="Gloria_Hallelujah"> Hello this is just a test of this amazing font becasue let's admit it, design matters.</h1>
 -->
 
-<header>
+<header id="welcome-section">
+  <div class="container-fluid" style="height:100vh; background-color: rgb(139, 141, 142);">
+    <div class="text-center row middle">
+        <h1 id="Architects_Daughter">  Hello I am Alex ! </h1>
+        <hr style="width:50%;">
+        <h3 id="#Bubbler_One"> Thank you for checking out my page! </h3>
+     </div>
+  </div>
+</header>
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display 
@@ -84,14 +100,48 @@
 
   </div><!-- /.container-fluid -->
 </nav> <!-- /.navbar -->
-</header>
 	
 <main>
-  <section>
-  <h1>
+  <div class="jumbotron container-fluid">
+    <div class="row">
+      <div class="col-xs-5">
+        <section>
+          <h1 id="Architects_Daughter" class="text-center"> About me </h1>
+          <p> I have been programming ever since I picked up my first C++ in the local library back in 2012. Doing programming puzzles was so much fun I would often play them for hours at night unable to stop even after the sun came up. </p>
+          <hr class="my-4">
+          <p> I am actively looking for a position that would allow me to work on a cutting edge product on the web. For example I just started learning three.js in hopes of one day writing a web based vr application for anyone with google cardboard.
+        </section>
+      </div>
+      <div class="col-xs-2">
+        <section>
+          <img class="img-responsive" src ="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png" />
+          <hr>
+          <img class="img-responsive" src ="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
+          <hr>
 
-  </section>
+          <img class="img-responsive" src ="https://vignette2.wikia.nocookie.net/needformadness/images/2/26/Java.png" />
+          <hr>
 
+          <img class="img-responsive" src ="https://openfin.co/wp-content/uploads/2014/10/html5.png" />
+          <hr>
+
+          <img class="img-responsive" src ="http://w3widgets.com/responsive-slider/img/css3.png" />
+          <hr>
+
+          <img class="img-responsive" src ="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png" />
+
+        </section>
+      </div>
+      <div class="col-xs-5">
+        <section>
+          <h1 id="Architects_Daughter" class="text-center"> About me </h1>
+          <p> I have been programming ever since I picked up my first C++ in the local library back in 2012. Doing programming puzzles was so much fun I would often play them for hours at night unable to stop even after the sun came up. </p>
+          <hr class="my-4">
+          <p> I am actively looking for a position that would allow me to work on a cutting edge product on the web. For example I just started learning three.js in hopes of one day writing a web based vr application for anyone with google cardboard.
+        </section>
+      </div>
+    </div>
+  </div>
 </main>
 
 </body>
