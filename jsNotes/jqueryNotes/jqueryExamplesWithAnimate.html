@@ -1,16 +1,50 @@
+<!--
+    $("button").addClass("animated bounce");
+    $(".well").addClass("animated shake");
+    $("#target3").addClass("fadeOut");
+
+
+-->
+
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<style>
+		html, body {
+			margin:1em;
+			width: 100%;
+			height:100%;
+		}
+
+		div {
+			margin: 5px;
+			width:200px;
+			height:120px;
+			background-color: grey;
+		}
+	</style>
 </head>
 <body>
 	<header>
 	</header>
 
 	<main>
-		<div id="myTarget1"></div>
+		<div class="jqueryPractice">
+			<div id="myTarget1"></div>
+			<div id="myTarget2"></div>
+			<div id="myTarget3"></div>
+			<div id="myTarget4"></div>
+			<div id="myTarget5"></div>
+			<div id="myTarget6"></div>
+			<div id="myTarget7"></div>
+			<div id="myTarget8"></div>
+		</div>
 	</main>
 
 	<footer>
@@ -21,7 +55,20 @@
 	<script type="text/javascript">
 		$(document).ready( function() {
 			alert("jquery works!!");
+
+			$("#myTarget1").addClass("fadeOut");
+			$("#myTarget2").addClass("animated shake");
+			$("#myTarget3").addClass("animated bounce");
+			$("#myTarget4").addClass("animated shake");
+			$("#myTarget5").addClass("animated bounce");
+			$("#myTarget6").addClass("animated shake");
+			$("#myTarget7").addClass("animated bo");
+			$("#myTarget8").addClass("animated shake");
+
+
 		});
+
+
 
 	</script>
 </html>
