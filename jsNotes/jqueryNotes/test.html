@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#test").addClass("animated bounce");
+
+			$("label").css("display", "block");
+
+			var inputs = $("input[type='text']");
+			alert(inputs.length);
+			inputs.each(function() {
+				var elem = $(this);
+				alert("here it comes!");
+				alert(elem.val());
+			});
+
+			var toRemove = $("#test").on("click", function() {
+				//toRemove.addClass("fadeOut");
+			});
+
+			/*
+			var elems = $("input[type='text']").each( (index) => {
+				//this is wrapped in jquery wrapper
+				var elem = $(elems[index];
+				alert(elem.val());
+			});
+
+			$("input[type='submit']").click( function() {alert("hello")});
+				*/
+		});
+
+
+
+	</script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="test" style="width:100%; height:200px; background-color: grey;"> Test  </div>
+			</div>
+		</div>
+			<div class="row">
+				<div class="col-md-6">
+					<form>
+						<label>
+							Name
+							<input type="text" name="nameVariable" value="Alex">
+						</label>
+						<label>
+							Email
+							<input type="email" name="emailVariable">
+						</label>
+						<input type="submit" name="submit">
+					</form>
+				</div>
+
+				<div class="col-md-6">
+					<h1> Look Mom! No hands while using bootstrap! </h1>
+				</div>
+			</div>
+
+</body>
+</html>
