@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>This is a test page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+          <div class="row"> 
+            <div class="col-md-12">
+            <h1>Hello Carlita</h1>
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+
+    <div id="message"></div>
+    <script>
+      fetch('/api').then(function(data){
+        return data.json();
+      })
+      .then(function(data){
+        document.querySelector('#message').innerHTML = data.message
+      })
+
+      $(document).ready(function() {
+        alert("Hello World!");
+      });
+    </script>
+  </body>
+</html>

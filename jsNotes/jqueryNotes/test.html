@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <style type="text/css">
+  	#shakeMe {
+  		width:200px;
+  		height:100px;
+  		background-color: grey;
+  		margin-top: 5px;
+  	}
+
+
+  </style>
+
   	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#test").addClass("animated bounce");
@@ -22,10 +33,6 @@
 				alert(elem.val());
 			});
 
-			var toRemove = $("#test").on("click", function() {
-				//toRemove.addClass("fadeOut");
-			});
-
 			/*
 			var elems = $("input[type='text']").each( (index) => {
 				//this is wrapped in jquery wrapper
@@ -35,6 +42,10 @@
 
 			$("input[type='submit']").click( function() {alert("hello")});
 				*/
+		});
+
+		var toRemove = $("#test").on("click", function() {
+				toRemove.addClass("fadeOut");
 		});
 
 
@@ -68,6 +79,48 @@
 					<h1> Look Mom! No hands while using bootstrap! </h1>
 				</div>
 			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div id="shakeMe"></div>
+				</div>
+
+				<div class="col-md-6">
+					<div id="shakeMe"></div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div id="shakeMe"></div>
+				</div>
+
+				<div class="col-md-6">
+					<div id="shakeMe"></div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<h1> Where am I at </h1>
+					<div id="shakeMe"></div>
+				</div>
+
+				<div class="col-md-6">
+					<div id="shakeMe"></div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div id="shakeMe"></div>
+				</div>
+
+				<div class="col-md-6">
+					<div id="shakeMe"></div>
+				</div>
+			</div>
+
 
 </body>
 </html>
