@@ -1,0 +1,114 @@
+<!-- localhost:3000 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello and Welcome to my first web app</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style type="text/css">
+      .well {
+        width:70% !important;
+        margin: 0 auto;
+      }
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="navbar-header">
+              <
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+          <div class="row" style="margin-top: 5%;">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 text-center">
+              <div class="well">
+                <textarea readonly="true"></textarea>
+                <div class= "row">
+                  <button class="btn btn-primary">(</button>
+                  <button class="btn btn-primary">)</button>
+                  <button class="btn btn-primary"> % </button>
+                  <button class="btn btn-primary">AC</button>
+                </div>
+                <div class= "row">
+                  <button class="btn btn-primary"> 7 </button>
+                  <button class="btn btn-primary"> 8 </button>
+                  <button class="btn btn-primary"> 9 </button>
+                  <button class="btn btn-primary"> / </button>
+                </div>
+                <div class= "row">
+                  <button class="btn btn-primary"> 4 </button>
+                  <button class="btn btn-primary"> 5 </button>
+                  <button class="btn btn-primary"> 6 </button>
+                  <button class="btn btn-primary"> X </button>
+                </div>
+                <div class= "row">
+                  <button class="btn btn-primary"> 1 </button>
+                  <button class="btn btn-primary"> 2 </button>
+                  <button class="btn btn-primary"> 3 </button>
+                  <button class="btn btn-primary"> - </button>
+                </div>
+                <div class= "row">
+                  <button class="btn btn-primary"> 0 </button>
+                  <button class="btn btn-primary"> . </button>
+                  <button class="btn btn-primary"> = </button>
+                  <button class="btn btn-primary"> + </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+
+    <div id="message"></div>
+    <script>
+
+      fetch('/api').then(function(data){
+        return data.json();
+      })
+      .then(function(data){
+        document.querySelector('#message').innerHTML = data.message
+      })
+
+      /* would be nice to store recent calculations in api server */
+
+      $(document).ready(function() {
+        //alert("Hello World!");
+
+        $("button").click(function() {
+          var $elem = $(this);
+          var $ta = $("textarea");
+          var elemVal = $elem.text();
+          alert(typeof elemVal);
+          if(elemVal !== "=") {
+            if(elemVal === "AC") {
+              $ta.val(" ");
+            } else if(["1", "2", "3", "4", "5", "6", "7", "8", "9"].indexOf(elemVal) > -1) {
+
+            } else {
+              $ta.val($ta.val() + elemVal);
+            }
+          } else {
+            //elemVal is =
+            
+          }
+        })
+      });
+    </script>
+  </body>
+</html>
