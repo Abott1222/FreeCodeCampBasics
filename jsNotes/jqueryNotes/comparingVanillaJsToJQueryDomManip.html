@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+
+  	div {
+  		/*border: 1px solid green; */
+  	}
+  </style>
+</head>
+<body>
+	<header>
+		<div id="change">
+			<h1> What is going on here? </h1>
+		</div>
+	</header>
+
+	<section id="1">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-1">
+					The text to the right will be switched
+				</div>
+				
+				<div class="col-md-11">
+					This will be changed
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+	<br>
+	<hr>
+	<br>
+
+	<section>
+		<div id="2" class="container-fluid">
+			<h1> Stuff should be added below this line </h1>
+			<hr>
+		</div>
+
+	</section>
+
+	<footer>
+		
+	</footer>
+
+	<script type="text/javascript">
+		
+		$(document).ready(function () {
+			$(".row").each(function(index,elem) {
+				$(this).html($(elem).html() + index + `
+					<div class="col-md-2"> \
+					<div class="well"></div> \
+				</div>) \
+				`);
+			})
+
+			$("#change").each(function() {
+				alert(this.title);
+				alert($(this).attr("title"));
+				alert($(this).attr("title", "My new title!"));
+				alert(this.title);
+
+				alert("can also change multiples attrs at once with JSON!");
+				$(this).attr({
+					title: "New title 2",
+					style: "border:2px solid black; font-size:200%;"
+				})
+			})
+			
+			//modifying DOM vanilla js way
+
+			var myElement = document.getElementById("2");
+			myElement.innerHTML = myElement.innerHTML + `
+				<br>
+				<div>
+					<h1> Just added this with vanilla js! </h1>
+				</div>
+				<br>
+			`;
+
+			var newDiv = document.createElement("div");
+			//child1.nodeValue = "Hello world!";
+			var textNode = document.createTextNode("hello look at me working with vanilla js!");
+			newDiv.appendChild(textNode);
+
+			var toAddTo = document.getElementById("2");
+			toAddTo.appendChild(newDiv);
+
+
+			$("#2").append("<h1> Look at how easy this is(jquery)! </h1>");
+			$("#2").prepend("<h1> Look at how easy this is(jquery)! I added it to the top! </h1>");
+
+		})
+	
+
+	</script>
+</body>
+</html>

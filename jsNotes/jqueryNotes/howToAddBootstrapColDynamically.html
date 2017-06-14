@@ -10,7 +10,7 @@
   <style type="text/css">
 
   	div {
-  		margin-top: 5px;
+  		/*border: 1px solid green; */
   	}
   </style>
 </head>
@@ -33,44 +33,44 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
-					<div class="well"></div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-					<div class="well"></div>
-				</div>
-				<div class="col-md-3">
-					<div class="well"></div>
-				</div>
-				<div class="col-md-3">
-					<div class="well"></div>
-				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
 			</div>
@@ -93,44 +93,44 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
-					<div class="well"></div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-					<div class="well"></div>
-				</div>
-				<div class="col-md-3">
-					<div class="well"></div>
-				</div>
-				<div class="col-md-3">
-					<div class="well"></div>
-				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-2">
 					<div class="well"></div>
 				</div>
 			</div>
@@ -145,56 +145,15 @@
 	<script type="text/javascript">
 		
 		$(document).ready(function () {
-			var $evenDivs = $(".container-fluid > .row:even"); //.css("border", "3px double green;")
-			$evenDivs.css("background-color", "blue");
-
-			var $oddDivs = $(".container-fluid > .row:odd"); //.css("border", "3px double green;")
-			$oddDivs.css("background-color", "gold");
-
-			$("#change > h1").text("I have been changed!!");
-
-
-			$oddDivs.click(function() {
-				$(this).fadeOut();
-			});
-
-			$evenDivs.click(function() {
-				$(this).addClass('animated shake')
-			});
-
-			$evenDivs.hover(function() {
-				$(this).addClass("animated bounce");
-				//$(this).addClass("animated shake");
-			}, function() {
-				$(this).removeClass("animated bounce");
-				//$(this).removeClass("animated shake");
-			});
+			$(".row").each(function(index,elem) {
+				$(this).html($(elem).html() + index + `
+					<div class="col-md-2"> \
+					<div class="well"></div> \
+				</div>) \
+				`);
+			})
 			
-		/*
-			$row = $(".myRow");
-			for(var y=0; y<5; y++) {
-				for(var i=0; i<4; i++) {
-					$row.append("<div> Just added! </div>");
-				}
-			}
-		
-		//iside each row make ever
-		//$("#1 .row div:even").css("background-color", "blue");
-		//hmm..
-		//$(".row div:even").children("div").css("background-color", "blue");
 
-		alert("text");
-		alert($("div:contains('changed')").text());
-		alert("html");
-		alert($("div:contains('changed')").html());
-		alert("css");
-		//alert($("div:contains('changed')").css());
-		//$("div:contains('changed')").html("Where will I be?");
-		//$("div:contains('changed')").text("Where will I be?");
-
-		$("#change").text("I have been changed!!");
-
-		*/
 		})
 	
 
