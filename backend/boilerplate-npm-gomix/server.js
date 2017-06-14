@@ -9,6 +9,8 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 
+var moment = require('moment');
+
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
     var allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
@@ -38,6 +40,10 @@ app.route('/')
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
 
+app.get('/api', function(req,res,next){
+  res.json({message:moment().format()});
+})
+
 // Respond not found to all the wrong routes
 app.use(function(req, res, next){
   res.status(404);
@@ -53,7 +59,11 @@ app.use(function(err, req, res, next) {
   }  
 })
 
-app.listen(process.env.PORT, function () {
+/*
+THIS IS WHERE YOU TELL THE APP WHERE TO LISTEN IE 3000 -> LOCALHOST:3000
+*/
+app.listen(3000, function () {
   console.log('Node.js listening ...');
+  console.log(process.env.PORT);
 });
 

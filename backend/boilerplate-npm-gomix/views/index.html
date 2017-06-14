@@ -15,4 +15,14 @@
       </div>
    </body>
 
+   <script>
+      fetch('/api').then(function(data){
+        return data.json();
+      })
+      .then(function(data){
+         alert(data.message);
+        document.querySelector('#message').innerHTML = data.message
+      })
+   </script>
+
 </html>
