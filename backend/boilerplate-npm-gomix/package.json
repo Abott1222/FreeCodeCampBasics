@@ -1,7 +1,10 @@
 {
 	"name": "fcc-learn-npm-package-json",
+	"author": "Alex B",
+	"version": "1.0.0",
 	"dependencies": {
-		"express": "^4.14.0"
+		"express": "^4.14.0",
+		"moment": "2.14.0"
 	},
 	"main": "server.js",
 	"scripts": {
