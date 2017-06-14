@@ -16,11 +16,82 @@
 </head>
 <body>
 	<header>
-		
+		<div id="change">
+			<h1> What is going on here? </h1>
+		</div>
 	</header>
 
-	<section>
+	<section id="1">
 		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-1">
+					The text to the right will be switched
+				</div>
+				
+				<div class="col-md-11">
+					This will be changed
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+				<div class="col-md-3">
+					<div class="well"></div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+	<br>
+	<hr>
+	<br>
+
+		<section id="2">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-1">
+					The text to the right will be switched
+				</div>
+				
+				<div class="col-md-11">
+					This will be changed
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-md-3">
 					<div class="well"></div>
@@ -74,6 +145,22 @@
 	<script type="text/javascript">
 		
 		$(document).ready(function () {
+			var $evenDivs = $(".container-fluid > .row:even"); //.css("border", "3px double green;")
+			$evenDivs.css("background-color", "blue");
+
+			var $oddDivs = $(".container-fluid > .row:odd"); //.css("border", "3px double green;")
+			$oddDivs.css("background-color", "gold");
+
+			$oddDivs.click(function() {
+				$(this).fadeOut();
+			});
+
+			$evenDivs.hover(function() {
+				$(this).addClass("animated bounce");
+			}, function() {
+				$(this).removeClass("animated bounce");
+			});
+			
 		/*
 			$row = $(".myRow");
 			for(var y=0; y<5; y++) {
@@ -81,11 +168,27 @@
 					$row.append("<div> Just added! </div>");
 				}
 			}
+		
+		//iside each row make ever
+		//$("#1 .row div:even").css("background-color", "blue");
+		//hmm..
+		//$(".row div:even").children("div").css("background-color", "blue");
+
+		alert("text");
+		alert($("div:contains('changed')").text());
+		alert("html");
+		alert($("div:contains('changed')").html());
+		alert("css");
+		//alert($("div:contains('changed')").css());
+		//$("div:contains('changed')").html("Where will I be?");
+		//$("div:contains('changed')").text("Where will I be?");
+
+		//$("#change").html("I have been changed!!");
+
 		*/
-
-		$("div:even").css("background-color", "blue");
-
 		})
+	
+
 	</script>
 </body>
 </html>

@@ -39,32 +39,32 @@
                 <div class= "row">
                   <button class="btn btn-primary">(</button>
                   <button class="btn btn-primary">)</button>
-                  <button class="btn btn-primary"> % </button>
+                  <button class="btn btn-primary">%</button>
                   <button class="btn btn-primary">AC</button>
                 </div>
                 <div class= "row">
-                  <button class="btn btn-primary"> 7 </button>
-                  <button class="btn btn-primary"> 8 </button>
-                  <button class="btn btn-primary"> 9 </button>
-                  <button class="btn btn-primary"> / </button>
+                  <button class="btn btn-primary">7</button>
+                  <button class="btn btn-primary">8</button>
+                  <button class="btn btn-primary">9</button>
+                  <button class="btn btn-primary">/</button>
                 </div>
                 <div class= "row">
-                  <button class="btn btn-primary"> 4 </button>
-                  <button class="btn btn-primary"> 5 </button>
-                  <button class="btn btn-primary"> 6 </button>
-                  <button class="btn btn-primary"> X </button>
+                  <button class="btn btn-primary">4</button>
+                  <button class="btn btn-primary">5</button>
+                  <button class="btn btn-primary">6</button>
+                  <button class="btn btn-primary">X</button>
                 </div>
                 <div class= "row">
-                  <button class="btn btn-primary"> 1 </button>
-                  <button class="btn btn-primary"> 2 </button>
-                  <button class="btn btn-primary"> 3 </button>
-                  <button class="btn btn-primary"> - </button>
+                  <button class="btn btn-primary">1</button>
+                  <button class="btn btn-primary">2</button>
+                  <button class="btn btn-primary">3</button>
+                  <button class="btn btn-primary">-</button>
                 </div>
                 <div class= "row">
-                  <button class="btn btn-primary"> 0 </button>
-                  <button class="btn btn-primary"> . </button>
-                  <button class="btn btn-primary"> = </button>
-                  <button class="btn btn-primary"> + </button>
+                  <button class="btn btn-primary">0</button>
+                  <button class="btn btn-primary">.</button>
+                  <button class="btn btn-primary">=</button>
+                  <button class="btn btn-primary">+</button>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
 
       $(document).ready(function() {
         //alert("Hello World!");
-
+        var queue = [];
         $("button").click(function() {
           var $elem = $(this);
           var $ta = $("textarea");
@@ -98,14 +98,21 @@
           if(elemVal !== "=") {
             if(elemVal === "AC") {
               $ta.val(" ");
-            } else if(["1", "2", "3", "4", "5", "6", "7", "8", "9"].indexOf(elemVal) > -1) {
+            } else if(["+", "-", "X", "/"].indexOf(elemVal) > -1) {
 
             } else {
               $ta.val($ta.val() + elemVal);
+              //alert("elemVal");
+              //alert(typeof elemVal);
+              //alert(elemVal);
+              //alert(["1", "2", "3", "4", "5", "6", "7", "8", "9"].indexOf(elemVal) > -1);
             }
           } else {
             //elemVal is =
-            
+            var val = $ta.val();
+            var sumString = val.split("").reduce( (acc,next) => {
+
+            });
           }
         })
       });
