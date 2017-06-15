@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+html, body { height: 100%; }
+
+body {
+	overflow: hidden;
+	background: url(https://www.transparenttextures.com/patterns/clean-gray-paper.png);
+	color: #000;
+	font-size: $base-size;
+}
