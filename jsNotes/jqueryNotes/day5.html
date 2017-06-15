@@ -84,14 +84,18 @@
 		
 		$(document).ready(function() {
 
+
 			$(document).keydown(function(event) {
 				console.log(event.key);
 
 				$addTo = $("#addTo");
-				if(event.key=== "ArrowRight") {$addTo.append("<h3> " + event.key + "  </h3>")}
-				else if(event.key=== "ArrowLeft") {$addTo.append("<h3> " + event.key + "  </h3>")}
+				if(event.key=== "ArrowRight") {$addTo.append("<h3> Going right" + event.key + "  </h3>")}
+				else if(event.key=== "ArrowLeft") {$addTo.append("<h3> going left " + event.key + "  </h3>")}
 				else if(event.key=== "ArrowUp") {$addTo.append("<h3> " + event.key + "  </h3>")}
 				else if(event.key=== "ArrowDown") {$addTo.append("<h3> " + event.key + "  </h3>")}
+			})
+			.mousedown(function(event) {
+				addTo.append("<h2> X: " + event.pageX + " y: " + event.pageY)
 			})
 
 			//alert("Am I in here?");
@@ -109,6 +113,7 @@
 				alert("event!");
 			})
 		})
+
 	
 
 	</script>
