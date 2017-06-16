@@ -25,8 +25,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-var id = "ozgpcdZQx7wwd12DPrV-kw";
-var sec = "PRneeT1a5gBFABViWPEsZAQ8xBTsWz02KJCIXVQD7KWa5Cfk52O1Sjrw8bjgnoRR";
+var id = "...";
+var sec = "...";
 
 
 
@@ -56,8 +56,6 @@ app.get('/api', function(req,res,next){
     client.search(searchRequest).then(response => {
       const firstResult = response.jsonBody.businesses[0];
       const prettyJson = JSON.stringify(firstResult, null, 4);
-      console.log("here are the coordinates");
-      console.log(firstResult.coordinates)
       console.log(prettyJson);
       res.json(response.jsonBody);
     });

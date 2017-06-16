@@ -77,9 +77,7 @@
 
     <div id="message"></div>
     <script>
-      var uluru;
-      uluru = getLocation();
-      console.log(uluru);
+      var myData;
       $(document).ready(function() {
         alert("Hello world!");
 
@@ -90,10 +88,15 @@
       })
       .then(function(data){
         alert("Got the data!");
-        console.log(data);
+        //console.log(data);
+        myData = data;
+        console.log(myData);
+        var uluru;
+        uluru = getLocation();
+        //console.log(uluru);
       })
 
-      function getLocation() {
+      function getLocation(data) {
           if (navigator.geolocation) {
               return navigator.geolocation.getCurrentPosition(showPosition);
           } else {
@@ -110,10 +113,16 @@
             zoom: 12,
             center: myLoc
           });
-          var marker = new google.maps.Marker({
-            position: myLoc,
-            map: map
-          });
+          myData.businesses.forEach((element) => {
+            var marker = new google.maps.Marker({
+              position: {lat:element.coordinates.latitude, lng:element.coordinates.longitude},
+              map: map
+            });
+          })
+          //var marker = new google.maps.Marker({
+            //position: myLoc,
+            //map: map
+          //});
       }
       /*
       function initMap() {
