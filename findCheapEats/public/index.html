@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,7 +49,25 @@
     </header>
 
     <section>
+      <div class="container-fluid">
+        <div class="row">
 
+          <div class="col-md-4">
+            <div id="restaurantList">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue lorem magna, et consectetur purus hendrerit quis. Aliquam nec venenatis mi. Cras ac augue magna. Suspendisse a orci eu nisi rhoncus interdum eleifend vel diam. Sed eget molestie magna. Aliquam pulvinar nunc justo, id condimentum tortor dignissim ac. Curabitur non suscipit tortor. Curabitur vitae tortor et nisl porttitor aliquet. Donec euismod arcu ac malesuada bibendum.
+                  Vivamus luctus, erat sed accumsan egestas, lorem orci sodales felis, non tincidunt elit libero nec est. Vivamus suscipit velit quam, congue sollicitudin elit pretium eget. Curabitur nunc arcu, facilisis et maximus at, consequat at lacus. Vivamus aliquet vulputate metus at dignissim. Phasellus sapien tortor, sagittis ut ex sit amet, dictum mattis elit. Phasellus blandit ullamcorper egestas. Suspendisse congue suscipit turpis, non dictum tellus efficitur a. Phasellus eu enim at massa dignissim pretium. Nam eu cursus elit. Nunc aliquet ipsum et varius congue. Vivamus lorem ligula, faucibus in lectus quis, sodales vestibulum urna. Praesent pellentesque ultricies lacus. </p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue lorem magna, et consectetur purus hendrerit quis. Aliquam nec venenatis mi. Cras ac augue magna. Suspendisse a orci eu nisi rhoncus interdum eleifend vel diam. Sed eget molestie magna. Aliquam pulvinar nunc justo, id condimentum tortor dignissim ac. Curabitur non suscipit tortor. Curabitur vitae tortor et nisl porttitor aliquet. Donec euismod arcu ac malesuada bibendum.
+                      Vivamus luctus, erat sed accumsan egestas, lorem orci sodales felis, non tincidunt elit libero nec est. Vivamus suscipit velit quam, congue sollicitudin elit pretium eget. Curabitur nunc arcu, facilisis et maximus at, consequat at lacus. Vivamus aliquet vulputate metus at dignissim. Phasellus sapien tortor, sagittis ut ex sit amet, dictum mattis elit. Phasellus blandit ullamcorper egestas. Suspendisse congue suscipit turpis, non dictum tellus efficitur a. Phasellus eu enim at massa dignissim pretium. Nam eu cursus elit. Nunc aliquet ipsum et varius congue. Vivamus lorem ligula, faucibus in lectus quis, sodales vestibulum urna. Praesent pellentesque ultricies lacus. </p>
+
+
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div id="map">
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
 
@@ -58,12 +77,60 @@
 
     <div id="message"></div>
     <script>
+      var uluru;
+      uluru = getLocation();
+      console.log(uluru);
+      $(document).ready(function() {
+        alert("Hello world!");
+
+      })
+
       fetch('/api').then(function(data){
         return data.json();
       })
       .then(function(data){
-        document.querySelector('#message').innerHTML = data.message
+        alert("Got the data!");
+        console.log(data);
       })
+
+      function getLocation() {
+          if (navigator.geolocation) {
+              return navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+              alert("Geolocation is not supported by this browser.");
+          }
+      }
+      function showPosition(position) {
+          alert("made it here!");
+          //This is the callback so we are free to use data from response
+          //if we had the map would loud without coordinates for the marker
+          console.log(position.coords)
+          var myLoc =  {lat:position.coords.latitude, lng:position.coords.longitude};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: myLoc
+          });
+          var marker = new google.maps.Marker({
+            position: myLoc,
+            map: map
+          });
+      }
+      /*
+      function initMap() {
+        //var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+      */
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfG3bD3Au462JhJfXbnP6seU4c2foJSEc&callback=initMap">
     </script>
   </body>
 </html>

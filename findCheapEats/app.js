@@ -4,8 +4,15 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var Yelp = require('node-yelp-api-v3');
 
 var app = express();
+
+'use strict';
+
+const yelp = require('yelp-fusion');
+
+
 
 // view engine setup
 
@@ -17,9 +24,48 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+var id = "ozgpcdZQx7wwd12DPrV-kw";
+var sec = "PRneeT1a5gBFABViWPEsZAQ8xBTsWz02KJCIXVQD7KWa5Cfk52O1Sjrw8bjgnoRR";
+
+
+
+const searchRequest = {
+  location: 'olympia, wa'
+};
+/*
+yelp.accessToken(id, sec).then(response => {
+  const client = yelp.client(response.jsonBody.access_token);
+
+  client.search(searchRequest).then(response => {
+    const firstResult = response.jsonBody.businesses[0];
+    const prettyJson = JSON.stringify(firstResult, null, 4);
+    console.log(prettyJson);
+  });
+}).catch(e => {
+  console.log(e);
+});
+*/
+
+
+
 app.get('/api', function(req,res,next){
-  res.json({message:"This is a message from the api"});
-})
+  yelp.accessToken(id, sec).then(response => {
+    const client = yelp.client(response.jsonBody.access_token);
+
+    client.search(searchRequest).then(response => {
+      const firstResult = response.jsonBody.businesses[0];
+      const prettyJson = JSON.stringify(firstResult, null, 4);
+      console.log("here are the coordinates");
+      console.log(firstResult.coordinates)
+      console.log(prettyJson);
+      res.json(response.jsonBody);
+    });
+  }).catch(e => {
+    console.log(e);
+  });
+  //res.json({message:"This is a message from the api"});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
