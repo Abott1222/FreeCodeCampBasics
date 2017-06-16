@@ -8,6 +8,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <style>
+  	html, body {
+  		height:100%;
+  	}
+
   	.highlighted {
   		background-color: yellow;
   	}
@@ -25,17 +29,28 @@
   		margin:30px;
   	}
 
+  	/* add scroll to addTo content containter */
+  	#addTo {
+        height: 100px;
+        width: 215px;
+        overflow: auto;
+        float: left;
+        position: relative;
+        margin-left: -5px;
+    }
+
 
   </style>
 
 </head>
 <body>
 	<header>
-
+		<h1> Hello </h1>
+		<div> Test </div>
 	</header>
 
 	<section>
-	<h1> Table example </h1>
+	<h1 id="changeHeader"> Table example </h1>
 	<div>
 		<table id="another-table">
 			<tr>
@@ -83,10 +98,11 @@
 	<script type="text/javascript">
 		
 		$(document).ready(function() {
-
+			$("header div").css("border", "10px solid green");
 
 			$(document).keydown(function(event) {
 				console.log(event.key);
+				$("#changeHeader").text("Going right" + event.key + "  </h3>");
 
 				$addTo = $("#addTo");
 				if(event.key=== "ArrowRight") {$addTo.append("<h3> Going right" + event.key + "  </h3>")}
@@ -95,7 +111,7 @@
 				else if(event.key=== "ArrowDown") {$addTo.append("<h3> " + event.key + "  </h3>")}
 			})
 			.mousedown(function(event) {
-				addTo.append("<h2> X: " + event.pageX + " y: " + event.pageY)
+				addTo.append("X: " + event.pageX + " y: " + event.pageY)
 			})
 
 			//alert("Am I in here?");
