@@ -25,13 +25,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-var id = "...";
-var sec = "...";
+//serves the html and css statically
+//will look for files in public before doing any routing
+app.use(express.static("public"));
 
+var id = "ozgpcdZQx7wwd12DPrV-kw";
+var sec = "PRneeT1a5gBFABViWPEsZAQ8xBTsWz02KJCIXVQD7KWa5Cfk52O1Sjrw8bjgnoRR";
+var results;
 
 
 const searchRequest = {
   location: 'olympia, wa'
+  //limit:50
 };
 /*
 yelp.accessToken(id, sec).then(response => {
@@ -64,6 +69,7 @@ app.get('/api', function(req,res,next){
   });
   //res.json({message:"This is a message from the api"});
 });
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

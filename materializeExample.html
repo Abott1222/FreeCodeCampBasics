@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Learning materialize and material design</title>
+	<!-- Compiled and minified CSS -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+</head>
+<body>
+	<header>
+		<nav>
+
+		</nav>
+	</header>
+
+	<main>
+		<section>
+			<!-- BACKGROUND COLOR -->
+				<!-- lighten -->
+			<div class="card-panel teal lighten-1">This is a card panel with a teal lighten-2 class</div>	
+			<div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
+			<div class="card-panel teal lighten-4">This is a card panel with a teal lighten-2 class</div>
+
+				<!-- darken -->
+			<div class="card-panel teal darken-1">This is a card panel with a teal lighten-2 class</div>	
+			<div class="card-panel teal darken-2">This is a card panel with a teal lighten-2 class</div>
+			<div class="card-panel teal darken-4">This is a card panel with a teal lighten-2 class</div>
+
+			<div id="testColors"></div>
+			<div id="testColors"></div>
+		</section>
+	</main>
+
+	<footer>
+		
+	</footer>
+
+	<!--Import jQuery before materialize.js-->
+	<script
+  sxrc="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  	$(document).ready(function() {
+  		var $divs = $("#testColors");
+	  		for( var i =0; i<8; i++) {
+	  			var htmlToAdd = "";
+		  		divs.each(function() {
+		  			$t = $(this);
+		  			$t.html($t.html() + htmlToAdd);
+		  		});
+	  		}
+
+
+
+  	});
+  </script>
+
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+
+</body>
+</html>
