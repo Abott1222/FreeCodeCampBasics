@@ -4,21 +4,75 @@
 	<title>Learning materialize and material design</title>
 	<!-- Compiled and minified CSS -->
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+  		<!--Import jQuery before materialize.js-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <script type="text/javascript">
+  	$(document).ready(function() {
+  		alert("hello world");
+  	});
+  </script>
+
+	<!-- Compiled and minified JavaScript -->
+	
 </head>
 <body>
 	<header>
 		<nav>
-
-		</nav>
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo">Logo</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="sass.html">Sass</a></li>
+		        <li><a href="badges.html">Components</a></li>
+		        <li><a href="collapsible.html">JavaScript</a></li>
+		      </ul>
+		    </div>
+	  	</nav>
 	</header>
 
 	<main>
 		<section>
+			<div class="row">
+				<h1 class="center-align"> Grid </h1>
+				<hr>
+				<div class="row">
+					<div class="col s12">
+						<div class="container">
+							<h3 class="center-align"> Grid with container </h3>
+							<div class="row">
+								<div class="col s6">
+									<div class="card-panel teal lighten-1"> </div>
+								</div>
+								<div class="col s6">
+									<div class="card-panel teal darken-1"> </div>
+								</div>
+							</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col l12">
+						<h3 class="center-align"> Grid without container </h3>
+						<div class="row">
+							<div class="col l6">
+								<div class="card-panel teal lighten-1"> </div>
+							</div>
+							<div class="col l6">
+								<div class="card-panel teal darken-1"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
 			<!-- BACKGROUND COLOR -->
 				<!-- lighten -->
-			<div class="card-panel teal lighten-1">This is a card panel with a teal lighten-2 class</div>	
+			<div class="card-panel teal lighten-1">This is a card panel with a teal lighten-1 class</div>	
 			<div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
-			<div class="card-panel teal lighten-4">This is a card panel with a teal lighten-2 class</div>
+			<div class="card-panel teal lighten-4">This is a card panel with a teal lighten-4 class</div>
 
 				<!-- darken -->
 			<div class="card-panel teal darken-1">This is a card panel with a teal lighten-2 class</div>	
@@ -28,35 +82,17 @@
 			<div id="testColors"></div>
 			<div id="testColors"></div>
 		</section>
+
+		<section>
+	 		<a class="waves-effect waves-yellow btn-large" href="#">Wave</a>
+		</section>
 	</main>
 
 	<footer>
 		
 	</footer>
 
-	<!--Import jQuery before materialize.js-->
-	<script
-  sxrc="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script type="text/javascript">
-  	$(document).ready(function() {
-  		var $divs = $("#testColors");
-	  		for( var i =0; i<8; i++) {
-	  			var htmlToAdd = "";
-		  		divs.each(function() {
-		  			$t = $(this);
-		  			$t.html($t.html() + htmlToAdd);
-		  		});
-	  		}
 
-
-
-  	});
-  </script>
-
-	<!-- Compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
 
 </body>
