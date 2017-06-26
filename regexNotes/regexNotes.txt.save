@@ -1,0 +1,5 @@
+let testStr = "freeCodeCamp";
+
+let regex = /Code/;
+
+testRegex.test(testStr);
