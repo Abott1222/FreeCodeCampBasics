@@ -1,28 +1,24 @@
-var input = "111 108 108 101 72 32 101 114 101 104 116 32 41 58";
+//call back checks value and returns either true or false
+Array.prototype.myFilter = function(callback){
+  var newArray = [];
+  // Add your code below this line
+  this.forEach( (elem) => {
+    if(callback(elem)) newArray.push(elem);
+  });
+  // Add your code above this line
+  return newArray;
 
-var ix = input.split(" 32 ");
-var r = "";
-for(var a=0; a<ix.length; a++) {
-    var i = ix[a].split(" ");
-    console.log(i);
-for(var x=0; x<i.length; x++) {
-    var z = String.fromCharCode(i[x]);
-    console.log(z);
-    if(z=="32") r+= " ";
-    else r +=z;
-}
-}
+};
+var s = [23, 65, 98, 5];
 
-
-// Write an action using print()
-// To debug: printErr('Debug messages...');
-
-console.log(r);
+var new_s = s.myFilter(function(item){
+  return item % 2 === 1;
+});
 
 
-var doSomething = function(a,b,functArg) {
-	return functArg(a,b);
-}
+var anim = [1,2,3,4];
+var newAnim = anim.filter(function(animal,index) {return index === 0;});
+console.log(newAnim);
 
 
 // the global variable
@@ -141,48 +137,19 @@ var watchList = [
 
 // Add your code below this line
 
-var rating = watchList.map( (movie) => {
-  return {title: movie["Title"], rating: movie["imdbRating"]};
-});
+var copy = watchList.slice();
+var filtered = copy.filter(function(elem) {return elem.Director==="Christopher Nolan";});
 
-/*
-[ { title: 'Inception', rating: '8.8' },
-  { title: 'Interstellar', rating: '8.6' },
-  { title: 'The Dark Knight', rating: '9.0' },
-  { title: 'Batman Begins', rating: '8.3' },
-  { title: 'Avatar', rating: '7.9' } ]
-*/
+var avg = filtered.reduce(function(acc,next,index) {
+	console.log("acc is " + typeof acc);
+	console.log("next is " +next.imdbRating);
+	if(index ===0) {return acc.imdbRating+next.imdbRating;}
+	else return  acc+next.imdbRating;
+}, 0);
 
-console.log(rating);
-
-var filteredList = watchList.filter( (movie) => parseInt(movie.imdbRating) >= 8.0 );
-
-var filteredList = filteredList.map( function(elem)  {
-  return {title: elem.Title, rating:elem.imdbRating};
-});
+var length = filtered.length; 
+var averageRating = avg/filtered.length; 
 
 // Add your code above this line
 
-console.log(filteredList); 
-
-
-
-// the global Array
-var s = [23, 65, 98, 5];
-
-Array.prototype.myMap = function(callback){
-  var newArray = [];
-  // Add your code below this line
-  this.forEach((elem) => {
-    newArray.push(callback(elem));
-  });
-  // Add your code above this line
-  return newArray;
-
-};
-
-var new_s = s.myMap(function(item){
-  return item * 2;
-});
-
-
+console.log(averageRating); 

@@ -1,0 +1,78 @@
+<!-- LEFT OFF ON PAGE 210 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<canvas id="canvas" width="400" height="400"></canvas>
+
+<script type="text/javascript">
+	var canvas = document.getElementById("canvas");
+
+	//drawing context
+	//a js object that includes methods and properties for drawing on canvas
+
+	var spread = 10;
+	var ctx = canvas.getContext("2d");
+	for(var i=0; i< 8; i++) {
+		switch(i%3) {
+			case 0:
+				ctx.fillStyle = "Red";
+				break;
+			case 1:
+				ctx.fillStyle = "Blue";
+				break;
+			case 2:
+				ctx.fillStyle = "Cyan";
+				break;
+		}
+		//start x, start y, height and width
+		ctx.fillRect(i*20+spread,0,15,40);
+	}
+
+	//draw outline
+	ctx.strokeStyle = "Red";
+	ctx.lineWidth = 4;
+	ctx.strokeRect(0,100, 20,20);
+
+
+	//drawing with lines(path)
+
+	//with stroke
+	ctx.beginPath();
+	//starting pos
+	ctx.moveTo(50,50);
+	//draw to
+	ctx.lineTo(100,100);
+
+	ctx.moveTo(100,50);
+	ctx.lineTo(50,100);
+	ctx.stroke();
+
+
+	//fill path with color!
+	ctx.beginPath();
+	ctx.moveTo(130,30);
+	//draw to
+	ctx.lineTo(160,60);
+
+	ctx.lineTo(160,90);
+	ctx.lineTo(200,90);
+	ctx.lineTo(130,30);
+	//ctx.lineTo(150,100);
+	ctx.closePath();
+	ctx.stroke();
+
+
+	//arcs and circles WITH arc
+
+	//quarter arc
+	//ctx.beginPath();
+	ctx.arc(200,200, 0, Math.PI / 2, false);
+	ctx.stroke();
+
+</script>
+</body>
+</html>
