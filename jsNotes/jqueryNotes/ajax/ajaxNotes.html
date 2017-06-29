@@ -1,0 +1,57 @@
+<!-- note need python -m SimpleHTTPServer
+because You can't do a XMLHttpRequest crossdomain
+-->
+<!--
+Check out jquery code
+ james.padolsey.com/jquery/#v=1.4&fn=jQuery.get
+-->
+
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#myButton").on("click", function() {
+				alert("clicked2!");
+				//$("#addTo").load("htmlDetails.html #MainTOC");
+				//$("#addTo2").load("htmlDetails.html #SubTOC");
+				$.get("htmlDetails.html", function(data) {
+					$("#addTo").html(data);
+				});
+			})
+		})
+
+	</script>
+
+  <style>
+  	html, body {
+  		height:100%;
+  	}
+
+
+  </style>
+
+</head>
+<body>
+	<header>
+		<h1> Hello </h1>
+		<div> Test </div>
+	</header>
+
+	<section>
+		<button id="myButton">CLick to get html</button>
+	</section>
+
+	<section>
+		<div id="addTo"> </div>
+		<br>
+		<h1> Stuff in between here! </h1>
+		<hr>
+		<div id ="addTo2"> </div>
+		
+	</section>
+
+</body>
+</html>
