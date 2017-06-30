@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas id="canvas" width="300" height="300"></canvas>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		var circle = function(x,y,r,clr) {
+			ctx.beginPath();
+			ctx.strokeStyle = clr;
+			ctx.arc(x,y,r,0, Math.PI*2);
+			ctx.stroke();
+		}
+
+		for(var i=0; i<150; i+=11) {
+			var color;
+			switch(i%3) {
+			case 0:
+				color = "Red";
+				break;
+			case 1:
+				color = "Blue";
+				break;
+			case 2:
+				color = "Cyan";
+				break;
+			}
+
+			circle(i,i,15,color);
+			circle(150-i, i, 15, color);
+		
+
+			circle(i, 150, 15, color);
+			circle(150,i,15,color);
+		}
+	</script>
+</body>
+</html>

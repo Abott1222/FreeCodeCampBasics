@@ -39,7 +39,6 @@
 
 
 	//drawing with lines(path)
-
 	//with stroke
 	ctx.beginPath();
 	//starting pos
@@ -66,11 +65,24 @@
 	ctx.stroke();
 
 
+
 	//arcs and circles WITH arc
 
 	//quarter arc
 	//ctx.beginPath();
-	ctx.arc(200,200, 0, Math.PI / 2, false);
+	ctx.moveTo(0,190);
+	ctx.lineTo(100,190);
+	ctx.stroke();
+
+
+	//if you do not beginPath it will be connected...
+	ctx.beginPath();
+	//x,y,radius length, starting angle, end angle, counterClockWiseTorF
+	ctx.arc(0,250,100, 0, Math.PI / 2, false);
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.arc(40,250,20, 0, Math.PI *2, false);
 	ctx.stroke();
 
 </script>
