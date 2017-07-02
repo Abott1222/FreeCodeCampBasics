@@ -88,7 +88,9 @@ var Person = mongoose.model("Person", PersonSchema); /* = <Your Model> */
 // Create a `document` instance using the `Person` constructor you build before.
 // Pass to the constructor an object having the fields `name`, `age`,
 // and `favoriteFoods`. Their types must be conformant to the ones in
-// the Person `Schema`. Then call the method `document.save()` on the returned
+// the Person `Schema`. 
+//
+// Then call the method `document.save()` on the returned
 // document instance, passing to it a callback using the Node convention.
 // This is a common pattern, all the **CRUD** methods take a callback 
 // function like this as the last argument.
@@ -100,12 +102,17 @@ var Person = mongoose.model("Person", PersonSchema); /* = <Your Model> */
 //    ...do your stuff here...
 // });
 
-var Alex = new Person({name:"Alex", age:28, favoriteFoods: ["Pizza, Burritos, Sushi"]});
+var Alex = new Person({name:"Steve3.0", age:28, favoriteFoods: ["Pizza, Burritos, Sushi"]});
+Alex.save(function(err,data) {
+
+})
 
 var createAndSavePerson = function(done) {
-  
-  done(null /*, data*/);
-
+  Alex.save(function (err, data) {
+    if (err) return console.error(err);
+    done(null /*, data*/);
+    });
+  //done(null /*, data*/);
 };
 
 /** 4) Create many People with `Model.create()` */
