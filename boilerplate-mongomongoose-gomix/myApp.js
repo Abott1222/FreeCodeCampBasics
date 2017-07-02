@@ -2,6 +2,7 @@
 * 3. FCC Mongo & Mongoose Challenges
 * ==================================
 ***********************************************/
+require("dotenv").config();
 
 /** # MONGOOSE SETUP #
 /*  ================== */
@@ -12,6 +13,15 @@
 // `mongoose`. Store your **mLab** database URI in the private `.env` file 
 // as `MONGO_URI`. Connect to the database using `mongoose.connect(<Your URI>)`
 var mongoose = require("mongoose");
+var db = mongoose.connect(process.env.URI);
+
+/* Test for errors!
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+});
+
+*/
 
 /** # SCHEMAS and MODELS #
 /*  ====================== */
@@ -32,13 +42,27 @@ var mongoose = require("mongoose");
 // age :  number
 // favoriteFoods : array of strings (*)
 
+
+
 // Use the mongoose basic *schema types*. If you want you can also add more
 // fields, use simple validators like `required` or `unique`, and set
 // `default` values. See the [mongoose docs](http://mongoosejs.com/docs/guide.html).
 
 // <Your code here >
 
-var Person /* = <Your Model> */
+var PersonSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  }, age: {
+    type: Number
+  }, favoriteFoods: {
+    //array of Strings
+    type: [String]
+  }
+});
+
+var Person = mongoose.model("Person", PersonSchema); /* = <Your Model> */
 
 // **Note**: GoMix is a real server, and in real servers interactions with
 // the db are placed in handler functions, to be called when some event happens
@@ -69,11 +93,14 @@ var Person /* = <Your Model> */
 // This is a common pattern, all the **CRUD** methods take a callback 
 // function like this as the last argument.
 
+
 // - Example -
 // ...
 // person.save(function(err, data) {
 //    ...do your stuff here...
 // });
+
+var Alex = new Person({name:"Alex", age:28, favoriteFoods: ["Pizza, Burritos, Sushi"]});
 
 var createAndSavePerson = function(done) {
   
