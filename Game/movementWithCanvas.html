@@ -14,8 +14,8 @@
 
 		setInterval(function() {
 			//x,y,width,height  -> 0,0,200,200 clears entire rect
-			ctx.clearRect(0,0,200,200);
-			ctx.fillRect(position,0,20,20);
+			ctx.clearRect(0,200-position,200,200);
+			ctx.fillRect(200-position,(position/20)+position,20,20);
 			position++;
 			console.log(position);
 
