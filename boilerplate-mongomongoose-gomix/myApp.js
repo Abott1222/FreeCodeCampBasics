@@ -13,7 +13,7 @@ require("dotenv").config();
 // `mongoose`. Store your **mLab** database URI in the private `.env` file 
 // as `MONGO_URI`. Connect to the database using `mongoose.connect(<Your URI>)`
 var mongoose = require("mongoose");
-var db = mongoose.connect(process.env.URI);
+var db = mongoose.connect(process.env.URI, { useMongoClient: true });
 
 /* Test for errors!
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -102,14 +102,17 @@ var Person = mongoose.model("Person", PersonSchema); /* = <Your Model> */
 //    ...do your stuff here...
 // });
 
-var Alex = new Person({name:"Steve3.0", age:28, favoriteFoods: ["Pizza, Burritos, Sushi"]});
-Alex.save(function(err,data) {
+var Alex = new Person({name:"Steve40.0", age:28, favoriteFoods: ["Pizza, Burritos, Sushi"]});
+console.log(typeof Alex);
+//Alex.save(function(err,data) {
 
-})
+//})
 
 var createAndSavePerson = function(done) {
+  console.log("inside create and save");
   Alex.save(function (err, data) {
-    if (err) return console.error(err);
+    console.log("Got inside finally!");
+    if (err) return done(error);
     done(null /*, data*/);
     });
   //done(null /*, data*/);
@@ -126,7 +129,7 @@ var createAndSavePerson = function(done) {
 
 var createManyPeople = function(arrayOfPeople, done) {
     
-    done(null/*, data*/);
+    //done(null/*, data*/);
     
 };
 
