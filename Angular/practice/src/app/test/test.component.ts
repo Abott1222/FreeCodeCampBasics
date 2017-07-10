@@ -12,7 +12,8 @@ export class TestComponent implements OnInit {
   	this.event = {
   		id: 1,
   		"name": "Alex",
-  		"other": "Just a test dude"
+  		"other": "Just a test dude",
+  		"img": null
   	}
   }
 

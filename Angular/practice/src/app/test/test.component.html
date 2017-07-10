@@ -6,6 +6,8 @@
 <h1> name is {{this.event.name}} </h1>
 <h1> other is {{this.event.other}} </h1>
 
+<img *ngIf="this.event.img !== null" style="width:100px; height:100px" src={{this.event.img}} />
+
 <form>
 <label>
 	id
@@ -20,6 +22,11 @@
 <label>
 	other
 	<input [(ngModel)]="this.event.other" name="other" />
+</label>
+
+<label>
+	img
+	<input [(ngModel)]="this.event.img" name="img" />
 </label>
 
 </form>
