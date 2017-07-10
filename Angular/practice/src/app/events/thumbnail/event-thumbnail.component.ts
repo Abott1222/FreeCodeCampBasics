@@ -27,4 +27,9 @@ export class EventThumbnailComponent {
 	handleClickMe() {
 		this.eventClick.emit("foo");
 	}
+
+	//example showing how you can call this from parent component
+	logFoo() {
+		console.log("Logging foo from parent component");
+	}
 }

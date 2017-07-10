@@ -1,11 +1,33 @@
 <div>
 	<h1> Upcoming events! </h1>
 	<!-- 
-	Saying when eventClick(variable from child component) is fired on the child component
+	Communication:
+
+	-Saying when eventClick(variable from child component) is fired on the child component
 	call this handle click event method
+
+	-#thumbnailVariable is a reference variable to that child component
+	logFoo is public method(can also get variables) in child component
+	button is in parent component
 	-->
 
-	<event-thumbnail *ngFor="let event of events" (eventClick)="handleEventClicked($event)"
-	[event] = event>
-	</event-thumbnail>
+
+		<!-- <event-thumbnail #thumbnail *ngFor="let event of events"
+	(eventClick)="handleEventClicked($event)"
+	[event] = "event"></event-thumbnail> -->
+
+
+	<!-- ngFor messes with reference variables? -->
+	
+	<event-thumbnail
+	(eventClick)="handleEventClicked($event)"
+	[event] = "event1" #thumbnail></event-thumbnail>
+
+
+
+	<br>
+	<br>
+	<button (click)="thumbnail.logFoo()"> Click to log Foo </button>
+
+
 </div>

@@ -1,0 +1,26 @@
+<p>
+  test works!
+</p>
+
+<h1> id is {{this.event.id}} </h1>
+<h1> name is {{this.event.name}} </h1>
+<h1> other is {{this.event.other}} </h1>
+
+<form>
+<label>
+	id
+	<input [(ngModel)]="this.event.id" name="id" />
+</label>
+
+<label>
+	name
+	<input [(ngModel)]="this.event.name" name="name" />
+</label>
+
+<label>
+	other
+	<input [(ngModel)]="this.event.other" name="other" />
+</label>
+
+</form>
+

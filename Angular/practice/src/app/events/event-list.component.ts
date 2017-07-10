@@ -7,6 +7,8 @@ import {Component} from "@angular/core";
 })
 
 export class EventsListComponent {
+	event:any
+
 	events = [
 	{
 		id:1,
@@ -25,7 +27,14 @@ export class EventsListComponent {
 	}
 	]
 
+	event1 = {
+		id:3,
+		name: "test event 2",
+		date: "2/2/22"
+	}
+
 	handleEventClicked(data) {
 		console.log("recieved: " + data);
+		console.log(event);
 	}
 }
