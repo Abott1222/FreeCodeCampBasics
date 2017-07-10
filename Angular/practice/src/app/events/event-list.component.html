@@ -1,5 +1,11 @@
 <div>
 	<h1> Upcoming events! </h1>
-	<event-thumbnail *ngFor="let event of events" [event] = event>
+	<!-- 
+	Saying when eventClick(variable from child component) is fired on the child component
+	call this handle click event method
+	-->
+
+	<event-thumbnail *ngFor="let event of events" (eventClick)="handleEventClicked($event)"
+	[event] = event>
 	</event-thumbnail>
 </div>

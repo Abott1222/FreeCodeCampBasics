@@ -24,4 +24,8 @@ export class EventsListComponent {
 		date: "2/2/22"
 	}
 	]
+
+	handleEventClicked(data) {
+		console.log("recieved: " + data);
+	}
 }
