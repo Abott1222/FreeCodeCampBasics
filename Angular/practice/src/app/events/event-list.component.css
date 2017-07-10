@@ -1,0 +1,14 @@
+div div {
+	background:purple;
+
+	margin-top: 10px;
+}
+
+p {
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 5px;
+	padding: 0 10px 10px 0;
+	background-color: grey;
+	width:30%;
+}
