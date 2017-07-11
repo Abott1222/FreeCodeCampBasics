@@ -15,9 +15,12 @@ export class TestComponent implements OnInit {
   		"other": "Just a test dude",
   		"img": null
   	}
+
   }
 
   ngOnInit() {
   }
+
+
 
 }
