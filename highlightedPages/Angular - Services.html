@@ -1,0 +1,1455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0023)http://marker.to/2rPiyV -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!--<base href="https://angular.io/tutorial/">--><base href=".">
+  
+  <title>Angular - Services</title>
+  <!--<base href="/">--><base href=".">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/x-icon" href="https://angular.io/tutorial/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="https://angular.io/tutorial/assets/images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" href="https://angular.io/tutorial/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://angular.io/tutorial/assets/images/favicons/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="https://angular.io/tutorial/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://angular.io/tutorial/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://angular.io/tutorial/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://angular.io/tutorial/assets/images/favicons/apple-touch-icon-144x144.png">
+
+  <!-- NOTE: These need to be kept in sync with `ngsw-manifest.json`. -->
+  <link href="./Angular - Services_files/icon" rel="stylesheet">
+  <link href="./Angular - Services_files/css" rel="stylesheet">
+  <link href="./Angular - Services_files/font-awesome.min.css" rel="stylesheet">
+  <!-- -->
+
+  <link rel="manifest" href="https://angular.io/tutorial/pwa-manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
+
+
+  <!-- Google Analytics -->
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  </script>
+  <script async="" src="./Angular - Services_files/analytics.js"></script>
+  <!-- End Google Analytics -->
+
+  <script>
+    if (window.document.documentMode) {
+      // polyfill IE11 in a blocking way
+      var s = document.createElement('script');
+      s.src = 'generated/ie-polyfills.min.js';
+      document.head.appendChild(s);
+    } else if (!Object.assign) {
+      // polyfill other non-evergreen browsers in a blocking way
+      var polyfillUrl = "https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.find&flags=gated&unknown=polyfill";
+
+      // send a blocking XHR to fetch the polyfill
+      // then append it to the document so that its eval-ed synchronously
+      // this is required because the method used for IE is not reliable with other non-evergreen browsers
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", function() {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        var code = this.responseText;
+        s.appendChild(document.createTextNode(code));
+        document.head.appendChild(s);
+      });
+      xhr.open("GET", polyfillUrl, false);
+      xhr.send();
+    }
+  </script>
+<link href="./Angular - Services_files/styles.1726fb90df194741b2b9.bundle.css" rel="stylesheet"><link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/lnmengjdnfjbochkdkcjbbpildacancp"><style>.mat-toolbar{display:flex;box-sizing:border-box;width:100%;padding:0 16px;flex-direction:column}.mat-toolbar .mat-toolbar-row{display:flex;box-sizing:border-box;width:100%;flex-direction:row;align-items:center;white-space:nowrap}.mat-toolbar{min-height:64px}.mat-toolbar-row{height:64px}@media (max-width:600px){.mat-toolbar{min-height:56px}.mat-toolbar-row{height:56px}}</style><style>.mat-button,.mat-fab,.mat-icon-button,.mat-mini-fab,.mat-raised-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px}[disabled].mat-button,[disabled].mat-fab,[disabled].mat-icon-button,[disabled].mat-mini-fab,[disabled].mat-raised-button{cursor:default}.cdk-keyboard-focused.mat-button .mat-button-focus-overlay,.cdk-keyboard-focused.mat-fab .mat-button-focus-overlay,.cdk-keyboard-focused.mat-icon-button .mat-button-focus-overlay,.cdk-keyboard-focused.mat-mini-fab .mat-button-focus-overlay,.cdk-keyboard-focused.mat-raised-button .mat-button-focus-overlay{opacity:1}.mat-button::-moz-focus-inner,.mat-fab::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-mini-fab::-moz-focus-inner,.mat-raised-button::-moz-focus-inner{border:0}.mat-fab,.mat-mini-fab,.mat-raised-button{box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1)}.mat-fab:not([disabled]):active,.mat-mini-fab:not([disabled]):active,.mat-raised-button:not([disabled]):active{box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}[disabled].mat-fab,[disabled].mat-mini-fab,[disabled].mat-raised-button{box-shadow:none}.mat-button .mat-button-focus-overlay,.mat-icon-button .mat-button-focus-overlay{transition:none;opacity:0}.mat-button:hover .mat-button-focus-overlay{opacity:1}.mat-fab{box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);min-width:0;border-radius:50%;width:56px;height:56px;padding:0;flex-shrink:0}.mat-fab:not([disabled]):active{box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.mat-fab .mat-icon,.mat-fab i{padding:16px 0;line-height:24px}.mat-mini-fab{box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);min-width:0;border-radius:50%;width:40px;height:40px;padding:0;flex-shrink:0}.mat-mini-fab:not([disabled]):active{box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.mat-mini-fab .mat-icon,.mat-mini-fab i{padding:8px 0;line-height:24px}.mat-icon-button{padding:0;min-width:0;width:40px;height:40px;flex-shrink:0;line-height:40px;border-radius:50%}.mat-icon-button .mat-icon,.mat-icon-button i{line-height:24px}.mat-button,.mat-icon-button,.mat-raised-button{color:currentColor}.mat-button .mat-button-wrapper>*,.mat-icon-button .mat-button-wrapper>*,.mat-raised-button .mat-button-wrapper>*{vertical-align:middle}.mat-button-focus-overlay,.mat-button-ripple{position:absolute;top:0;left:0;bottom:0;right:0;pointer-events:none}.mat-button-focus-overlay{background-color:rgba(0,0,0,.12);border-radius:inherit;opacity:0;transition:opacity .2s cubic-bezier(.35,0,.25,1),background-color .2s cubic-bezier(.35,0,.25,1)}@media screen and (-ms-high-contrast:active){.mat-button-focus-overlay{background-color:rgba(255,255,255,.5)}}.mat-button-ripple-round{border-radius:50%;z-index:1}@media screen and (-ms-high-contrast:active){.mat-button,.mat-fab,.mat-icon-button,.mat-mini-fab,.mat-raised-button{outline:solid 1px}}</style><style>.mat-icon{background-repeat:no-repeat;display:inline-block;fill:currentColor;height:24px;width:24px}</style><style>.mat-sidenav-container{position:relative;transform:translate3d(0,0,0);box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-sidenav-container[fullscreen]{position:absolute;top:0;left:0;right:0;bottom:0}.mat-sidenav-container[fullscreen].mat-sidenav-opened{overflow:hidden}.mat-sidenav-backdrop{position:absolute;top:0;left:0;right:0;bottom:0;display:block;z-index:2;visibility:hidden}.mat-sidenav-backdrop.mat-sidenav-shown{visibility:visible}@media screen and (-ms-high-contrast:active){.mat-sidenav-backdrop{opacity:.5}}.mat-sidenav-content{position:relative;transform:translate3d(0,0,0);display:block;height:100%;overflow:auto}.mat-sidenav{position:relative;transform:translate3d(0,0,0);display:block;position:absolute;top:0;bottom:0;z-index:3;min-width:5vw;outline:0;box-sizing:border-box;height:100%;overflow-y:auto;transform:translate3d(-100%,0,0)}.mat-sidenav.mat-sidenav-closed{visibility:hidden}.mat-sidenav.mat-sidenav-opened,.mat-sidenav.mat-sidenav-opening{transform:translate3d(0,0,0)}.mat-sidenav.mat-sidenav-side{z-index:1}.mat-sidenav.mat-sidenav-end{right:0;transform:translate3d(100%,0,0)}.mat-sidenav.mat-sidenav-end.mat-sidenav-closed{visibility:hidden}.mat-sidenav.mat-sidenav-end.mat-sidenav-opened,.mat-sidenav.mat-sidenav-end.mat-sidenav-opening{transform:translate3d(0,0,0)}[dir=rtl] .mat-sidenav{transform:translate3d(100%,0,0)}[dir=rtl] .mat-sidenav.mat-sidenav-closed{visibility:hidden}[dir=rtl] .mat-sidenav.mat-sidenav-opened,[dir=rtl] .mat-sidenav.mat-sidenav-opening{transform:translate3d(0,0,0)}[dir=rtl] .mat-sidenav.mat-sidenav-end{left:0;right:auto;transform:translate3d(-100%,0,0)}[dir=rtl] .mat-sidenav.mat-sidenav-end.mat-sidenav-closed{visibility:hidden}[dir=rtl] .mat-sidenav.mat-sidenav-end.mat-sidenav-opened,[dir=rtl] .mat-sidenav.mat-sidenav-end.mat-sidenav-opening{transform:translate3d(0,0,0)}.mat-sidenav.mat-sidenav-opened:not(.mat-sidenav-side),.mat-sidenav.mat-sidenav-opening:not(.mat-sidenav-side){box-shadow:0 8px 10px -5px rgba(0,0,0,.2),0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12)}</style><style>.mat-sidenav-transition .mat-sidenav{transition:transform .4s cubic-bezier(.25,.8,.25,1)}.mat-sidenav-transition .mat-sidenav-content{transition-duration:.4s;transition-timing-function:cubic-bezier(.25,.8,.25,1);transition-property:transform,margin-left,margin-right}.mat-sidenav-transition .mat-sidenav-backdrop.mat-sidenav-shown{transition:background-color .4s cubic-bezier(.25,.8,.25,1)}</style><script type="text/javascript" charset="utf-8" async="" src="./Angular - Services_files/0.b19e913fbdd6507d346b.chunk.js"></script><style>[_nghost-c5]{display:flex;flex-direction:column}.mat-tab-group-inverted-header[_nghost-c5]{flex-direction:column-reverse}.mat-tab-label[_ngcontent-c5]{line-height:48px;height:48px;padding:0 12px;cursor:pointer;box-sizing:border-box;opacity:.6;min-width:160px;text-align:center;position:relative}.mat-tab-label[_ngcontent-c5]:focus{outline:0;opacity:1}@media (max-width:600px){.mat-tab-label[_ngcontent-c5]{min-width:72px}}[mat-stretch-tabs][_nghost-c5]   .mat-tab-label[_ngcontent-c5], [md-stretch-tabs][_nghost-c5]   .mat-tab-label[_ngcontent-c5]{flex-basis:0;flex-grow:1}.mat-tab-body-wrapper[_ngcontent-c5]{position:relative;overflow:hidden;display:flex;transition:height .5s cubic-bezier(.35,0,.25,1)}.mat-tab-body[_ngcontent-c5]{position:absolute;top:0;left:0;right:0;bottom:0;display:block;overflow:hidden}.mat-tab-body.mat-tab-body-active[_ngcontent-c5]{position:relative;overflow-x:hidden;overflow-y:auto;z-index:1;flex-grow:1}.mat-tab-group-dynamic-height[_nghost-c5]   .mat-tab-body.mat-tab-body-active[_ngcontent-c5]{overflow-y:hidden}.mat-tab-disabled[_ngcontent-c5]{cursor:default;pointer-events:none}</style><style>.mat-tab-header{display:flex;overflow:hidden;position:relative;flex-shrink:0}.mat-tab-label{line-height:48px;height:48px;padding:0 12px;cursor:pointer;box-sizing:border-box;opacity:.6;min-width:160px;text-align:center;position:relative}.mat-tab-label:focus{outline:0;opacity:1}@media (max-width:600px){.mat-tab-label{min-width:72px}}.mat-ink-bar{position:absolute;bottom:0;height:2px;transition:.5s cubic-bezier(.35,0,.25,1)}.mat-tab-group-inverted-header .mat-ink-bar{bottom:auto;top:0}.mat-tab-header-pagination{position:relative;display:none;justify-content:center;align-items:center;min-width:32px;cursor:pointer;z-index:2}.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination{display:flex}.mat-tab-header-pagination-before,.mat-tab-header-rtl .mat-tab-header-pagination-after{padding-left:4px}.mat-tab-header-pagination-before .mat-tab-header-pagination-chevron,.mat-tab-header-rtl .mat-tab-header-pagination-after .mat-tab-header-pagination-chevron{transform:rotate(-135deg)}.mat-tab-header-pagination-after,.mat-tab-header-rtl .mat-tab-header-pagination-before{padding-right:4px}.mat-tab-header-pagination-after .mat-tab-header-pagination-chevron,.mat-tab-header-rtl .mat-tab-header-pagination-before .mat-tab-header-pagination-chevron{transform:rotate(45deg)}.mat-tab-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;content:'';height:8px;width:8px}.mat-tab-header-pagination-disabled{box-shadow:none;cursor:default}.mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron{border-color:#ccc}.mat-tab-label-container{display:flex;flex-grow:1;overflow:hidden;z-index:1}.mat-tab-list{flex-grow:1;position:relative;transition:transform .5s cubic-bezier(.35,0,.25,1)}.mat-tab-labels{display:flex}</style><style>.mat-tab-body-content{height:100%;overflow:auto}.mat-tab-group-dynamic-height .mat-tab-body-content{overflow:hidden}</style></head>
+<body style="padding-top: 100px;">
+
+  <aio-shell ng-version="4.2.4" class="sidenav-open page-tutorial-toh-pt4 folder-tutorial view-SideNav"><div id="top-of-page"></div>
+
+<!---->
+
+<md-toolbar class="app-toolbar mat-toolbar mat-primary" color="primary" role="toolbar"><div class="mat-toolbar-layout"><md-toolbar-row class="mat-toolbar-row">
+  <button class="hamburger mat-button" md-button="" title="Docs menu"><span class="mat-button-wrapper">
+    <md-icon class="mat-icon" role="img" svgicon="menu" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></md-icon>
+  </span><div class="mat-button-ripple mat-ripple" md-ripple=""></div><div class="mat-button-focus-overlay"></div></button>
+  <a class="nav-link home" href="https://angular.io/"><img alt="Home" title="Home" src="./Angular - Services_files/logo-nav@2x.png"></a>
+  <!----><aio-top-menu>
+    <ul role="navigation">
+      <!----><li><a class="nav-link" href="https://angular.io/tutorial/features" title="Features">Features</a></li><li><a class="nav-link" href="https://angular.io/tutorial/docs" title="Docs">Docs</a></li><li><a class="nav-link" href="https://angular.io/tutorial/resources" title="Resources">Resources</a></li><li><a class="nav-link" href="https://angular.io/tutorial/events" title="Events">Events</a></li><li><a class="nav-link" href="https://blog.angularjs.org/" title="Blog">Blog</a></li>
+    </ul></aio-top-menu>
+  <aio-search-box class="search-container"><input aria-label="search" placeholder="Search" type="search"></aio-search-box>
+</md-toolbar-row></div></md-toolbar>
+<!---->
+
+<md-sidenav-container class="sidenav-container mat-sidenav-container mat-sidenav-transition has-floating-toc" role="main"><div class="mat-sidenav-backdrop"></div><div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div><md-sidenav class="sidenav mat-sidenav mat-sidenav-side mat-sidenav-opening" tabindex="-1">
+    <!---->
+    <aio-nav-menu>
+  <!----><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-1 collapsed" href="https://angular.io/tutorial/guide/quickstart" title="A gentle introduction to Angular.">
+    Getting Started
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!---->
+
+<!----><div>
+  <!---->
+
+  <!----><button class="vertical-menu-item heading level-1 expanded selected" type="button" title="The Tour of Heroes tutorial takes you through the steps of creating an Angular application in TypeScript." aria-pressed="true">
+    Tutorial
+    <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></md-icon>
+  </button>
+
+  <div class="heading-children level-1 expanded selected">
+    <!----><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/tutorial" title="Part 1: Introduction to the Tour of Heroes tutorial">
+    1. Introduction
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/tutorial/toh-pt1" title="Part 2: Build a simple hero editor">
+    2. The Hero Editor
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/tutorial/toh-pt2" title="Part 3: Build a master/detail page with a list of heroes.">
+    3. Master/Detail
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/tutorial/toh-pt3" title="Part 4: Refactor the master/detail view into separate components.">
+    4. Multiple Components
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 expanded selected" href="https://angular.io/tutorial/tutorial/toh-pt4" title="Part 5: Create a reusable service to manage hero data.">
+    5. Services
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 expanded" href="https://angular.io/tutorial/tutorial/toh-pt5" title="Part 6: Add the Angular router and navigate among the views.">
+    6. Routing
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/tutorial/toh-pt6" title="Part 7: Use HTTP to retrieve and save hero data.">
+    7. HTTP
+  </a>
+</div>
+
+<!---->
+</aio-nav-item>
+  </div>
+</div>
+</aio-nav-item><aio-nav-item><!---->
+
+<!----><div>
+  <!---->
+
+  <!----><button class="vertical-menu-item heading level-1 collapsed" type="button" title="The fundamentals of Angular" aria-pressed="false">
+    Fundamentals
+    <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></md-icon>
+  </button>
+
+  <div class="heading-children level-1 collapsed">
+    <!----><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/architecture" title="The basic building blocks of Angular applications.">
+    Architecture
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!---->
+
+<!----><div>
+  <!---->
+
+  <!----><button class="vertical-menu-item heading level-2 collapsed" type="button" title="Template &amp; Data Binding" aria-pressed="false">
+    Template &amp; Data Binding
+    <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></md-icon>
+  </button>
+
+  <div class="heading-children level-2 collapsed">
+    <!----><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/displaying-data" title="Property binding helps show app data in the UI.">
+    Displaying Data
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/template-syntax" title="Learn how to write templates that display data and consume user events with the help of data binding.">
+    Template Syntax
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/lifecycle-hooks" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">
+    Lifecycle Hooks
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/component-interaction" title="Share information between different directives and components.">
+    Component Interaction
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/component-styles" title="Add CSS styles that are specific to a component.">
+    Component Styles
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/dynamic-component-loader" title="Load components dynamically.">
+    Dynamic Components
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/attribute-directives" title="Attribute directives attach behavior to elements.">
+    Attribute Directives
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/structural-directives" title="Structural directives manipulate the layout of the page.">
+    Structural Directives
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/pipes" title="Pipes transform displayed values within a template.">
+    Pipes
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/animations" title="A guide to Angular&#39;s animation system.">
+    Animations
+  </a>
+</div>
+
+<!---->
+</aio-nav-item>
+  </div>
+</div>
+</aio-nav-item><aio-nav-item><!---->
+
+<!----><div>
+  <!---->
+
+  <!----><button class="vertical-menu-item heading level-2 collapsed" type="button" title="Angular Forms" aria-pressed="false">
+    Forms
+    <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></md-icon>
+  </button>
+
+  <div class="heading-children level-2 collapsed">
+    <!----><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/user-input" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">
+    User Input
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/forms" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">
+    Template-driven Forms
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/form-validation" title="Validate user&#39;s form entries.">
+    Form Validation
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/reactive-forms" title="Create a reactive form using FormBuilder, groups, and arrays.">
+    Reactive Forms
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/dynamic-form" title="Render dynamic forms with FormGroup.">
+    Dynamic forms
+  </a>
+</div>
+
+<!---->
+</aio-nav-item>
+  </div>
+</div>
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/bootstrapping" title="Tell Angular how to construct and bootstrap the app in the root &quot;AppModule&quot;.">
+    Bootstrapping
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!---->
+
+<!----><div>
+  <!---->
+
+  <!----><button class="vertical-menu-item heading level-2 collapsed" type="button" title="Learn how to use NgModules to make your apps efficient." aria-pressed="false">
+    NgModules
+    <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></md-icon>
+  </button>
+
+  <div class="heading-children level-2 collapsed">
+    <!----><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/ngmodule" title="Define application modules with @NgModule.">
+    NgModules
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/ngmodule-faq" title="Answers to frequently asked questions about @NgModule.">
+    NgModule FAQs
+  </a>
+</div>
+
+<!---->
+</aio-nav-item>
+  </div>
+</div>
+</aio-nav-item><aio-nav-item><!---->
+
+<!----><div>
+  <!---->
+
+  <!----><button class="vertical-menu-item heading level-2 collapsed" type="button" title="Dependency Injection: creating and injecting services" aria-pressed="false">
+    Dependency Injection
+    <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></md-icon>
+  </button>
+
+  <div class="heading-children level-2 collapsed">
+    <!----><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/dependency-injection" title="Angular&#39;s dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">
+    Dependency Injection
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/hierarchical-dependency-injection" title="Angular&#39;s hierarchical dependency injection system supports nested injectors in parallel with the component tree.">
+    Hierarchical Injectors
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/dependency-injection-in-action" title="Techniques for Dependency Injection.">
+    DI in Action
+  </a>
+</div>
+
+<!---->
+</aio-nav-item>
+  </div>
+</div>
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/http" title="Use HTTP to talk to a remote server.">
+    Server Communication
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/router" title="Discover the basics of screen navigation with the Angular Router.">
+    Routing &amp; Navigation
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/testing" title="Techniques and practices for testing an Angular app.">
+    Testing
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/cheatsheet" title="A quick guide to common Angular coding techniques.">
+    Cheat Sheet
+  </a>
+</div>
+
+<!---->
+</aio-nav-item>
+  </div>
+</div>
+</aio-nav-item><aio-nav-item><!---->
+
+<!----><div>
+  <!---->
+
+  <!----><button class="vertical-menu-item heading level-1 collapsed" type="button" title="Techniques for putting Angular to work in your environment" aria-pressed="false">
+    Techniques
+    <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></md-icon>
+  </button>
+
+  <div class="heading-children level-1 collapsed">
+    <!----><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/i18n" title="Translate the app&#39;s template text into multiple languages.">
+    Internationalization (i18n)
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/security" title="Developing for content security in Angular applications.">
+    Security
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/ts-to-js" title="Convert Angular TypeScript examples into ES6 and ES5 JavaScript.">
+    TypeScript to JavaScript
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!---->
+
+<!----><div>
+  <!---->
+
+  <!----><button class="vertical-menu-item heading level-2 collapsed" type="button" title="Setup and Deployment" aria-pressed="false">
+    Setup &amp; Deployment
+    <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></md-icon>
+  </button>
+
+  <div class="heading-children level-2 collapsed">
+    <!----><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/setup" title="Install the Angular QuickStart seed for faster, more efficient development on your machine.">
+    Setup for local development
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/setup-systemjs-anatomy" title="Inside the local development environment for SystemJS.">
+    Anatomy of the Setup
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/browser-support" title="Browser support and polyfills guide.">
+    Browser Support
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/npm-packages" title="Recommended npm packages, and how to specify package dependencies.">
+    Npm Packages
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/typescript-configuration" title="TypeScript configuration for Angular developers.">
+    TypeScript Configuration
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/aot-compiler" title="Learn why and how to use the Ahead-of-Time (AOT) compiler.">
+    Ahead-of-Time Compilation
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/deployment" title="Learn how to deploy your Angular app.">
+    Deployment
+  </a>
+</div>
+
+<!---->
+</aio-nav-item>
+  </div>
+</div>
+</aio-nav-item><aio-nav-item><!---->
+
+<!----><div>
+  <!---->
+
+  <!----><button class="vertical-menu-item heading level-2 collapsed" type="button" title="Incrementally upgrade an AngularJS application to Angular." aria-pressed="false">
+    Upgrading
+    <md-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></md-icon>
+  </button>
+
+  <div class="heading-children level-2 collapsed">
+    <!----><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/upgrade" title="Incrementally upgrade an AngularJS application to Angular.">
+    Upgrading from AngularJS
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-3 collapsed" href="https://angular.io/tutorial/guide/ajs-quick-reference" title="Learn how AngularJS concepts and techniques map to Angular.">
+    Upgrade Cheatsheet
+  </a>
+</div>
+
+<!---->
+</aio-nav-item>
+  </div>
+</div>
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/visual-studio-2015" title="Use Visual Studio 2015 with the QuickStart files.">
+    Visual Studio 2015 QuickStart
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/styleguide" title="Write Angular with style.">
+    Style Guide
+  </a>
+</div>
+
+<!---->
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/guide/glossary" title="Brief definitions of the most important words in the Angular vocabulary.">
+    Glossary
+  </a>
+</div>
+
+<!---->
+</aio-nav-item>
+  </div>
+</div>
+</aio-nav-item><aio-nav-item><!----><div>
+  <a class="vertical-menu-item level-1 collapsed" href="https://angular.io/tutorial/api" title="Details of the Angular classes and values.">
+    API
+  </a>
+</div>
+
+<!---->
+</aio-nav-item></aio-nav-menu>
+
+    <div class="doc-version" title="Angular docs version 4.2.6">
+      <aio-select><div class="form-select-menu">
+  <button class="form-select-button">
+    <strong></strong><!---->4.2.6
+  </button>
+  <!---->
+</div>
+</aio-select>
+    </div>
+  </md-sidenav><div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div><div cdk-scrollable="" class="mat-sidenav-content" style="margin-left: 260px; margin-right: 0px; transform: translate3d(0px, 0px, 0px);">
+
+  
+
+  <section class="sidenav-content" role="content" id="tutorial-toh-pt4">
+    <aio-doc-viewer><h1 id="services"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#services"><i class="material-icons">link</i></a>Services</h1><aio-toc class="embedded" ng-version="4.2.4"><!----><div class="toc-inner collapsed">
+
+  <!---->
+
+  <!----><button aria-label="Expand/collapse contents" class="toc-heading embedded secondary" title="Expand/collapse contents" type="button" aria-pressed="false">
+    Contents
+    <md-icon class="rotating-icon mat-icon collapsed" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></md-icon>
+  </button>
+
+  <ul class="toc-list embedded">
+    <!----><!---->
+      <!---->
+    <!---->
+      <!----><li title="linkWhere you left off" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#where-you-left-off">Where you left off</a>
+      </li>
+    <!---->
+      <!----><li title="linkKeep the app transpiling and running" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#keep-the-app-transpiling-and-running">Keep the app transpiling and running</a>
+      </li>
+    <!---->
+      <!----><li title="linkCreating a hero service" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#creating-a-hero-service">Creating a hero service</a>
+      </li>
+    <!---->
+      <!----><li title="linkCreate the HeroService" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#create-the-heroservice">Create the HeroService</a>
+      </li>
+    <!---->
+      <!----><li title="linkInjectable services" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#injectable-services">Injectable services</a>
+      </li>
+    <!---->
+      <!----><li title="linkGetting hero data" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#getting-hero-data">Getting hero data</a>
+      </li>
+    <!---->
+      <!----><li title="linkMove the mock hero data" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#move-the-mock-hero-data">Move the mock hero data</a>
+      </li>
+    <!---->
+      <!----><li title="linkReturn mocked hero data" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#return-mocked-hero-data">Return mocked hero data</a>
+      </li>
+    <!---->
+      <!----><li title="linkImport the hero service" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#import-the-hero-service">Import the hero service</a>
+      </li>
+    <!---->
+      <!----><li title="linkDon&#39;t use new with the HeroService" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#dont-use-new-with-the-heroservice">Don't use <em>new</em> with the <em>HeroService</em></a>
+      </li>
+    <!---->
+      <!----><li title="linkInject the HeroService" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#inject-the-heroservice">Inject the <em>HeroService</em></a>
+      </li>
+    <!---->
+      <!----><li title="linkgetHeroes() in the AppComponent" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#getheroes-in-the-appcomponent"><em>getHeroes()</em> in the <em>AppComponent</em></a>
+      </li>
+    <!---->
+      <!----><li title="linkThe ngOnInit lifecycle hook" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#the-ngoninit-lifecycle-hook">The <em>ngOnInit</em> lifecycle hook</a>
+      </li>
+    <!---->
+      <!----><li title="linkAsync services and Promises" class="h2 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#async-services-and-promises">Async services and Promises</a>
+      </li>
+    <!---->
+      <!----><li title="linkThe hero service makes a Promise" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#the-hero-service-makes-a-promise">The hero service makes a Promise</a>
+      </li>
+    <!---->
+      <!----><li title="linkAct on the Promise" class="h3 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#act-on-the-promise">Act on the Promise</a>
+      </li>
+    <!---->
+      <!----><li title="linkReview the app structure" class="h2 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#review-the-app-structure">Review the app structure</a>
+      </li>
+    <!---->
+      <!----><li title="linkThe road you&#39;ve travelled" class="h2 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#the-road-youve-travelled">The road you've travelled</a>
+      </li>
+    <!---->
+      <!----><li title="linkThe road ahead" class="h2 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#the-road-ahead">The road ahead</a>
+      </li>
+    <!---->
+      <!----><li title="linkAppendix: Take it slow" class="h2 secondary">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#appendix-take-it-slow">Appendix: Take it slow</a>
+      </li>
+    
+  </ul>
+
+  <!----><button aria-label="Expand/collapse contents" class="toc-more-items embedded material-icons collapsed" title="Expand/collapse contents" type="button" aria-pressed="false">
+  </button>
+</div>
+</aio-toc>
+
+<div class="content">
+<p>As the Tour of Heroes app evolves, you'll add more components that need access to hero data.</p>
+<p><span class="textmarker textmarker_0" id="textmarker_0" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">Instead of copying and pasting the same code over and over,
+you'll create a single reusable data service and
+injec</span><span class="textmarker textmarker_1" id="textmarker_1" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">t</span> it into the components that need it.
+Using a separate service keeps components lean and focused on supporting the view,
+and makes it easy to unit-test components with a mock service.</p>
+<p>Because data services are invariably asynchronous,
+you'll finish the page with a <em>Promise</em>-based version of the data service.</p>
+<p>When you're done with this page, the app should look like this <live-example ng-version="4.2.4"><span>
+  <!---->
+  <!---->
+  <!---->
+  <!----><span>
+    <a target="_blank" href="https://angular.io/tutorial/generated/live-examples/toh-pt4/eplnkr.html" title="live example">live example</a>
+    <!----><span>
+      /  <a download="" title="Download example" href="https://angular.io/tutorial/generated/zips/toh-pt4/toh-pt4.zip">download example</a>
+    </span>
+  </span>
+</span>
+</live-example>.</p>
+<h2 id="where-you-left-off"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#where-you-left-off"><i class="material-icons">link</i></a>Where you left off</h2>
+<p>Before continuing with the Tour of Heroes, verify that you have the following structure.
+If not, go back to the previous pages.</p>
+<div class="filetree">
+  <div class="file">
+    angular-tour-of-heroes
+  </div>
+  <div class="children">
+    <div class="file">
+      src
+    </div>
+    <div class="children">
+      <div class="file">
+        app
+      </div>
+      <div class="children">
+        <div class="file">
+          app.component.ts
+        </div>
+        <div class="file">
+          app.module.ts
+        </div>
+        <div class="file">
+          hero.ts
+        </div>
+        <div class="file">
+          hero-detail.component.ts
+        </div>
+      </div>
+      <div class="file">
+        main.ts
+      </div>
+      <div class="file">
+        index.html
+      </div>
+      <div class="file">
+        styles.css
+      </div>
+      <div class="file">
+        systemjs.config.js
+      </div>
+      <div class="file">
+        tsconfig.json
+      </div>
+    </div>
+    <div class="file">
+      node_modules ...
+    </div>
+    <div class="file">
+      package.json
+    </div>
+  </div>
+</div>
+<h2 id="keep-the-app-transpiling-and-running"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#keep-the-app-transpiling-and-running"><i class="material-icons">link</i></a>Keep the app transpiling and running</h2>
+<p>Enter the following command in the terminal window:</p>
+<code-example language="sh" class="code-shell" ng-version="4.2.4">
+    <!---->
+    <aio-code class="simple-code">
+    <pre class="prettyprint lang-sh">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">npm start</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>This command runs the TypeScript compiler in "watch mode", recompiling automatically when the code changes.
+The command simultaneously launches the app in a browser and refreshes the browser when the code changes.</p>
+<p>You can keep building the Tour of Heroes without pausing to recompile or refresh the browser.</p>
+<h2 id="creating-a-hero-service"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#creating-a-hero-service"><i class="material-icons">link</i></a>Creating a hero service</h2>
+<p>The stakeholders want to show the heroes in various ways on different pages.
+Users can already select a hero from a list.
+Soon you'll add a dashboard with the top performing heroes and create a separate view for editing hero details.
+All three views need hero data.</p>
+<p>At the moment, the <code>AppComponent</code> defines mock heroes for display.
+However, defining heroes is not the component's job,
+and you can't easily share the list of heroes with other components and views.
+In this page, you'll move the hero data acquisition business to a single service that provides the data and
+share that service with all components that need the data.</p>
+<h3 id="create-the-heroservice"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#create-the-heroservice"><i class="material-icons">link</i></a>Create the HeroService</h3>
+<p>Create a file in the <code>app</code> folder called <code>hero.service.ts</code>.</p>
+<div class="l-sub-section">
+<p>The naming convention for service files is the service name in lowercase followed by <code>.service</code>.
+For a multi-word service name, use lower <a href="https://angular.io/tutorial/guide/glossary">dash-case</a>.
+For example, the filename for <code>SpecialSuperHeroService</code> is <code>special-super-hero.service.ts</code>.</p>
+</div>
+<p>Name the class <code>HeroService</code> and export it for others to import.</p>
+<code-example path="toh-pt4/src/app/hero.service.1.ts" region="empty-class" title="src/app/hero.service.ts (starting point)" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/hero.service.ts (starting point)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/hero.service.ts (starting point)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ"><span class="textmarker textmarker_2" id="textmarker_2" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">Injectable</span></span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'@angular/core'</span><span class="pun">;</span><span class="pln">
+
+</span><span class="lit"><span class="textmarker textmarker_3" id="textmarker_3" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">@Injectable</span></span><span class="pun"><span class="textmarker textmarker_3" id="textmarker_4" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">()</span></span><span class="pln">
+</span><span class="kwd">export</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">HeroService</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="pun">}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<h3 id="injectable-services"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#injectable-services"><i class="material-icons">link</i></a>Injectable services</h3>
+<p>Notice that you imported the Angular <code><a href="https://angular.io/tutorial/api/core/Injectable">Injectable</a></code> function and applied that function as an <code>@Injectable()</code> decorator.</p>
+<div class="callout is-helpful">
+<p>Don't forget the parentheses. Omitting them leads to an error that's difficult to diagnose.</p>
+</div>
+<p>The <code>@Injectable()</code> decorator tells TypeScript to emit metadata about the service.
+The metadata specifies that Angular may need to inject other dependencies into this service.</p>
+<p>Although the <code>HeroService</code> doesn't have any dependencies at the moment,
+applying the <code>@Injectable()</code> decorator ​from the start ensures
+consistency and future-proofing.</p>
+<h3 id="getting-hero-data"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#getting-hero-data"><i class="material-icons">link</i></a>Getting hero data</h3>
+<p>Add a <code>getHeroes()</code> method stub.</p>
+<code-example path="toh-pt4/src/app/hero.service.1.ts" region="getHeroes-stub" title="src/app/hero.service.ts (getHeroes stub)" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/hero.service.ts (getHeroes stub)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/hero.service.ts (getHeroes stub)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="lit">@Injectable</span><span class="pun">()</span><span class="pln">
+</span><span class="kwd">export</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">HeroService</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  getHeroes</span><span class="pun">():</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="pun">{}</span><span class="pln"> </span><span class="com">// stub</span><span class="pln">
+</span><span class="pun">}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>The <code>HeroService</code> could get <code>Hero</code> data from anywhere—a
+web service, local storage, or a mock data source.
+Removing data access from the component means
+you can change your mind about the implementation anytime,
+without touching the components that need hero data.</p>
+<h3 id="move-the-mock-hero-data"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#move-the-mock-hero-data"><i class="material-icons">link</i></a>Move the mock hero data</h3>
+<p>Cut the <code>HEROES</code> array from <code>app.component.ts</code> and paste it to a new file in the <code>app</code> folder named <code>mock-heroes.ts</code>.
+Additionally, copy the <code>import {Hero} ...</code> statement because the heroes array uses the <code>Hero</code> class.</p>
+<code-example path="toh-pt4/src/app/mock-heroes.ts" title="src/app/mock-heroes.ts" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/mock-heroes.ts</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/mock-heroes.ts">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><ol class="linenums"><li class="L0"><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ">Hero</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'./hero'</span><span class="pun">;</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="kwd">export</span><span class="pln"> </span><span class="kwd">const</span><span class="pln"> HEROES</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li><li class="L3"><span class="pln">  </span><span class="pun">{</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="lit">11</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Mr. Nice'</span><span class="pln"> </span><span class="pun">},</span></li><li class="L4"><span class="pln">  </span><span class="pun">{</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="lit">12</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Narco'</span><span class="pln"> </span><span class="pun">},</span></li><li class="L5"><span class="pln">  </span><span class="pun">{</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="lit">13</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Bombasto'</span><span class="pln"> </span><span class="pun">},</span></li><li class="L6"><span class="pln">  </span><span class="pun">{</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="lit">14</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Celeritas'</span><span class="pln"> </span><span class="pun">},</span></li><li class="L7"><span class="pln">  </span><span class="pun">{</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Magneta'</span><span class="pln"> </span><span class="pun">},</span></li><li class="L8"><span class="pln">  </span><span class="pun">{</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="lit">16</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'RubberMan'</span><span class="pln"> </span><span class="pun">},</span></li><li class="L9"><span class="pln">  </span><span class="pun">{</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="lit">17</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Dynama'</span><span class="pln"> </span><span class="pun">},</span></li><li class="L0"><span class="pln">  </span><span class="pun">{</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="lit">18</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Dr IQ'</span><span class="pln"> </span><span class="pun">},</span></li><li class="L1"><span class="pln">  </span><span class="pun">{</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="lit">19</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Magma'</span><span class="pln"> </span><span class="pun">},</span></li><li class="L2"><span class="pln">  </span><span class="pun">{</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Tornado'</span><span class="pln"> </span><span class="pun">}</span></li><li class="L3"><span class="pun">];</span></li></ol></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>The <code>HEROES</code> constant is exported so it can be imported elsewhere, such as the <code>HeroService</code>.</p>
+<p>In <code>app.component.ts</code>, where you cut the <code>HEROES</code> array,
+add an uninitialized <code>heroes</code> property:</p>
+<code-example path="toh-pt4/src/app/app.component.1.ts" region="heroes-prop" title="src/app/app.component.ts (heroes property)" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts (heroes property)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts (heroes property)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">heroes</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">[];</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<h3 id="return-mocked-hero-data"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#return-mocked-hero-data"><i class="material-icons">link</i></a>Return mocked hero data</h3>
+<p>Back in the <code>HeroService</code>, import the mock <code>HEROES</code> and return it from the <code>getHeroes()</code> method.
+The <code>HeroService</code> looks like this:</p>
+<code-example path="toh-pt4/src/app/hero.service.1.ts" region="full" title="src/app/hero.service.ts" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/hero.service.ts</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/hero.service.ts">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ">Injectable</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'@angular/core'</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ">Hero</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'./hero'</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> HEROES </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'./mock-heroes'</span><span class="pun">;</span><span class="pln">
+
+</span><span class="lit">@Injectable</span><span class="pun">()</span><span class="pln">
+</span><span class="kwd">export</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">HeroService</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  getHeroes</span><span class="pun">():</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> HEROES</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<h3 id="import-the-hero-service"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#import-the-hero-service"><i class="material-icons">link</i></a>Import the hero service</h3>
+<p>You're ready to use the <code>HeroService</code> in other components, starting with <code>AppComponent</code>.</p>
+<p>Import the <code>HeroService</code> so that you can reference it in the code.</p>
+<code-example path="toh-pt4/src/app/app.component.ts" linenums="false" title="src/app/app.component.ts (hero-service-import)" region="hero-service-import" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts (hero-service-import)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts (hero-service-import)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ">HeroService</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'./hero.service'</span><span class="pun">;</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<h3 id="dont-use-new-with-the-heroservice"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#dont-use-new-with-the-heroservice"><i class="material-icons">link</i></a>Don't use <em>new</em> with the <em>HeroService</em></h3>
+<p>How should the <code>AppComponent</code> acquire a runtime concrete <code>HeroService</code> instance?</p>
+<p>You could create a new instance of the <code>HeroService</code> with <code>new</code> like this:</p>
+<code-example path="toh-pt4/src/app/app.component.1.ts" region="new-service" title="src/app/app.component.ts" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">heroService </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HeroService</span><span class="pun">();</span><span class="pln"> </span><span class="com">// don't do this</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>However, this option isn't ideal for the following reasons:</p>
+<ul>
+<li>The component has to know how to create a <code>HeroService</code>.
+If you change the <code>HeroService</code> constructor,
+you must find and update every place you created the service.
+Patching code in multiple places is error prone and adds to the test burden.</li>
+<li>You create a service each time you use <code>new</code>.
+What if the service caches heroes and shares that cache with others?
+You couldn't do that.</li>
+<li>With the <code>AppComponent</code> locked into a specific implementation of the <code>HeroService</code>,
+switching implementations for different scenarios, such as operating offline or using
+different mocked versions for testing, would be difficult.</li>
+</ul>
+<h3 id="inject-the-heroservice"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#inject-the-heroservice"><i class="material-icons">link</i></a><span class="textmarker textmarker_6" id="textmarker_15" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">Inject the </span><em><span class="textmarker textmarker_6" id="textmarker_16" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">HeroService</span></em></h3>
+<p>Instead of using the <em>new</em> line, you'll add two lines.</p>
+<ul>
+<li>Add a constructor that also defines a private property.</li>
+<li>Add to the component's <code>providers</code> metadata.</li>
+</ul>
+<p>Add the constructor:</p>
+<code-example path="toh-pt4/src/app/app.component.1.ts" region="ctor" title="src/app/app.component.ts (constructor)" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/<span class="textmarker textmarker_4" id="textmarker_5" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">app.component.ts</span> (constructor)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts (constructor)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="kwd"><span class="textmarker textmarker_5" id="textmarker_6" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">constructor</span></span><span class="pun"><span class="textmarker textmarker_5" id="textmarker_7" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">(</span></span><span class="kwd"><span class="textmarker textmarker_5" id="textmarker_8" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">private</span></span><span class="pln"><span class="textmarker textmarker_5" id="textmarker_9" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;"> heroService</span></span><span class="pun"><span class="textmarker textmarker_5" id="textmarker_10" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">:</span></span><span class="pln"> </span><span class="typ"><span class="textmarker textmarker_5" id="textmarker_11" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">HeroService</span></span><span class="pun"><span class="textmarker textmarker_5" id="textmarker_12" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">)</span></span><span class="pln"> </span><span class="pun"><span class="textmarker textmarker_5" id="textmarker_13" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">{</span></span><span class="pln"> </span><span class="pun"><span class="textmarker textmarker_5" id="textmarker_14" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">}</span></span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>The constructor itself does nothing. The parameter simultaneously
+defines a private <code>heroService</code> property and identifies it as a <code>HeroService</code> injection site.</p>
+<p>Now Angular knows to supply an instance of the <code>HeroService</code> when it creates an <code>AppComponent</code>.</p>
+<div class="l-sub-section">
+<p>Read more about dependency injection in the <a href="https://angular.io/tutorial/guide/dependency-injection">Dependency Injection</a> page.</p>
+</div>
+<p>The <em>injector</em> doesn't know yet how to create a <code>HeroService</code>.
+If you ran the code now, Angular would fail with this error:</p>
+<code-example format="nocode" ng-version="4.2.4">
+    <!---->
+    <aio-code class="simple-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">EXCEPTION</span><span class="pun">:</span><span class="pln"> </span><span class="typ">No</span><span class="pln"> provider </span><span class="kwd">for</span><span class="pln"> </span><span class="typ">HeroService</span><span class="pun">!</span><span class="pln"> </span><span class="pun">(</span><span class="typ">AppComponent</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="typ">HeroService</span><span class="pun">)</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>To teach the injector how to make a <code>HeroService</code>,
+add the following <code>providers</code> array property to the bottom of the component metadata
+in the <code>@Component</code> call.</p>
+<code-example path="toh-pt4/src/app/app.component.1.ts" linenums="false" title="src/app/app.component.ts (providers)" region="providers" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts (providers)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts (providers)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">providers</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="typ">HeroService</span><span class="pun">]</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>The <code>providers</code> array  tells Angular to create a fresh instance of the <code>HeroService</code> when it creates an <code>AppComponent</code>.
+The <code>AppComponent</code>, as well as its child components, can use that service to get hero data.</p>
+<a id="child-component"></a>
+<h3 id="getheroes-in-the-appcomponent"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#getheroes-in-the-appcomponent"><i class="material-icons">link</i></a><em>getHeroes()</em> in the <em>AppComponent</em></h3>
+<p>The service is in a <code>heroService</code> private variable.</p>
+<p>You could call the service and get the data in one line.</p>
+<code-example path="toh-pt4/src/app/app.component.1.ts" region="get-heroes" title="src/app/app.component.ts" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="kwd">this</span><span class="pun">.</span><span class="pln">heroes </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">heroService</span><span class="pun">.</span><span class="pln">getHeroes</span><span class="pun">();</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>You don't really need a dedicated method to wrap one line.  Write it anyway:</p>
+<code-example path="toh-pt4/src/app/app.component.1.ts" linenums="false" title="src/app/app.component.ts (getHeroes)" region="getHeroes" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts (getHeroes)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts (getHeroes)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">getHeroes</span><span class="pun">():</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">heroes </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">heroService</span><span class="pun">.</span><span class="pln">getHeroes</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<a id="oninit"></a>
+<h3 id="the-ngoninit-lifecycle-hook"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#the-ngoninit-lifecycle-hook"><i class="material-icons">link</i></a>The <em>ngOnInit</em> lifecycle hook</h3>
+<p><code>AppComponent</code> should fetch and display hero data with no issues.</p>
+<p> You might be tempted to call the <code>getHeroes()</code> method in a constructor, but
+a constructor should not contain complex logic,
+especially a constructor that calls a server, such as a data access method.
+The constructor is for simple initializations, like wiring constructor parameters to properties.</p>
+<p>To have Angular call <code>getHeroes()</code>, you can implement the Angular <em>ngOnInit lifecycle hook</em>.
+Angular offers interfaces for tapping into critical moments in the component lifecycle:
+at creation, after each change, and at its eventual destruction.</p>
+<p>Each interface has a single method. When the component implements that method, Angular calls it at the appropriate time.</p>
+<div class="l-sub-section">
+<p>Read more about lifecycle hooks in the <a href="https://angular.io/tutorial/guide/lifecycle-hooks">Lifecycle Hooks</a> page.</p>
+</div>
+<p>Here's the essential outline for the <code><a href="https://angular.io/tutorial/api/core/OnInit">OnInit</a></code> interface (don't copy this into your code):</p>
+<code-example path="toh-pt4/src/app/app.component.1.ts" region="on-init" title="src/app/app.component.ts" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ">OnInit</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'@angular/core'</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">export</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AppComponent</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">OnInit</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  ngOnInit</span><span class="pun">():</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>Add the implementation for the <code><a href="https://angular.io/tutorial/api/core/OnInit">OnInit</a></code> interface to your export statement:</p>
+<code-example format="nocode" ng-version="4.2.4">
+    <!---->
+    <aio-code class="simple-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="kwd">export</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AppComponent</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">OnInit</span><span class="pln"> </span><span class="pun">{}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>Write an <code>ngOnInit</code> method with the initialization logic inside. Angular will call it
+at the right time. In this case, initialize by calling <code>getHeroes()</code>.</p>
+<code-example path="toh-pt4/src/app/app.component.1.ts" linenums="false" title="src/app/app.component.ts (ng-on-init)" region="ng-on-init" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts (ng-on-init)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts (ng-on-init)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">ngOnInit</span><span class="pun">():</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getHeroes</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>The app should run as expected, showing a list of heroes and a hero detail view
+when you click on a hero name.
+<a id="async"></a></p>
+<h2 id="async-services-and-promises"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#async-services-and-promises"><i class="material-icons">link</i></a>Async services and Promises</h2>
+<p>The <code>HeroService</code> returns a list of mock heroes immediately;
+its <code>getHeroes()</code> signature is synchronous.</p>
+<code-example path="toh-pt4/src/app/app.component.1.ts" region="get-heroes" title="src/app/app.component.ts" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="kwd">this</span><span class="pun">.</span><span class="pln">heroes </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">heroService</span><span class="pun">.</span><span class="pln">getHeroes</span><span class="pun">();</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>Eventually, the hero data will come from a remote server.
+When using a remote server, users don't have to wait for the server to respond;
+additionally, you aren't able to block the UI during the wait.</p>
+<p>To coordinate the view with the response,
+you can use <em>Promises</em>, which is an asynchronous
+technique that changes the signature of the <code>getHeroes()</code> method.</p>
+<h3 id="the-hero-service-makes-a-promise"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#the-hero-service-makes-a-promise"><i class="material-icons">link</i></a>The hero service makes a Promise</h3>
+<p>A <em>Promise</em> essentially promises to call back when the results are ready.
+You ask an asynchronous service to do some work and give it a callback function.
+The service does that work and eventually calls the function with the results or an error.</p>
+<div class="l-sub-section">
+<p>This is a simplified explanation. Read more about ES2015 Promises in the
+<a href="http://exploringjs.com/es6/ch_promises.html">Promises for asynchronous programming</a> page of
+<a href="http://exploringjs.com/es6.html">Exploring ES6</a>.</p>
+</div>
+<p>Update the <code>HeroService</code> with this Promise-returning <code>getHeroes()</code> method:</p>
+<code-example path="toh-pt4/src/app/hero.service.ts" region="get-heroes" title="src/app/hero.service.ts (excerpt)" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/hero.service.ts (excerpt)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/hero.service.ts (excerpt)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">getHeroes</span><span class="pun">():</span><span class="pln"> </span><span class="typ">Promise</span><span class="pun">&lt;</span><span class="typ">Hero</span><span class="pun">[]&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> </span><span class="typ">Promise</span><span class="pun">.</span><span class="pln">resolve</span><span class="pun">(</span><span class="pln">HEROES</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>You're still mocking the data. You're simulating the behavior of an ultra-fast, zero-latency server,
+by returning an <em>immediately resolved Promise</em> with the mock heroes as the result.</p>
+<h3 id="act-on-the-promise"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#act-on-the-promise"><i class="material-icons">link</i></a>Act on the Promise</h3>
+<p>As a result of the change to <code>HeroService</code>, <code>this.heroes</code> is now set to a <code>Promise</code> rather than an array of heroes.</p>
+<code-example path="toh-pt4/src/app/app.component.1.ts" region="getHeroes" title="src/app/app.component.ts (getHeroes - old)" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts (getHeroes - old)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts (getHeroes - old)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">getHeroes</span><span class="pun">():</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">heroes </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">heroService</span><span class="pun">.</span><span class="pln">getHeroes</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>You have to change the implementation to <em>act on the <code>Promise</code> when it resolves</em>.
+When the <code>Promise</code> resolves successfully, you'll have heroes to display.</p>
+<p>Pass the callback function as an argument to the Promise's <code>then()</code> method:</p>
+<code-example path="toh-pt4/src/app/app.component.ts" region="get-heroes" title="src/app/app.component.ts (getHeroes - revised)" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">src/app/app.component.ts (getHeroes - revised)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts (getHeroes - revised)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">getHeroes</span><span class="pun">():</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd"><span class="textmarker textmarker_8" id="textmarker_22" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">this</span></span><span class="pun"><span class="textmarker textmarker_8" id="textmarker_23" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">.</span></span><span class="pln"><span class="textmarker textmarker_8" id="textmarker_24" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">heroService</span></span><span class="pun"><span class="textmarker textmarker_8" id="textmarker_25" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">.</span></span><span class="pln"><span class="textmarker textmarker_8" id="textmarker_26" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">getHeroes</span></span><span class="pun"><span class="textmarker textmarker_8" id="textmarker_27" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">()</span>.</span><span class="kwd"><span class="textmarker textmarker_9" id="textmarker_28" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">then</span></span><span class="pun"><span class="textmarker textmarker_9" id="textmarker_29" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">(</span></span><span class="pln"><span class="textmarker textmarker_9" id="textmarker_30" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">heroes </span></span><span class="pun"><span class="textmarker textmarker_9" id="textmarker_31" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">=&gt;</span></span><span class="pln"> </span><span class="kwd"><span class="textmarker textmarker_9" id="textmarker_32" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">this</span></span><span class="pun"><span class="textmarker textmarker_9" id="textmarker_33" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">.</span></span><span class="pln"><span class="textmarker textmarker_9" id="textmarker_34" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">heroes </span></span><span class="pun"><span class="textmarker textmarker_9" id="textmarker_35" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">=</span></span><span class="pln"><span class="textmarker textmarker_9" id="textmarker_36" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;"> heroes</span></span><span class="pun"><span class="textmarker textmarker_9" id="textmarker_37" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">);</span></span><span class="pln">
+</span><span class="pun">}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<div class="l-sub-section">
+<p>As described in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow functions</a>,
+the ES2015 arrow function
+in the callback is more succinct than the equivalent function expression and gracefully handles <code>this</code>.</p>
+</div>
+<p>The callback sets the component's <code>heroes</code> property to the array of heroes returned by the service.</p>
+<p>The app is still running, showing a list of heroes, and
+responding to a name selection with a detail view.</p>
+<div class="l-sub-section">
+<p>At the end of this page, <a href="https://angular.io/tutorial/tutorial/toh-pt4#slow">Appendix: take it slow</a> describes what the app might be like with a poor connection.</p>
+</div>
+<h2 id="review-the-app-structure"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#review-the-app-structure"><i class="material-icons">link</i></a>Review the app structure</h2>
+<p>Verify that you have the following structure after all of your refactoring:</p>
+<div class="filetree">
+  <div class="file">
+    angular-tour-of-heroes
+  </div>
+  <div class="children">
+    <div class="file">
+      src
+    </div>
+    <div class="children">
+      <div class="file">
+        app
+      </div>
+      <div class="children">
+        <div class="file">
+          app.component.ts
+        </div>
+        <div class="file">
+          app.module.ts
+        </div>
+        <div class="file">
+          hero.ts
+        </div>
+        <div class="file">
+          hero-detail.component.ts
+        </div>
+        <div class="file">
+          hero.service.ts
+        </div>
+        <div class="file">
+          mock-heroes.ts
+        </div>
+      </div>
+      <div class="file">
+        main.ts
+      </div>
+      <div class="file">
+        index.html
+      </div>
+      <div class="file">
+        styles.css
+      </div>
+      <div class="file">
+        systemjs.config.js
+      </div>
+      <div class="file">
+        tsconfig.json
+      </div>
+    </div>
+    <div class="file">
+      node_modules ...
+    </div>
+    <div class="file">
+      package.json
+    </div>
+  </div>
+</div>
+<p>Here are the code files discussed in this page.</p>
+<code-tabs ng-version="4.2.4">
+    <md-tab-group class="code-tab-group mat-tab-group" disableripple="" _nghost-c5=""><md-tab-header _ngcontent-c5="" class="mat-tab-header"><div aria-hidden="true" class="mat-tab-header-pagination mat-tab-header-pagination-before mat-elevation-z4 mat-ripple mat-tab-header-pagination-disabled" md-ripple=""><div class="mat-tab-header-pagination-chevron"></div></div><div class="mat-tab-label-container"><div class="mat-tab-list" role="tablist" style="transform: translate3d(0px, 0px, 0px);"><div class="mat-tab-labels"><!----><div _ngcontent-c5="" class="mat-tab-label mat-ripple" md-ripple="" md-tab-label-wrapper="" role="tab" id="md-tab-label-4-0" tabindex="-1" aria-controls="md-tab-content-4-0" aria-selected="false"><!----><!---->
+          <span class="">src/app/hero.service.ts</span>
+        <!----><!----></div><div _ngcontent-c5="" class="mat-tab-label mat-ripple mat-tab-label-active" md-ripple="" md-tab-label-wrapper="" role="tab" id="md-tab-label-4-1" tabindex="0" aria-controls="md-tab-content-4-1" aria-selected="true"><!----><!---->
+          <span class="">src/app/app.component.ts</span>
+        <!----><!----></div><div _ngcontent-c5="" class="mat-tab-label mat-ripple" md-ripple="" md-tab-label-wrapper="" role="tab" id="md-tab-label-4-2" tabindex="-1" aria-controls="md-tab-content-4-2" aria-selected="false"><!----><!---->
+          <span class="">src/app/mock-heroes.ts</span>
+        <!----><!----></div></div><md-ink-bar class="mat-ink-bar" style="visibility: visible; left: 173px; width: 197px;"></md-ink-bar></div></div><div aria-hidden="true" class="mat-tab-header-pagination mat-tab-header-pagination-after mat-elevation-z4 mat-ripple mat-tab-header-pagination-disabled" md-ripple=""><div class="mat-tab-header-pagination-chevron"></div></div></md-tab-header><div _ngcontent-c5="" class="mat-tab-body-wrapper"><!----><md-tab-body _ngcontent-c5="" class="mat-tab-body ng-tns-c7-8" role="tabpanel" id="md-tab-content-4-0" aria-labelledby="md-tab-label-4-0"><div class="mat-tab-body-content ng-trigger ng-trigger-translateTab" style="transform: translate3d(-100%, 0px, 0px);"><!----></div></md-tab-body><md-tab-body _ngcontent-c5="" class="mat-tab-body ng-tns-c7-9 mat-tab-body-active" role="tabpanel" id="md-tab-content-4-1" aria-labelledby="md-tab-label-4-1"><div class="mat-tab-body-content ng-trigger ng-trigger-translateTab" style="transform: translate3d(0%, 0px, 0px);"><!---->
+        <!---->
+        <aio-code class="">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from src/app/app.component.ts">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><ol class="linenums"><li class="L0"><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ">Component</span><span class="pun">,</span><span class="pln"> </span><span class="typ">OnInit</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'@angular/core'</span><span class="pun">;</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ">Hero</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'./hero'</span><span class="pun">;</span></li><li class="L3"><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ">HeroService</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'./hero.service'</span><span class="pun">;</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="lit">@Component</span><span class="pun">({</span></li><li class="L6"><span class="pln">  selector</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my-app'</span><span class="pun">,</span></li><li class="L7"><span class="pln">  </span><span class="kwd">template</span><span class="pun">:</span><span class="pln"> </span><span class="str">`</span></li><li class="L8"><span class="str">    &lt;h1&gt;{{title}}&lt;/h1&gt;</span></li><li class="L9"><span class="str">    &lt;h2&gt;My Heroes&lt;/h2&gt;</span></li><li class="L0"><span class="str">    &lt;ul class="heroes"&gt;</span></li><li class="L1"><span class="str">      &lt;li *ngFor="let hero of heroes"</span></li><li class="L2"><span class="str">        [class.selected]="hero === selectedHero"</span></li><li class="L3"><span class="str">        (click)="onSelect(hero)"&gt;</span></li><li class="L4"><span class="str">        &lt;span class="badge"&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}</span></li><li class="L5"><span class="str">      &lt;/li&gt;</span></li><li class="L6"><span class="str">    &lt;/ul&gt;</span></li><li class="L7"><span class="str">    &lt;hero-detail [hero]="selectedHero"&gt;&lt;/hero-detail&gt;</span></li><li class="L8"><span class="str">  `</span><span class="pun">,</span></li><li class="L9"><span class="pln">  styles</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">`</span></li><li class="L0"><span class="str">    .selected {</span></li><li class="L1"><span class="str">      background-color: #CFD8DC !important;</span></li><li class="L2"><span class="str">      color: white;</span></li><li class="L3"><span class="str">    }</span></li><li class="L4"><span class="str">    .heroes {</span></li><li class="L5"><span class="str">      margin: 0 0 2em 0;</span></li><li class="L6"><span class="str">      list-style-type: none;</span></li><li class="L7"><span class="str">      padding: 0;</span></li><li class="L8"><span class="str">      width: 15em;</span></li><li class="L9"><span class="str">    }</span></li><li class="L0"><span class="str">    .heroes li {</span></li><li class="L1"><span class="str">      cursor: pointer;</span></li><li class="L2"><span class="str">      position: relative;</span></li><li class="L3"><span class="str">      left: 0;</span></li><li class="L4"><span class="str">      background-color: #EEE;</span></li><li class="L5"><span class="str">      margin: .5em;</span></li><li class="L6"><span class="str">      padding: .3em 0;</span></li><li class="L7"><span class="str">      height: 1.6em;</span></li><li class="L8"><span class="str">      border-radius: 4px;</span></li><li class="L9"><span class="str">    }</span></li><li class="L0"><span class="str">    .heroes li.selected:hover {</span></li><li class="L1"><span class="str">      background-color: #BBD8DC !important;</span></li><li class="L2"><span class="str">      color: white;</span></li><li class="L3"><span class="str">    }</span></li><li class="L4"><span class="str">    .heroes li:hover {</span></li><li class="L5"><span class="str">      color: #607D8B;</span></li><li class="L6"><span class="str">      background-color: #DDD;</span></li><li class="L7"><span class="str">      left: .1em;</span></li><li class="L8"><span class="str">    }</span></li><li class="L9"><span class="str">    .heroes .text {</span></li><li class="L0"><span class="str">      position: relative;</span></li><li class="L1"><span class="str">      top: -3px;</span></li><li class="L2"><span class="str">    }</span></li><li class="L3"><span class="str">    .heroes .badge {</span></li><li class="L4"><span class="str">      display: inline-block;</span></li><li class="L5"><span class="str">      font-size: small;</span></li><li class="L6"><span class="str">      color: white;</span></li><li class="L7"><span class="str">      padding: 0.8em 0.7em 0 0.7em;</span></li><li class="L8"><span class="str">      background-color: #607D8B;</span></li><li class="L9"><span class="str">      line-height: 1em;</span></li><li class="L0"><span class="str">      position: relative;</span></li><li class="L1"><span class="str">      left: -1px;</span></li><li class="L2"><span class="str">      top: -4px;</span></li><li class="L3"><span class="str">      height: 1.8em;</span></li><li class="L4"><span class="str">      margin-right: .8em;</span></li><li class="L5"><span class="str">      border-radius: 4px 0 0 4px;</span></li><li class="L6"><span class="str">    }</span></li><li class="L7"><span class="str">  `</span><span class="pun">],</span></li><li class="L8"><span class="pln">  <span class="textmarker textmarker_7" id="textmarker_17" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">providers</span></span><span class="pun"><span class="textmarker textmarker_7" id="textmarker_18" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">:</span></span><span class="pln"> </span><span class="pun"><span class="textmarker textmarker_7" id="textmarker_19" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">[</span></span><span class="typ"><span class="textmarker textmarker_7" id="textmarker_20" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">HeroService</span></span><span class="pun"><span class="textmarker textmarker_7" id="textmarker_21" style="background-color: rgb(255, 255, 0); color: black; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; opacity: 1;">]</span></span></li><li class="L9"><span class="pun">})</span></li><li class="L0"><span class="kwd">export</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AppComponent</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">OnInit</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  title </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Tour of Heroes'</span><span class="pun">;</span></li><li class="L2"><span class="pln">  heroes</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">[];</span></li><li class="L3"><span class="pln">  selectedHero</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">;</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">  </span><span class="kwd">constructor</span><span class="pun">(</span><span class="kwd">private</span><span class="pln"> heroService</span><span class="pun">:</span><span class="pln"> </span><span class="typ">HeroService</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">}</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">  getHeroes</span><span class="pun">():</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">    </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">heroService</span><span class="pun">.</span><span class="pln">getHeroes</span><span class="pun">().</span><span class="kwd">then</span><span class="pun">(</span><span class="pln">heroes </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">heroes </span><span class="pun">=</span><span class="pln"> heroes</span><span class="pun">);</span></li><li class="L9"><span class="pln">  </span><span class="pun">}</span></li><li class="L0"><span class="pln">&nbsp;</span></li><li class="L1"><span class="pln">  ngOnInit</span><span class="pun">():</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getHeroes</span><span class="pun">();</span></li><li class="L3"><span class="pln">  </span><span class="pun">}</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">  onSelect</span><span class="pun">(</span><span class="pln">hero</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">):</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">    </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">selectedHero </span><span class="pun">=</span><span class="pln"> hero</span><span class="pun">;</span></li><li class="L7"><span class="pln">  </span><span class="pun">}</span></li><li class="L8"><span class="pun">}</span></li></ol></code>
+    </pre>
+    </aio-code>
+      <!----></div></md-tab-body><md-tab-body _ngcontent-c5="" class="mat-tab-body ng-tns-c7-10" role="tabpanel" id="md-tab-content-4-2" aria-labelledby="md-tab-label-4-2"><div class="mat-tab-body-content ng-trigger ng-trigger-translateTab" style="transform: translate3d(100%, 0px, 0px);"><!----></div></md-tab-body></div></md-tab-group>
+  </code-tabs>
+<h2 id="the-road-youve-travelled"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#the-road-youve-travelled"><i class="material-icons">link</i></a>The road you've travelled</h2>
+<p>Here's what you achieved in this page:</p>
+<ul>
+<li>You created a service class that can be shared by many components.</li>
+<li>You used the <code>ngOnInit</code> lifecycle hook to get the hero data when the <code>AppComponent</code> activates.</li>
+<li>You defined the <code>HeroService</code> as a provider for the <code>AppComponent</code>.</li>
+<li>You created mock hero data and imported them into the service.</li>
+<li>You designed the service to return a Promise and the component to get the data from the Promise.</li>
+</ul>
+<p>Your app should look like this <live-example ng-version="4.2.4"><span>
+  <!---->
+  <!---->
+  <!---->
+  <!----><span>
+    <a target="_blank" href="https://angular.io/tutorial/generated/live-examples/toh-pt4/eplnkr.html" title="live example">live example</a>
+    <!----><span>
+      /  <a download="" title="Download example" href="https://angular.io/tutorial/generated/zips/toh-pt4/toh-pt4.zip">download example</a>
+    </span>
+  </span>
+</span>
+</live-example>.</p>
+<h2 id="the-road-ahead"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#the-road-ahead"><i class="material-icons">link</i></a>The road ahead</h2>
+<p>The Tour of Heroes has become more reusable using shared components and services.
+The next goal is to create a dashboard, add menu links that route between the views, and format data in a template.
+As the app evolves, you'll discover how to design it to make it easier to grow and maintain.</p>
+<p>Read about the Angular component router and navigation among the views in the <a href="https://angular.io/tutorial/tutorial/toh-pt5" title="Routing and Navigation">next tutorial</a> page.</p>
+<a id="slow"></a>
+<h2 id="appendix-take-it-slow"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/tutorial/tutorial/toh-pt4#appendix-take-it-slow"><i class="material-icons">link</i></a>Appendix: Take it slow</h2>
+<p>To simulate a slow connection,
+import the <code>Hero</code> symbol and add the following <code>getHeroesSlowly()</code> method to the <code>HeroService</code>.</p>
+<code-example path="toh-pt4/src/app/hero.service.ts" region="get-heroes-slowly" title="app/hero.service.ts (getHeroesSlowly)" linenums="false" ng-version="4.2.4">
+    <!----><header><!--<base href="https://angular.io/tutorial/">--><base href=".">app/hero.service.ts (getHeroesSlowly)</header>
+    <aio-code class="headed-code">
+    <pre class="prettyprint lang-">      <!----><button class="material-icons copy-button" title="Copy code snippet" aria-label="Copy code snippet from app/hero.service.ts (getHeroesSlowly)">
+        <span aria-hidden="true">content_copy</span>
+      </button>
+      <code class="animated fadeIn"><span class="pln">getHeroesSlowly</span><span class="pun">():</span><span class="pln"> </span><span class="typ">Promise</span><span class="pun">&lt;</span><span class="typ">Hero</span><span class="pun">[]&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Promise</span><span class="pun">(</span><span class="pln">resolve </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// Simulate server latency with 2 second delay</span><span class="pln">
+    setTimeout</span><span class="pun">(()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> resolve</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getHeroes</span><span class="pun">()),</span><span class="pln"> </span><span class="lit">2000</span><span class="pun">);</span><span class="pln">
+  </span><span class="pun">});</span><span class="pln">
+</span><span class="pun">}</span></code>
+    </pre>
+    </aio-code>
+  </code-example>
+<p>Like <code>getHeroes()</code>, it also returns a <code>Promise</code>.
+But this Promise waits two seconds before resolving the Promise with mock heroes.</p>
+<p>Back in the <code>AppComponent</code>, replace <code>getHeroes()</code> with <code>getHeroesSlowly()</code>
+and see how the app behaves.</p>
+
+</div></aio-doc-viewer>
+    <aio-dt>
+  <!---->
+  </aio-dt>
+  </section>
+
+</div></md-sidenav-container>
+
+<!----><div class="toc-container" style="max-height: 4633px;">
+  <aio-toc><!----><div class="toc-inner collapsed">
+
+  <!---->
+
+  <!---->
+
+  <ul class="toc-list">
+    <!----><!---->
+      <!----><li title="linkServices" class="h1">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#services">Services</a>
+      </li>
+    <!---->
+      <!----><li title="linkWhere you left off" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#where-you-left-off">Where you left off</a>
+      </li>
+    <!---->
+      <!----><li title="linkKeep the app transpiling and running" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#keep-the-app-transpiling-and-running">Keep the app transpiling and running</a>
+      </li>
+    <!---->
+      <!----><li title="linkCreating a hero service" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#creating-a-hero-service">Creating a hero service</a>
+      </li>
+    <!---->
+      <!----><li title="linkCreate the HeroService" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#create-the-heroservice">Create the HeroService</a>
+      </li>
+    <!---->
+      <!----><li title="linkInjectable services" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#injectable-services">Injectable services</a>
+      </li>
+    <!---->
+      <!----><li title="linkGetting hero data" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#getting-hero-data">Getting hero data</a>
+      </li>
+    <!---->
+      <!----><li title="linkMove the mock hero data" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#move-the-mock-hero-data">Move the mock hero data</a>
+      </li>
+    <!---->
+      <!----><li title="linkReturn mocked hero data" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#return-mocked-hero-data">Return mocked hero data</a>
+      </li>
+    <!---->
+      <!----><li title="linkImport the hero service" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#import-the-hero-service">Import the hero service</a>
+      </li>
+    <!---->
+      <!----><li title="linkDon&#39;t use new with the HeroService" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#dont-use-new-with-the-heroservice">Don't use <em>new</em> with the <em>HeroService</em></a>
+      </li>
+    <!---->
+      <!----><li title="linkInject the HeroService" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#inject-the-heroservice">Inject the <em>HeroService</em></a>
+      </li>
+    <!---->
+      <!----><li title="linkgetHeroes() in the AppComponent" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#getheroes-in-the-appcomponent"><em>getHeroes()</em> in the <em>AppComponent</em></a>
+      </li>
+    <!---->
+      <!----><li title="linkThe ngOnInit lifecycle hook" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#the-ngoninit-lifecycle-hook">The <em>ngOnInit</em> lifecycle hook</a>
+      </li>
+    <!---->
+      <!----><li title="linkAsync services and Promises" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#async-services-and-promises">Async services and Promises</a>
+      </li>
+    <!---->
+      <!----><li title="linkThe hero service makes a Promise" class="h3">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#the-hero-service-makes-a-promise">The hero service makes a Promise</a>
+      </li>
+    <!---->
+      <!----><li title="linkAct on the Promise" class="h3 active">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#act-on-the-promise">Act on the Promise</a>
+      </li>
+    <!---->
+      <!----><li title="linkReview the app structure" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#review-the-app-structure">Review the app structure</a>
+      </li>
+    <!---->
+      <!----><li title="linkThe road you&#39;ve travelled" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#the-road-youve-travelled">The road you've travelled</a>
+      </li>
+    <!---->
+      <!----><li title="linkThe road ahead" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#the-road-ahead">The road ahead</a>
+      </li>
+    <!---->
+      <!----><li title="linkAppendix: Take it slow" class="h2">
+        <a href="https://angular.io/tutorial/tutorial/toh-pt4#appendix-take-it-slow">Appendix: Take it slow</a>
+      </li>
+    
+  </ul>
+
+  <!---->
+</div>
+</aio-toc>
+</div>
+
+<footer>
+  <aio-footer>
+  <div class="grid-fluid">
+    <!----><div class="footer-block">
+      <h3>Resources</h3>
+      <ul>
+        <!----><li>
+          <a class="link" href="https://angular.io/tutorial/about" title="Angular contributors.">About</a>
+        </li><li>
+          <a class="link" href="https://angular.io/tutorial/resources" title="Angular tools, training, and blogs from around the web.">Resource Listing</a>
+        </li><li>
+          <a class="link" href="https://angular.io/tutorial/presskit" title="Press contacts, logos, and branding.">Press Kit</a>
+        </li><li>
+          <a class="link" href="https://blog.angularjs.org/" title="Angular Blog">Blog</a>
+        </li>
+      </ul>
+    </div><div class="footer-block">
+      <h3>Help</h3>
+      <ul>
+        <!----><li>
+          <a class="link" href="http://stackoverflow.com/questions/tagged/angular2" title="Stack Overflow: where the community answers your technical Angular questions.">Stack Overflow</a>
+        </li><li>
+          <a class="link" href="https://gitter.im/angular/angular" title="Chat about Angular with other birds of a feather.">Gitter</a>
+        </li><li>
+          <a class="link" href="https://github.com/angular/angular/issues" title="Post issues and suggestions on github.">Report Issues</a>
+        </li><li>
+          <a class="link" href="https://github.com/angular/code-of-conduct/blob/master/CODE_OF_CONDUCT.md" title="Treating each other with respect.">Code of Conduct</a>
+        </li>
+      </ul>
+    </div><div class="footer-block">
+      <h3>Community</h3>
+      <ul>
+        <!----><li>
+          <a class="link" href="https://angular.io/tutorial/events" title="Post issues and suggestions on github.">Events</a>
+        </li><li>
+          <a class="link" href="http://www.meetup.com/topics/angularjs/" title="Attend a meetup and learn from fellow developers.">Meetups</a>
+        </li><li>
+          <a class="link" href="https://twitter.com/angular" title="Twitter">Twitter</a>
+        </li><li>
+          <a class="link" href="https://github.com/angular/angular" title="GitHub">GitHub</a>
+        </li><li>
+          <a class="link" href="https://angular.io/tutorial/contribute" title="Contribute to Angular">Contribute</a>
+        </li>
+      </ul>
+    </div><div class="footer-block">
+      <h3>Languages</h3>
+      <ul>
+        <!----><li>
+          <a class="link" href="https://angular.cn/" title="中文版">中文版</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <p>
+    Powered by Google ©2010-2017.
+    Code licensed under an <a href="https://angular.io/tutorial/license" title="License text">MIT-style License</a>.
+    Documentation licensed under
+    <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+  </p>
+  <p>
+    Version 4.2.7-build.32767+sha.e8b98a7.
+  </p>
+  
+</aio-footer>
+</footer>
+
+</aio-shell>
+
+  <noscript>
+    &amp;lt;div class="background-sky hero"&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;section id="intro"&amp;gt;
+      &amp;lt;div class="hero-logo"&amp;gt;
+        &amp;lt;img src="assets/images/logos/angular/angular.svg" width="250" height="250"&amp;gt;
+      &amp;lt;/div&amp;gt;
+      &amp;lt;div class="homepage-container"&amp;gt;
+        &amp;lt;div class="hero-headline"&amp;gt;One framework.&amp;lt;br&amp;gt;Mobile &amp;amp;amp; desktop.&amp;lt;/div&amp;gt;
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/section&amp;gt;
+    &amp;lt;h2 style="color: red; text-align: center; margin-top: -50px;"&amp;gt;
+      &amp;lt;b&amp;gt;&amp;lt;i&amp;gt;This website requires JavaScript.&amp;lt;/i&amp;gt;&amp;lt;/b&amp;gt;
+    &amp;lt;/h2&amp;gt;
+  </noscript>
+<script type="text/javascript" src="./Angular - Services_files/inline.d8e019ea3cfdd86c2bd0.bundle.js"></script><script type="text/javascript" src="./Angular - Services_files/polyfills.4a3c9ca9481d53803157.bundle.js"></script><script type="text/javascript" src="./Angular - Services_files/main.54c97bcb6f254776b678.bundle.js"></script>
+
+<div class="cdk-visually-hidden" aria-atomic="true" aria-live="polite"></div><script type="text/javascript" async="" src="./Angular - Services_files/ga.js"></script><div id="tmloading"><script language="javascript" src="./Angular - Services_files/jquery.min.js"></script><link rel="stylesheet" href="./Angular - Services_files/tm.css" type="text/css"><script language="javascript">var originalPage = "https://angular.io/tutorial/toh-pt4"; var markerUrl = "http://marker.to/2rPiyV"; var communicationKey = "2rPiyV";</script><script language="javascript">var TMmode="viewer";var comUrl = "http://marker.to/"; var marker = {x:5,y:16,locale: "en",pi:true}; var TMClicks=0; var TMUserKey="0e88eaeb9446e79306912a47404b670967268ad8";</script><script language="javascript" charset="utf-8" src="./Angular - Services_files/tm-v.js"></script><div id="textmarker" class="viewer-panel viewer-panel-2"><div class="viewer-left"><iframe id="markerto_ads_frame" src="./Angular - Services_files/ads.html" marginwidth="0" marginheight="0" allowtransparency="true" frameborder="0" scrolling="no" style="width:250px; height:90px;"></iframe></div><div class="viewer-divider"></div><div class="viewer-share-buttons"><div class="share-buttons"><div class="viewer-twitter-button" onclick="javascript:_shareMarkerLinkTwitter(&#39;%22Instead%20of%20copying%20and%20pasting%20the%20same%20code%20over%20and%20over%2C%0Ayou&#39;ll%20create%20a%20single%20reusable%20data%20s...&#39;)"></div><iframe marginwidth="0" marginheight="0" allowtransparency="true" frameborder="0" scrolling="no" name="fb-share-1500055657484_542" id="fb-share-1500055657484_542" style="float:left;  height:38px; width: 29px; padding-left:0px;" src="./Angular - Services_files/fbfeed.html"></iframe></div></div><div class="viewer-divider"></div><div class="viewer-right"><div class="viewer-click-count-container"><div class="viewer-click-count-label">0 views</div></div><div class="viewer-org-page"><a target="_blank" class="viewer-original-page-link" href="https://angular.io/tutorial/toh-pt4">Original page&nbsp;»</a></div></div><div class="viewer-divider"></div><div class="viewer-ad-block">                                                                                        				<style>                                                                             		.viewer-responsive { width: 100px; height: 90px; }                                          		@media(min-width: 820px)  { .viewer-responsive { width: 320px; height: 90px; } }					@media(min-width: 970px) { .viewer-responsive { width: 468px; height: 90px; } }            		@media(min-width: 1230px) { .viewer-responsive { width: 728px; height: 90px; } }            		@media(min-width: 1420px) { .viewer-responsive { width: 920px; height: 90px; } }            		</style>                                                                                    			  				<!-- Viewer Responsive -->                                                          			<ins class="adsbygoogle viewer-responsive" style="display:inline-block" data-ad-client="ca-pub-6610075968954030" data-ad-slot="3617128152"></ins>                                                        			                                                                                   	</div><div class="textmarker-close"></div></div><script language="javascript">window.ganjaStaticAjaxContent = "";</script></div><div id="marker-to-is-installed"></div></body></html>

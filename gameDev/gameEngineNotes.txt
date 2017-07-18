@@ -1,0 +1,21 @@
+1. provide rendering engine
+	designer pair 2d imgs with 3d wireframe
+
+2. 1+ app prog interfaces(directX) provide efficient access to sys hardware
+
+3.Game engine provide
+	phys
+	collision detect engine
+		movement
+		interaction
+	realistic lighting
+	scattering of light
+
+Keeps subjects moving with horizons
+	*AI engine
+		arrangement of behavior tree
+
+examples
+	epic -> unreal engine
+	valve -> source engine
+		*license them to other devs
