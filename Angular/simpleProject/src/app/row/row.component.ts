@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./row.component.css']
 })
 export class RowComponent implements OnInit {
-
+  //@Input() x;
   constructor() { }
 
   ngOnInit() {
