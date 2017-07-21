@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { RowComponent } from './row/row.component';
 import { ElementComponent } from './element/element.component';
+import {GetStateService} from "./get-state.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { ElementComponent } from './element/element.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [GetStateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
