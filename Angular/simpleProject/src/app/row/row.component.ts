@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-row',
@@ -6,10 +6,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./row.component.css']
 })
 export class RowComponent implements OnInit {
-  @Input() res:any;
+  @Input() colId:number;
+  @Output() bubbleUpId: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleEvent(obj) {
+    console.log("id from row " + obj.id);
+    this.bubbleUpId.emit(obj)
   }
 
 }

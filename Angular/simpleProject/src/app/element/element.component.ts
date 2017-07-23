@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import {GetStateService} from "../get-state.service";
 
 @Component({
@@ -7,9 +7,13 @@ import {GetStateService} from "../get-state.service";
   styleUrls: ['./element.component.css']
 })
 export class ElementComponent implements OnInit {
-  //@Output() sendSignal: EventEmitter<any> = new EventEmitter();
+  @Output() sendSignal: EventEmitter<any> = new EventEmitter();
   state:boolean;
-  
+
+  @Input() id:number;
+  @Input() parentId:number;
+
+  positionId:number;  
 
   constructor(private getState:GetStateService) { }
 
@@ -20,20 +24,27 @@ export class ElementComponent implements OnInit {
 
   
   markBox($event) {
+    this.positionId = (3*this.parentId) + this.id;
+    this.sendSignal.emit({id:this.positionId, state:this.state);
+    console.log((3*this.parentId) + this.id);
+
     //type EventTarget but cast as HTMLElement
     var toBeChanged = <HTMLScriptElement>event.target;
     this.state = this.getState.getCurrentState();
     if(this.state) {
-      toBeChanged.innerHTML = "X";
+      //toBeChanged.innerText = "X";
+      toBeChanged.style.backgroundColor = "green";
       this.getState.changeState();
     } else {
-      toBeChanged.innerHTML = "O";
+      //toBeChanged.innerText = "O";
+      toBeChanged.style.backgroundColor = "red";
       this.getState.changeState();
     }
+    /*
     //console.log(toBeChanged.classList);
     toBeChanged.style.textAlign = "center";
     toBeChanged.style.fontSize = "600%";
-    console.log()
+    */
   }
   
 

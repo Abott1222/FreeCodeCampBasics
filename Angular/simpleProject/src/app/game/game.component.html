@@ -2,6 +2,13 @@
   {{title}}
 </p>
 
-<app-row></app-row>
-<app-row></app-row>
-<app-row></app-row>
+<div>
+  <p> These are the boxes that have been clicked </p>
+  <ul>
+    <li *ngFor="let move of positionArray"> {{move}} </li>
+  </ul>
+</div>
+
+<app-row (bubbleUpId) = "handleBubbleEvent($event)" [colId] = 1></app-row>
+<app-row (bubbleUpId) = "handleBubbleEvent($event)" [colId] = 2></app-row>
+<app-row (bubbleUpId) = "handleBubbleEvent($event)" [colId] = 3></app-row>
