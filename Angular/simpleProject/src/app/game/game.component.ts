@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-
+import {GetWinnersService} from "../get-winners-service.service";
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -23,7 +23,7 @@ export class GameComponent implements OnInit {
     this.positionArray[0] = [];
     this.positionArray[1] = [];
     this.count = 0;
-    this.winners = [[4,7,10], [5,8,11], [6,9,12], [4,5,6], [7,8,9], [10,11,12], [4,8,12], [6,8,10]];
+    //this.winners = [[4,7,10], [5,8,11], [6,9,12], [4,5,6], [7,8,9], [10,11,12], [4,8,12], [6,8,10]];
     this.isWinnerVariable = false;
 
 
@@ -37,9 +37,10 @@ export class GameComponent implements OnInit {
   }
 
   isWinner() {
+    var winnersCopy;
     this.positionArray.forEach( (posXArray,index) => {
       for(var i=0; i<this.winners.length; i++) {
-        let winnersCopy = this.winners;
+        winnersCopy = this.winners.slice();
         posXArray.forEach( (pos) => {
           var positionToDelete = this.winners[i].indexOf(pos);
           if(positionToDelete > -1) {
@@ -50,6 +51,7 @@ export class GameComponent implements OnInit {
             this.winner = index;
             console.log(this.isWinnerVariable);
           }
+          console.log("winners copy is currently " + this.winnersCopy);
         });
       }
   });
