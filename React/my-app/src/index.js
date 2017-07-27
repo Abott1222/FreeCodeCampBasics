@@ -3,30 +3,35 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
-class Square extends React.Component {
+function Square(props) {
 
-  render() {
     return (
-      <button className="square" onClick={() => this.props.onClick({value: "X"})}>
-        {this.props.value}
+      <button className="square" onClick={props.onClick}>
+        {props.value}
       </button>
     );
-  }
 }
 
 class Board extends React.Component {
   constructor() {
     super();
     this.state = {
-      squares: Array(9).fill(null)
+      squares: Array(9).fill(null),
+      xIsNext: true
     }
   }
 
   handleClick(i) {
     //make copy
     const squaresCopy = this.state.squares.slice();
-    squaresCopy[i] = "X";
-    this.setState({squares: squaresCopy});
+    if (calculateWinner(squaresCopy) || squaresCopy[i]) {
+      return;
+    }
+    squaresCopy[i] = this.state.xIsNext ? "X" : "O";
+    this.setState({
+      squares: squaresCopy,
+      xIsNext: !this.state.xIsNext
+    });
   }
 
   renderSquare(i) {
@@ -37,8 +42,15 @@ class Board extends React.Component {
     );
   }
 
+
   render() {
-    const status = 'Next player: X';
+    const winner = calculateWinner(this.state.squares);
+    let status;
+    if (winner) {
+      status = 'Winner: ' + winner;
+    } else {
+      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    }
 
     return (
       <div>
@@ -77,6 +89,35 @@ class Game extends React.Component {
       </div>
     );
   }
+}
+
+
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  console.log("starting over...");
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    console.log("a is " + a +" squaresA is " + squares[a]);
+    console.log("b is " + b +" squaresB is " + squares[b]);
+    console.log("c is " + c +" squaresC is " + squares[c]);
+    console.log("");
+    console.log("NEXT");
+    
+    //squares[a] could be "X" or "O"
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
 }
 
 // ========================================
