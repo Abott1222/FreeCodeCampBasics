@@ -16,7 +16,7 @@ export class GameComponent implements OnInit {
 
   @Output() won:any;
 
-  constructor() { }
+  constructor(private winnersService: GetWinnersService) { }
 
   ngOnInit() {
     this.title = "Welcome to the game";
@@ -25,6 +25,7 @@ export class GameComponent implements OnInit {
     this.count = 0;
     //this.winners = [[4,7,10], [5,8,11], [6,9,12], [4,5,6], [7,8,9], [10,11,12], [4,8,12], [6,8,10]];
     this.isWinnerVariable = false;
+    this.winners = this.winnersService.getCopyOfWinners();
 
 
   }
