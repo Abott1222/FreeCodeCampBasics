@@ -27,6 +27,7 @@ class Game extends React.Component {
     }
     squaresCopy[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
+      //history is array of objects that contain an array
       history: history.concat([{
         squares: squaresCopy,
       }]),
@@ -35,6 +36,8 @@ class Game extends React.Component {
   }
 
   render() {
+    console.log("rendering...");
+    console.log(this.state.history);
     const history = this.state.history;
     const current = history[history.length-1];
     const winner = calculateWinner(current.squares);
@@ -71,7 +74,7 @@ function Square(props) {
 }
 
 
-// ------------ Board Component ----------- //
+// ------------ Board Component ----------
 class Board extends React.Component {
 
 
@@ -127,7 +130,7 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     
-    //squares[a] could be "X" or "O"
+    //squares[a],squares[b],squares[c] could be "X" or "O"
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
     }
