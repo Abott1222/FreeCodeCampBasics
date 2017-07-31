@@ -1,0 +1,13 @@
+nav {
+    border: 2px solid black;
+    background-color: #abceef;
+    text-align:center;
+}
+
+.links a {
+    margin-left:5px;
+    color:darkblue;
+    background-color: honeydew;
+    text-decoration: none;
+}
+
