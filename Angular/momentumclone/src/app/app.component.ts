@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  toDoTriggered = false;
+
+  triggerToDoList() {
+    this.toDoTriggered = !this.toDoTriggered;
+  }
 }

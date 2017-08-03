@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ToDoService} from '../to-do.service';
 
 @Component({
   selector: 'app-to-do-list',
@@ -6,11 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./to-do-list.component.css']
 })
 export class ToDoListComponent implements OnInit {
-  toDos: object[];
-  constructor() { }
+  toDos: string[];
+  clicked: boolean;
+  constructor(private todo: ToDoService) { }
 
   ngOnInit() {
-    this.toDos = [{}];
+    this.toDos = this.todo.getToDos();
+    this.clicked = false;
+  }
+
+  addToDo(element, domObj) {
+    this.todo.addToDo(element);
+    domObj.value = "";
+    domObj.placeholder= "";
   }
 
 }

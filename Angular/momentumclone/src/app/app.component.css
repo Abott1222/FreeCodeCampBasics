@@ -4,3 +4,12 @@
     width:100%;
     height:100%;
 }
+
+.toDoButton {
+    background-color: rgba(255,255,255,.15);
+    border:none;
+    transform: scale(1.1);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    margin-bottom: 1.5%;
+}

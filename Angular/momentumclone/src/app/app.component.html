@@ -1,8 +1,32 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!--The content below is only a placeholder and can be replaced
 <div class="app md-dialog-fullscreen">
-  <button md-raised-button>
-    Angular Material works!
-    <md-icon>done</md-icon>
-  </button>
+  <div style="display:flex; flex-direction:row; justify-content:space-between;">
+
+    <button md-icon-button [mdMenuTriggerFor]="appMenu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </div>
+  <div style="display:flex; flex-direction:row; flex-direction:column;">
+    <md-menu #appMenu="mdMenu">
+      <button md-menu-item> Settings </button>
+      <button md-menu-item> Help </button>
+      <div>
+        <input name="addMe" id="addMe" />
+        <button> Click me </button>
+      </div>
+    </md-menu>
+    <h1> Hello </h1>
+  </div>
+</div>
+
+
+      <button md-raised-button>
+      Angular Material works!
+      <md-icon>done</md-icon>
+    </button>
+-->
+<div class="app md-dialog-fullscreen">
+  <button (click) = "triggerToDoList()" class="toDoButton"> ToDos </button>
+  <app-to-do-list *ngIf="toDoTriggered"> </app-to-do-list>
 </div>
 

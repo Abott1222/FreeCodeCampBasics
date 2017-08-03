@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
 
 import { AppComponent } from './app.component';
 import { ToDoListComponent } from './toDo/to-do-list/to-do-list.component';
@@ -14,7 +16,8 @@ import {ToDoService} from './toDo/to-do.service';
   ],
   imports: [
     BrowserModule,
-    MaterialModule
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [ToDoService],
   bootstrap: [AppComponent]
