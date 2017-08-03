@@ -16,10 +16,8 @@ export class ToDoListComponent implements OnInit {
     this.clicked = false;
   }
 
-  addToDo(element, domObj) {
+  addToDo(element) {
     this.todo.addToDo(element);
-    domObj.value = "";
-    domObj.placeholder= "";
   }
 
 }
