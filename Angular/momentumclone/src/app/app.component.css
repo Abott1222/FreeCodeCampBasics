@@ -1,3 +1,8 @@
+html, body {
+    margin:0;
+    padding:0;
+}
+
 .app {
     background-image: url("https://source.unsplash.com/random");
     background-size: 100% 100%;
@@ -11,16 +16,25 @@
     background-color: rgba(255,255,255,.15);
     border:none;
     transform: scale(1.1);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     margin-bottom: 1.5%;
     height:10%;
 }
 
-.flex-row {
+.flex-row, .flex-column {
     display:flex;
+}
+
+.flex-row {
+
     flex-direction: row;
     justify-content: space-between;
     width:100%;
 }
 
+.flex-column {
+
+    flex-direction: column;
+
+}

@@ -1,25 +1,74 @@
 
 <style>
+     /*
+        Force full width & height.
+
+        If this block is removed, the layout height/length will be determined by
+        the amount of content in the page. That might result in a page which has
+        a footer only a few inches from the top of the viewport, or one which
+        scrolls beyond the viewport.
+
+        This forces the layout to always be full screen regardless of how much,
+        or how little, content is in place. Neither is "right" or "wrong", there
+        are valid cases for each. I just want to be clear what's controlling the
+        page/viewport height.
+      */
+  html, body {
+    width:100%;
+    height: 100%;
+    /* get rid of space between container and window */
+    margin:0;
+  }
+
   #box-container {
     background: gray;
     display: flex;
-    height: 500px;
-
+    flex-direction: column;
   }
+
   #box-1 {
     background-color: dodgerblue;
     width: 25%;
-    height: 100%;
+    height: 25%;
   }
 
   #box-2 {
     background-color: orangered;
     width: 25%;
-    height: 100%;
+    height: 25%;
   }
+
+  #box-row {
+    display:flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+  }
+
+  #filler-box {
+
+    width: 25%;
+    height:25%;
+  }
+
 </style>
 
 <div id="box-container">
-  <div id="box-1"></div>
-  <div id="box-2"></div>
+
+  <div id="box-row">
+    <div id="box-2"></div>
+    <div id="box-1"></div>
+    <div id="box-2"></div>
+    <div id="box-1"></div>
+  </div>
+
+  <div id="box-row">
+    <div id="filler-box"><span>Hello world!</span> </div>
+  </div>
+  <div id="box-row">
+    <div id="box-1"></div>
+    <div id="box-2"></div>
+    <div id="box-1"></div>
+    <div id="box-2"></div>
+  </div>
+
 </div>

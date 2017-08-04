@@ -26,15 +26,19 @@
     </button>
 -->
 <div class="app md-dialog-fullscreen">
-  <div class="flex-row">
-  <button (click) = "triggerToDoList()" class="toDoButton"> ToDos </button>
-  <button class="weatherButton"> Weather </button>
+  <div class="flex-col">
+    <div class="flex-row">
+    <button (click) = "triggerToDoList()" class="toDoButton"> ToDos </button>
+    <button class="weatherButton"> Weather </button>
+    </div>
   </div>
+
   <div class="flex-row">
     <!-- <app-to-do-list *ngIf="toDoTriggered"> </app-to-do-list> -->
     <app-to-do-list
     [style.opacity]="toDoTriggered ? 100 : 0"></app-to-do-list>
   </div>
+
   <div class="flex-row">
     <app-welcome></app-welcome>
   </div>
