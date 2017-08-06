@@ -8,9 +8,12 @@
     text-align: center;
 }
 
-.focus input {
+input {
+    
     border:none;
     background: transparent;
+
+    color:white;
     width:100%;
 
     text-align: center;
@@ -18,7 +21,11 @@
 
 }
 
-.focus hr {
+hr {
     position: relative;
     width:100%;
+}
+
+.h3 {
+    text-align: center;
 }

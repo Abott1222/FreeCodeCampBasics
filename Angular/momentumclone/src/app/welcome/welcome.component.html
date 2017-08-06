@@ -1,10 +1,15 @@
 <div class="welcome">
-  <h1 class="time"> {{ time.hours }} : {{time.minutes}} : {{time.seconds}} </h1>
-  <h1> Good morning, Alex. </h1>
+  <h1 class="time"> {{ time.hours }} : {{time.minutes}} </h1>
+  <h1 *ngIf="name"> Good {{timeOfDay}}, {{name}}. </h1>
   <br>
-  <div class="focus">
+  <div *ngIf="!name" class="name">
+    <h3> What is your name? </h3>
+    <input #input (keydown)="handleEnterName($event, input)">
+    <hr>
+  </div>
+  <div *ngIf="name" class="focus">
     <h3> What is your main focus for today? </h3>
-    <input >
+    <input #input (keydown)="handleEnter($event, input)">
     <hr>
   </div>
 </div>  

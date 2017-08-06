@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  time:any;
+  time: any;
+  name: string;
+  timeOfDay: string;
   constructor() { }
 
   ngOnInit() {
@@ -29,7 +31,28 @@ export class WelcomeComponent implements OnInit {
     }
     this.time["seconds"] = today.getSeconds();
     console.log(this.time.seconds);
+    if (this.time.hours >= 17) {
+      this.timeOfDay = "Evening";
+    } else if (this.time.hours >= 11 && this.time.hours < 17) {
+      this.timeOfDay = "Afternoon";
+    } else {
+      this.timeOfDay = "Morning";
+    }
 
+  }
+
+  handleEnter(event, input) {
+    if(event.key === "Enter") {
+      console.log(input.value);
+      this.name = input.value;
+    }
+  }
+
+  handleEnterName(event, input) {
+    if(event.key === "Enter") {
+      console.log(input.value);
+      this.name = input.value;
+    }
   }
 
 }

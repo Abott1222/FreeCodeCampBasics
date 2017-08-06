@@ -12,4 +12,6 @@ export class AppComponent {
   triggerToDoList() {
     this.toDoTriggered = !this.toDoTriggered;
   }
+
+
 }

@@ -17,7 +17,7 @@ export class ToDoListComponent implements OnInit {
   }
 
   addToDo(element) {
-    this.todo.addToDo(element);
+    this.toDos.push(element);
   }
 
 }
