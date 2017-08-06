@@ -13,4 +13,9 @@ export class ToDoElementComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleCheck(event, ref) {
+    console.log(ref);
+    ref.style["text-decoration"] = !ref.style["text-decoration"];
+  }
+
 }

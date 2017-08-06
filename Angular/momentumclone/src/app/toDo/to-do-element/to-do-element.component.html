@@ -1,3 +1,4 @@
 <div style="margin:0 !important;">
-  <p class="text-alight:center; margin:0 !important;">{{todo}}</p>
+  <input (click) = "handleCheck($event, todoRef)" type="checkbox" class="uniform" name="remember" id="chkRememberMe">
+  <p #todoRef style="margin:0 !important;">{{todo}}</p>
 </div>
