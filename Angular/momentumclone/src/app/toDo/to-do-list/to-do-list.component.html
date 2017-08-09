@@ -1,5 +1,9 @@
 <div class="todos">
-  
+  <nav>
+    <a href="#" (click)="getAllTodos()">All |</a>
+    <a href="#" (click)="getInboxTodos()">Inbox |</a>
+    <a href="#" (click)="getFinishedTodos()"> Done </a>
+  </nav>
     <!-- <app-to-do-element *ngFor= "let todo of toDos"></app-to-do-element>  -->
     <!-- [inputOfChild] = var -->
   <!--
@@ -7,7 +11,9 @@
     <li *ngFor= "let tempTodo of toDos"> <app-to-do-element [todo] = tempTodo></app-to-do-element>  </li>
   </ol>
   -->
-  <app-to-do-element [ngStyle]='{"width":"100%", "display":"block"}' *ngFor= "let tempTodo of toDos" [todo] = tempTodo></app-to-do-element>
+  <app-to-do-element [ngStyle]='{"width":"100%", "display":"block"}' 
+  *ngFor= "let tempTodo of toDos" [todo] = tempTodo>
+  </app-to-do-element>
   <div class="toDoActions">
     <input #inputToDo type="text" name="todo" placeholder="ToDo item here" />
     <button (click)="addToDo(inputToDo.value)"> Add </button>

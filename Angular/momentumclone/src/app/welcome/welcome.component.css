@@ -6,10 +6,13 @@
 
 .time {
     text-align: center;
+    font-size:500%;
+    margin-bottom:0;
+    font-weight: 1;
 }
 
 input {
-    
+    margin-top:0;
     border:none;
     background: transparent;
 
@@ -26,6 +29,6 @@ hr {
     width:100%;
 }
 
-.h3 {
+h3 {
     text-align: center;
 }

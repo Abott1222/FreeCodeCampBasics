@@ -1,5 +1,5 @@
 .todos {
-    background-color:#888888 !important;
+    background-color:#DCDCDC !important;
     border: 1px solid #156;
     width: 100%;
     /* box-shadow: 10px 10px 5px #888888; */
@@ -14,6 +14,12 @@ ol {
     padding-left: 0px;
 }
 
-li {
+nav {
+    background-color:	#778899
+}
 
+nav a,active {
+    text-decoration: none;
+    color:black;
+    font-size:80%;
 }

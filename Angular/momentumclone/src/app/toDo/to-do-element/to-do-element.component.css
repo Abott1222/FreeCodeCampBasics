@@ -12,3 +12,7 @@ div {
     display:flex;
     flex-direction: row;
 }
+
+.congrats {
+    font-size:50%;
+}

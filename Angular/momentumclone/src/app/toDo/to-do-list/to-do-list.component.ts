@@ -7,7 +7,7 @@ import {ToDoService} from '../to-do.service';
   styleUrls: ['./to-do-list.component.css']
 })
 export class ToDoListComponent implements OnInit {
-  toDos: string[];
+  toDos: {"state": string, "content": string}[];
   clicked: boolean;
   constructor(private todo: ToDoService) { }
 
@@ -16,8 +16,23 @@ export class ToDoListComponent implements OnInit {
     this.clicked = false;
   }
 
-  addToDo(element) {
-    this.toDos.push(element);
+  getAllTodos() {
+    this.toDos = this.todo.getToDos();
   }
 
+  addToDo(element) {
+    this.toDos.push({"state": "Inbox", "content": element});
+  }
+
+  getInboxTodos() {
+    this.toDos = this.todo.getInboxTodos();
+  }
+
+  getFinishedTodos() {
+    this.toDos = this.todo.getFinishedTodos();
+  }
+
+  changeState(elementContent) {
+    this.todo.changeState(elementContent);
+  }
 }

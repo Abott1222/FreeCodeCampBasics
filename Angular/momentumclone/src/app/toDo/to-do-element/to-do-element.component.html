@@ -1,4 +1,5 @@
 <div style="margin:0 !important;">
   <input (click) = "handleCheck($event, todoRef)" type="checkbox" class="uniform" name="remember" id="chkRememberMe">
-  <p #todoRef style="margin:0 !important;">{{todo}}</p>
+  <p #todoRef style="margin:0 !important;">{{todo.content}}</p>
 </div>
+<p *ngIf="completed" class="congrats"> Good job! </p>
