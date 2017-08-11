@@ -10,7 +10,11 @@
   </div>
   <div *ngIf="name" class="focus">
     <h3> What is your main focus for today? </h3>
-    <input #input (keydown)="handleEnter($event, input)">
+    <input *ngIf="!focusSelected" #inputFocus (keydown)="handleFocus($event, inputFocus)">
+    <app-to-do-element *ngIf="focusSelected" [ngStyle]='{"display":"block"}' 
+    [todo] = "getFocus()">
+    </app-to-do-element>
+
     <hr>
   </div>
 </div>  

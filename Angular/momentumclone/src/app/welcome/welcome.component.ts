@@ -8,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class WelcomeComponent implements OnInit {
   time: any;
   name: string;
+  focus: string;
+  focusSelected:boolean;
   timeOfDay: string;
   constructor() { }
 
   ngOnInit() {
     this.getTime();
     setInterval(this.getTime.bind(this), 500);
+    this.focusSelected = false;
   }
 
   getTime() {
@@ -53,6 +56,18 @@ export class WelcomeComponent implements OnInit {
       console.log(input.value);
       this.name = input.value;
     }
+  }
+
+  handleFocus(event,input) {
+    if(event.key === "Enter") {
+      this.focus = input.value;
+      alert(this.focus);
+      this.focusSelected = true;
+    }
+  }
+
+  getFocus() {
+    return {state: "None", content: this.focus};
   }
 
 }
