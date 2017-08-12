@@ -32,3 +32,11 @@ hr {
 h3 {
     text-align: center;
 }
+
+.focus app-to-do-element{
+    font-size: 300%;
+}
+/* .focus input[id="chkRememberMe"] { */
+.focus input[type="checkbox"] {
+    height:100%;
+}
