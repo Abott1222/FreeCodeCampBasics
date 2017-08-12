@@ -9,19 +9,22 @@ import {WeatherService} from "../weather.service";
 export class WeatherComponent implements OnInit {
   localWeather: any;
 
-  constructor(private weather: WeatherService) { }
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
     if ("geolocation" in navigator) {
       /* geolocation is available */
       navigator.geolocation.getCurrentPosition(function(position) {
         // position.coords.longitude/latitude
-        this.localWeather = this.weather.getWeather(position);
+        console.log(position);
+        this.localWeather = this.weatherService.getWeather(position);
+        //console.log(this.localWeather);
       });
     } else {
       /* geolocation IS NOT available */
       /* return null to indicate error */
     }
+
   }
 
 }
