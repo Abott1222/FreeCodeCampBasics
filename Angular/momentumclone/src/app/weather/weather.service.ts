@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 /* example call
 http://api.openweathermap.org/data/2.5/weather?lat=47.0510251&lon=-122.95138159999999&appid=695de6f7660449a1838322fa9f08abf3
 */
@@ -28,6 +30,7 @@ export class WeatherService {
     this.url = this.url + latit;
     this.url = this.url + "&lon=" + longit  ;
     this.url = this.url + "&APPID=695de6f7660449a1838322fa9f08abf3";
+    /* old
     this.http.get(this.url).subscribe(data => {
       // Read the result field from the JSON response.
       this.results = data['main'];
@@ -35,6 +38,10 @@ export class WeatherService {
       console.log(this.results);
       return this.results;
     });
+    */
+
+    return this.http.get(this.url)
+    .toPromise();
   }
 
 }
