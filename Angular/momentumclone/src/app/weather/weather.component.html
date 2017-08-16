@@ -1,3 +1,6 @@
-<p>
-  weather works!
-</p>
+<div *ngIf="!this.localWeather">
+  <p>Loading... <p>
+</div>
+<div *ngIf="this.localWeather">
+    <p> {{this.temp}} </p>
+</div>

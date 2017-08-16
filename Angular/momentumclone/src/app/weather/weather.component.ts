@@ -9,6 +9,7 @@ import {WeatherService} from './weather.service';
 export class WeatherComponent implements OnInit {
   localWeather: any;
   position:any;
+  temp:any;
 
   constructor(private weatherService: WeatherService) { }
 
@@ -37,6 +38,15 @@ export class WeatherComponent implements OnInit {
 
   getWeather(pos) {
     this.localWeather = this.weatherService.getWeather(this.position.coords.latitude, this.position.coords.longitude);
+    this.displayData();
+  }
+
+  displayData() {
+    this.temp = this.convertKelvinToF(this.localWeather.main.temp);
+  }
+
+  convertKelvinToF(kelvinUnit) {
+    return kelvinUnit * (9/5) - 459.76;
   }
 
 }

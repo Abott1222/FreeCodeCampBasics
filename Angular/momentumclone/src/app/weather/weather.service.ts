@@ -10,6 +10,9 @@ export class WeatherService {
   results: any;
   constructor(private http: HttpClient) { }
   /*
+
+  TEMP returned in Kelvins!
+
 {"coord":{"lon":-122.95,"lat":47.05},
 "weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],
 "base":"stations",
