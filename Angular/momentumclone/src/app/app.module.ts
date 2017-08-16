@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { ToDoListComponent } from './toDo/to-do-list/to-do-list.component';
 import { ToDoElementComponent } from './toDo/to-do-element/to-do-element.component';
 import {ToDoService} from './toDo/to-do.service';
-import {WeatherService} from "./weather.service";
+import {WeatherService} from "./weather/weather.service";
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WeatherComponent } from './weather/weather.component';
 @NgModule({

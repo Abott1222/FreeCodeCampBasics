@@ -24,8 +24,6 @@ export class WelcomeComponent implements OnInit {
     this.time = {};
     this.time["hours"] = today.getHours();
     this.time["minutes"] = today.getMinutes();
-    console.log(this.time.minutes.length);
-    console.log(typeof this.time.minutes);
     if(this.time.minutes < 10) {
       this.time.minutes = "0" + this.time.minutes;
     }
@@ -33,7 +31,6 @@ export class WelcomeComponent implements OnInit {
       this.time.seconds = "0" + this.time.seconds;
     }
     this.time["seconds"] = today.getSeconds();
-    console.log(this.time.seconds);
     if (this.time.hours >= 17) {
       this.timeOfDay = "Evening";
     } else if (this.time.hours >= 11 && this.time.hours < 17) {
@@ -46,14 +43,14 @@ export class WelcomeComponent implements OnInit {
 
   handleEnter(event, input) {
     if(event.key === "Enter") {
-      console.log(input.value);
+
       this.name = input.value;
     }
   }
 
   handleEnterName(event, input) {
     if(event.key === "Enter") {
-      console.log(input.value);
+
       this.name = input.value;
     }
   }

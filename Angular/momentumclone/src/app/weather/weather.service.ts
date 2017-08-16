@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+/* example call
+http://api.openweathermap.org/data/2.5/weather?lat=47.0510251&lon=-122.95138159999999&appid=695de6f7660449a1838322fa9f08abf3
+*/
 
 @Injectable()
 export class WeatherService {
-  url = "api.openweathermap.org/data/2.5/weather?lat=";
+  url = `https://api.openweathermap.org/data/2.5/weather?lat=`;
   results: any;
   constructor(private http: HttpClient) { }
   /*
@@ -19,18 +22,16 @@ export class WeatherService {
 "id":5805687,"name":"Olympia","cod":200}
   */
   getWeather(latit, longit) {
-    /*
     this.url = this.url + latit;
     this.url = this.url + "&lon=" + longit  ;
     this.url = this.url + "&APPID=695de6f7660449a1838322fa9f08abf3";
-    this.http.get('/api/items').subscribe(data => {
+    this.http.get(this.url).subscribe(data => {
       // Read the result field from the JSON response.
       this.results = data['main'];
       alert("Got results!");
       console.log(this.results);
       return this.results;
     });
-    */
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {WeatherService} from '../weather.service';
+import {WeatherService} from './weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -14,23 +14,29 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     let positionTemp;
+    const myself = this;
     if ("geolocation" in navigator) {
       /* geolocation is available */
-      navigator.geolocation.getCurrentPosition(function(pos) {
+      navigator.geolocation.getCurrentPosition(function(position) {
         // position.coords.longitude/latitude
-        console.log(pos);
-        positionTemp = pos;
+        myself.localWeather = myself.weatherService.getWeather(position.coords.latitude, position.coords.longitude);
         //console.log(this.localWeather);
       });
     } else {
       /* geolocation IS NOT available */
       /* return null to indicate error */
     }
+    /*
     this.position = positionTemp;
     console.log(this.position);
     this.localWeather = this.weatherService.getWeather(this.position.coords.latitude, this.position.coords.longitude);
     console.log(this.localWeather);
+    */
 
+  }
+
+  getWeather(pos) {
+    this.localWeather = this.weatherService.getWeather(this.position.coords.latitude, this.position.coords.longitude);
   }
 
 }
