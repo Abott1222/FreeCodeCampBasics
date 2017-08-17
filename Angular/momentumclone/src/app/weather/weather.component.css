@@ -1,0 +1,17 @@
+.weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right:2vw;
+}
+
+.city {
+    display:flex;
+    justify-content: flex-end;
+    margin-right:2vw;
+}
+
+.weather h3, .city h3 {
+    margin-top: auto;
+    margin-bottom: auto;
+}

@@ -39,7 +39,7 @@ export class WeatherService {
       return this.results;
     });
     */
-
+    /* return PROMISE, component is responsible for subscription... */
     return this.http.get(this.url)
     .toPromise();
   }

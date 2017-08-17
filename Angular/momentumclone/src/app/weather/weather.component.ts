@@ -11,6 +11,8 @@ export class WeatherComponent implements OnInit {
   position:any;
   temp:any;
   weatherUp:boolean;
+  city:any;
+  imgUrl = 'http://openweathermap.org/img/w/'
 
   constructor(private weatherService: WeatherService) { }
 
@@ -42,6 +44,8 @@ export class WeatherComponent implements OnInit {
   displayData() {
     alert("attempting to display data!");
     this.temp = this.convertKelvinToF(this.localWeather.main.temp);
+    this.imgUrl += this.localWeather.weather[0].icon + ".png";
+    this.city = this.localWeather.name;
     this.weatherUp = true;
     console.log("temp is " + this.temp);
   }

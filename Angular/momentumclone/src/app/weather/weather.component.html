@@ -1,7 +1,16 @@
-<div *ngIf="!this.localWeather">
-  <p>Loading... <p>
+<div class="flex-container">
+  <div *ngIf="!this.localWeather">
+    <p>Loading... <p>
+  </div>
+  <div *ngIf="this.localWeather">
+      <div class="weather" style="margin-bottom:auto; margin-top:auto;">
+        <!-- or could have done <img src={{this.url}} /> -->
+        <img [src] = "this.imgUrl" />
+        <h3> {{this.temp}} </h3>
+      </div>
+      <div class="city"  style="margin-top:auto; margin-bottom:auto;">
+        <h3> {{this.city}} </h3>
+      </div>
+  </div>
 </div>
-<div *ngIf="this.localWeather">
-    <h1> {{this.temp}} </h1>
-</div>
-{{this.localWeather}}
+
