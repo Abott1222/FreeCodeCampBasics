@@ -1,6 +1,6 @@
 <div class="todos">
   <nav>
-    <a href="#" (click)="getAllTodos()">All |</a>
+    <a href="#" (click)="getAllTodos()">Today |</a>
     <a href="#" (click)="getInboxTodos()">Inbox |</a>
     <a href="#" (click)="getFinishedTodos()"> Done </a>
   </nav>
@@ -15,7 +15,7 @@
   *ngFor= "let tempTodo of toDos" [todo] = tempTodo>
   </app-to-do-element>
   <div class="toDoActions">
-    <input #inputToDo type="text" name="todo" placeholder="ToDo item here" />
+    <input #inputToDo (keydown)="addToDoEnter($event,inputToDo.value)" type="text" name="todo" placeholder="ToDo item here" />
     <button (click)="addToDo(inputToDo.value)"> Add </button>
   </div>
 </div>

@@ -58,18 +58,18 @@
 
 
     <!--              right column            -->
-  <div class="flex-col" style="flex: 2 0 150px;">
+  <div class="flex-col" style="flex: 2 0 100px;">
     <app-weather class="weatherButton"></app-weather>
   <!-- <app-to-do-list *ngIf="toDoTriggered"> </app-to-do-list> -->
   
   <!-- without the row the opacity does not change? Cheap hack but ok for now.. -->
-  <div [ngStyle]= "{'position': 'relative', 'top': '30%'}" class="flex-row">
+  <div [ngStyle]= "{'position': 'relative', 'top': '20vh'}" class="flex-row">
     <app-to-do-list
       [style.opacity]="toDoTriggered ? 100 : 0" >
     </app-to-do-list>
   </div>
 
-  <button (click) = "triggerToDoList()" class="toDoButton" style="width:50%;"> ToDos </button>
+  <button (click) = "triggerToDoList()" class="toDoButton" style="width:80%; position:relative; left:2.3vh;"> ToDos </button>
 </div>
 
 </div>
@@ -78,7 +78,7 @@
 
 <!--
     <div class="flex-row">
-    <!-- <app-to-do-list *ngIf="toDoTriggered"> </app-to-do-list> 
+    <app-to-do-list *ngIf="toDoTriggered"> </app-to-do-list> 
     <app-to-do-list
     [style.opacity]="toDoTriggered ? 100 : 0"></app-to-do-list>
   </div>

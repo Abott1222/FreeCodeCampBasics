@@ -14,7 +14,7 @@ export class ToDoListComponent implements OnInit {
   constructor(private todo: ToDoService) { }
 
   ngOnInit() {
-    this.toDos = this.todo.getToDos();
+    this.toDos = this.todo.getInboxTodos();
     this.clicked = false;
   }
 
@@ -24,6 +24,15 @@ export class ToDoListComponent implements OnInit {
 
   addToDo(element) {
     this.toDos.push({"state": "Inbox", "content": element});
+    if(this.toDos.length > 5 && this.toDos.length - 7 % 2 === 0) {
+      this.increaseSize.emit(this.toDos.length);
+    }
+  }
+
+  addToDoEnter(event, element) {
+    if(event.key === "Enter") {
+      this.toDos.push({"state": "Inbox", "content": element});
+    }
     if(this.toDos.length > 5 && this.toDos.length - 7 % 2 === 0) {
       this.increaseSize.emit(this.toDos.length);
     }

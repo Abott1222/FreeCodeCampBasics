@@ -30,6 +30,7 @@ export class ToDoElementComponent implements OnInit {
   }
 
   changeState(elementContent) {
+    alert("changing state");
     this.todoService.changeState(elementContent);
   }
 
