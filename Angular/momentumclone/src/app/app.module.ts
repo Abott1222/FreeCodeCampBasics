@@ -12,13 +12,15 @@ import {ToDoService} from './toDo/to-do.service';
 import {WeatherService} from "./weather/weather.service";
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WeatherComponent } from './weather/weather.component';
+import { LinksComponent } from './links/links.component';
 @NgModule({
   declarations: [
     AppComponent,
     ToDoListComponent,
     ToDoElementComponent,
     WelcomeComponent,
-    WeatherComponent
+    WeatherComponent,
+    LinksComponent
   ],
   imports: [
     BrowserModule,

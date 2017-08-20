@@ -8,7 +8,7 @@ import {ToDoService} from '../to-do.service';
 })
 export class ToDoElementComponent implements OnInit {
   @Input() todo:any;
-  //@Output() finishedTodo = new EventEmitter
+  @Output() finishedTodo = new EventEmitter();
   completed:boolean;
 
   constructor(private todoService: ToDoService) { }
@@ -32,6 +32,7 @@ export class ToDoElementComponent implements OnInit {
   changeState(elementContent) {
     alert("changing state");
     this.todoService.changeState(elementContent);
+    setTimeout(this.finishedTodo.emit(true), 300000);
   }
 
 }

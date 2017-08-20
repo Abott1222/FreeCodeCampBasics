@@ -11,7 +11,8 @@
     <li *ngFor= "let tempTodo of toDos"> <app-to-do-element [todo] = tempTodo></app-to-do-element>  </li>
   </ol>
   -->
-  <app-to-do-element [ngStyle]='{"width":"100%", "display":"block"}' 
+  <app-to-do-element  (finishedTodo)= "catchFinish()"
+  [ngStyle]='{"width":"100%", "display":"block"}'
   *ngFor= "let tempTodo of toDos" [todo] = tempTodo>
   </app-to-do-element>
   <div class="toDoActions">

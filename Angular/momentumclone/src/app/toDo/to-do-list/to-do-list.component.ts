@@ -18,6 +18,11 @@ export class ToDoListComponent implements OnInit {
     this.clicked = false;
   }
 
+  catchFinish() {
+    this.getInboxTodos();
+    alert("caught change");
+  }
+
   getAllTodos() {
     this.toDos = this.todo.getToDos();
   }
