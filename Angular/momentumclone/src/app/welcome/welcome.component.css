@@ -1,3 +1,7 @@
+.welcome, .time, input, h3, h4, input, h1 {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 .welcome {
     font-weight: 300;
     color:white;
@@ -29,8 +33,13 @@ hr {
     width:100%;
 }
 
-h3 {
+h1,h3 {
     text-align: center;
+}
+
+h4 {
+    font-weight: 2;
+    font-size: 200%;
 }
 
 .focus app-to-do-element{
