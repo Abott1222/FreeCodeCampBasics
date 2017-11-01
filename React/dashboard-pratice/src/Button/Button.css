@@ -1,0 +1,9 @@
+.test {
+	width:200px;
+	height:200px;
+
+	border: 2px solid green;
+	/* background-color: purple; */
+
+	border-radius: 25%;
+}

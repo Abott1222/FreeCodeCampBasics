@@ -16,7 +16,7 @@
   *ngFor= "let tempTodo of toDos" [todo] = tempTodo>
   </app-to-do-element>
   <div class="toDoActions">
-    <input #inputToDo (keydown)="addToDoEnter($event,inputToDo.value)" type="text" name="todo" placeholder="ToDo item here" />
-    <button (click)="addToDo(inputToDo.value)"> Add </button>
+    <input #inputToDo (keydown)="addToDoEnter($event,inputToDo.value)" type="text" name="todo" placeholder="ToDo item here" maxlength="10"/>
+    <!-- <button (click)="addToDo(inputToDo.value)"> Add </button> -->
   </div>
 </div>

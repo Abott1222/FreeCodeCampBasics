@@ -65,7 +65,7 @@
   <!-- without the row the opacity does not change? Cheap hack but ok for now.. -->
   <div [ngStyle]= "{'position': 'relative', 'top': '20vh'}" class="flex-row">
     <app-to-do-list
-      [style.opacity]="toDoTriggered ? 100 : 0" >
+      [style.opacity]="toDoTriggered ? 100 : 0" [style.overflow-y]="auto" [style.max-height]="200">
     </app-to-do-list>
   </div>
 

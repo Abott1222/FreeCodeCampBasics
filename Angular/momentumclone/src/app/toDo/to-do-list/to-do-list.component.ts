@@ -37,10 +37,12 @@ export class ToDoListComponent implements OnInit {
   addToDoEnter(event, element) {
     if(event.key === "Enter") {
       this.toDos.push({"state": "Inbox", "content": element});
+      event.target.value = "";
     }
     if(this.toDos.length > 5 && this.toDos.length - 7 % 2 === 0) {
       this.increaseSize.emit(this.toDos.length);
     }
+    
   }
 
   getInboxTodos() {
