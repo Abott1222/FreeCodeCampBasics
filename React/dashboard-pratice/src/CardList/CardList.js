@@ -35,6 +35,23 @@ const Card = (props) => {
 	
 }
 
+//creating filter function outside of class to practice using state when it isn't in the scope by use of higher-order
+//function
+//we pass searchTerm to our higher-order function and return the resulting function
+
+function isSearched(searchTerm) {
+	//we are filtering so we are being passed in an item from filter and expect a true or false
+	return function(item) {
+			//!search term will only be relevent if it isnt defined which will force it to become true
+			//if true it will return true automatically(not filtering anything)
+			//if there is a search term it will return false moving to the other side of the or(||)
+			console.log(item);
+		return !searchTerm ||
+			item.Name.toLowerCase().includes(searchTerm.toLowerCase());
+	}
+}
+
+
 
 class CardList extends Component {
 	constructor(props) {
@@ -50,6 +67,7 @@ class CardList extends Component {
 		};
 
 		this.onDismiss = this.onDismiss.bind(this);
+		//moved this outside of class to test higher-order function
 		this.onSearchChange = this.onSearchChange.bind(this);
 	}
 
@@ -61,12 +79,13 @@ class CardList extends Component {
 		const updatedList = this.state.data.filter(isNotId);
 		this.setState({data: updatedList});
 	}
-
+	
 	onSearchChange(event) {
 		this.setState({
 			searchTerm: event.target.value
 		});
 	}
+	
 
 	
 
@@ -84,10 +103,7 @@ class CardList extends Component {
 				</form>
 
 
-				{this.state.data.filter( (item) => {
-					//console.log(item.Name.) 
-					return item.Name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
-							}).map( function(item) {
+				{this.state.data.filter(isSearched(this.state.searchTerm)).map( function(item) {
 					return (
 						<div key={item.key}>
 							<Card user = {item} onDismiss={this.onDismiss} />
