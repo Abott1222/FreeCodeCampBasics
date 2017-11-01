@@ -91,13 +91,21 @@ class CardList extends Component {
 
 	render() {
 		const myFunct = this.onDismiss;
+		//const { random, searchTerm, searchTerm} = this.state;
 		return (
-			//<Card user = {data[0]} />
+			/*<Card user = {data[0]} /> */
 			<div className="App">
 				<form>
+					/* 
+					Need to chnage react input component from controlled component(handles own state)
+					to an uncontrolled state
+					*/
 					<label> Please enter the term you want to filter by
-						<input type="text"
+						<input 
+						type="text"
 						onChange={this.onSearchChange}
+						/* this field makes it an uncontrolled component */
+						value={this.state.searchTerm}
 						/>
 					</label>
 				</form>
