@@ -3,6 +3,8 @@ import ReactDOM from "react-dom"
 
 import "./CardList.css";
 
+import Form from "../Form/Form"
+
 
 
 const Card = (props) => {
@@ -69,6 +71,7 @@ class CardList extends Component {
 		this.onDismiss = this.onDismiss.bind(this);
 		//moved this outside of class to test higher-order function
 		this.onSearchChange = this.onSearchChange.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	onDismiss(id) {
@@ -86,10 +89,17 @@ class CardList extends Component {
 		});
 	}
 	
+	onSubmit(term) {
+		alert(term);
+		this.setState({
+			searchTerm: term
+		});
+	}
 
 	
 
 	render() {
+		console.log("Search term is " + this.state.searchTerm)
 		const myFunct = this.onDismiss;
 		//const { random, searchTerm, searchTerm} = this.state;
 		return (
@@ -109,6 +119,7 @@ class CardList extends Component {
 						/>
 					</label>
 				</form>
+
 
 
 				{this.state.data.filter(isSearched(this.state.searchTerm)).map( function(item) {
