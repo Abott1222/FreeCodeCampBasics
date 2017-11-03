@@ -28,7 +28,7 @@ class Form extends Component {
 
 	render() {
 		return (
-			<form onSubmit={this.onSubmit}>
+			<form onSubmit={() => {this.onSubmit(this.state.searchTerm)}>
 				<label>
 					Please enter the name that you would like to filter by
 					<input type="text" placeholder="Name" 
