@@ -1,0 +1,12 @@
+LOG:  database system was shut down at 2017-12-23 03:04:28 PST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "Home" does not exist
+FATAL:  database "Home" does not exist
+FATAL:  database "Home" does not exist
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down

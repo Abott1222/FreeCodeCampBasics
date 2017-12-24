@@ -1,0 +1,1 @@
+/usr/local/Cellar/postgresql/9.6.1/bin/postgres "-D" "/Users/Home/Desktop/cleanupDesktop/Basics/expressTest/mocha-chai-knex/db"

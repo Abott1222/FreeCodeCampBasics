@@ -36,6 +36,7 @@ class App extends Component {
     super(props);
     this.state = {
       store:props.store,
+      todos: this.store.getState();
     }
 
   }
@@ -47,7 +48,6 @@ class App extends Component {
         <Counter 
         value={ this.state.store.getState() } 
         onDecrement = {() => {
-            alert("clicked!");
             this.state.store.dispatch({
               type: "DECREMENT"
             });
